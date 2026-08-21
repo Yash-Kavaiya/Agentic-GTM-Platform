@@ -186,11 +186,44 @@ export async function healCollector(
 
       t = transition(ctx, { type: 'APPROVED' })
       ctx = { state: t.next, attempts: t.attempts }
-      newBaseline = { ...baseline, rowCountMean: afterStats.rowCount, samples: 1, fields: fieldsOf(afterStats) }
 
-      finish(event, deps, t0, 'HEALED', 'approved', afterStats)
+      // A preview is a promise, not a result. Confirm it in production before
+      // letting this collector back into service. Measured on live collectors:
+      // a correct preview plus a successful approve still left the very next
+      // production run returning the broken output it had before.
+      log(`${collectorId}: approved — confirming against a production run`)
+      let confirmStats: ObservationStats | null = null
+      try {
+        const confirm = await deps.run(collectorId, [url])
+        confirmStats = computeStats(confirm.rows, signal)
+      } catch (e) {
+        log(`${collectorId}: confirmation run failed — ${(e as Error).message}`)
+      }
+
+      const confirmVerdict = confirmStats
+        ? verifyAgainstContract(confirmStats, baseline, signal)
+        : { ok: false, reasons: ['the confirmation run did not complete'] }
+
+      if (!confirmVerdict.ok) {
+        t = transition(ctx, { type: 'PRODUCTION_UNCHANGED', reasons: confirmVerdict.reasons })
+        ctx = { state: t.next, attempts: t.attempts }
+        finish(event, deps, t0, ctx.state, 'approved_ineffective', confirmStats ?? afterStats,
+          `preview passed but production still fails: ${confirmVerdict.reasons.join('; ')}`)
+        event.rowsRecovered = confirmStats ? rowsRecovered(currentStats, confirmStats) : 0
+        events.push(event)
+        log(`${collectorId}: QUARANTINED — approved, but production is unchanged`)
+        return { finalState: 'QUARANTINED', events, baseline: null }
+      }
+
+      t = transition(ctx, { type: 'PRODUCTION_CONFIRMED' })
+      ctx = { state: t.next, attempts: t.attempts }
+      event.after = confirmStats
+      event.rowsRecovered = rowsRecovered(currentStats, confirmStats!)
+      newBaseline = { ...baseline, rowCountMean: confirmStats!.rowCount, samples: 1, fields: fieldsOf(confirmStats!) }
+
+      finish(event, deps, t0, 'HEALED', 'approved', confirmStats)
       events.push(event)
-      log(`${collectorId}: HEALED — ${event.rowsRecovered} row(s) recovered in ${event.durationMs}ms`)
+      log(`${collectorId}: HEALED — confirmed in production, ${event.rowsRecovered} row(s) recovered in ${event.durationMs}ms`)
       return { finalState: 'HEALTHY', events, baseline: newBaseline }
     }
 

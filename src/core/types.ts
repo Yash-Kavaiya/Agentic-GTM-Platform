@@ -220,7 +220,9 @@ export interface HealEvent {
   durationMs: number | null
   fromState: HealthState
   toState: HealthState
-  verdict: 'approved' | 'rejected' | 'error' | null
+  /** `approved_ineffective`: the fix passed preview and approval, but a
+   *  production run afterwards still failed the contract. */
+  verdict: 'approved' | 'rejected' | 'error' | 'approved_ineffective' | null
   before: ObservationStats | null
   after: ObservationStats | null
   rowsRecovered: number | null

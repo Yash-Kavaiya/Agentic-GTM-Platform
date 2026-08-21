@@ -195,6 +195,66 @@ async function cmdEnrich() {
   console.log(`\n${done} fetched, ${Object.keys(existing).length} on file -> data/brands.json`)
 }
 
+/**
+ * Check every collector against production, and record what it finds.
+ *
+ * Deliberately does not heal. A preview is a promise, not a result: a fix can
+ * pass its preview, be approved, and leave the very next production run
+ * returning exactly the broken output it had before. This is the cheap,
+ * repeatable way to ask "is this source actually working right now" without
+ * spending a heal to find out.
+ *
+ * A collector that fails here is QUARANTINED, which blocks any campaign that
+ * cites it. That is the intended outcome: an unfixable source must not reach a
+ * prospect.
+ */
+async function cmdVerify() {
+  const store = new Store(dbPath())
+  const collectors = Object.values(loadCollectors())
+  const only = list('collector')
+  const targets = new Map(loadTargets().map((t) => [t.id, t]))
+
+  const chosen = only ? collectors.filter((c) => only.includes(c.collectorId)) : collectors
+  console.log(`verifying ${chosen.length} collector(s) against production
+`)
+
+  const { scraperRun } = await import('../src/core/brightdata/cli.js')
+  const { computeStats, verifyAgainstContract, buildBaseline } = await import('../src/core/anneal/health.js')
+
+  let healthy = 0
+  for (const c of chosen) {
+    const signal = getSignal(c.signalId)
+    const target = targets.get(c.targetId)
+    if (!signal || !target) {
+      console.log(`  ${c.key}: config missing — skipped`)
+      continue
+    }
+
+    try {
+      const res = await scraperRun(c.collectorId, [c.seedUrl])
+      const stats = computeStats(res.rows, signal)
+      const history = store.recentForCollector(c.collectorId)
+      const baseline = store.getHealth(c.collectorId)?.baseline ?? buildBaseline(c.collectorId, history, signal)
+      const verdict = verifyAgainstContract(stats, baseline, signal)
+
+      const state = verdict.ok ? 'HEALTHY' : 'QUARANTINED'
+      store.setHealth(c.collectorId, signal.id, target.id, state, 0, verdict.ok ? baseline : null)
+      if (verdict.ok) healthy++
+
+      const fields = stats.fields.map((f) => `${f.field.split('.').pop()}:${Math.round(f.nullRate * 100)}%`).join(' ')
+      console.log(`  ${c.key.padEnd(34)} ${state.padEnd(12)} rows=${String(stats.rowCount).padStart(3)}  ${fields}`)
+      if (!verdict.ok) console.log(`  ${''.padEnd(34)} ${verdict.reasons.join('; ')}`)
+    } catch (e) {
+      store.setHealth(c.collectorId, c.signalId, c.targetId, 'QUARANTINED', 0, null)
+      console.log(`  ${c.key.padEnd(34)} QUARANTINED  ${(e as Error).message.slice(0, 60)}`)
+    }
+  }
+
+  console.log(`
+${healthy}/${chosen.length} healthy`)
+  store.close()
+}
+
 function cmdBrief() {
   const store = new Store(dbPath())
   const date = flag('date') ?? dayOf(new Date())
@@ -228,6 +288,7 @@ function help() {
 
   run     [--signal a,b] [--target a,b] [--date ISO] [--no-heal]
   brief   [--date YYYY-MM-DD] [--window HOURS]
+  verify  [--collector c_a,c_b]   check collectors against production
   enrich  [--target a,b] [--force]
   export  [--date YYYY-MM-DD]
   status
@@ -239,6 +300,7 @@ const commands: Record<string, () => void | Promise<void>> = {
   run: cmdRun,
   status: cmdStatus,
   brief: cmdBrief,
+  verify: cmdVerify,
   enrich: cmdEnrich,
   export: cmdExport,
   heal: cmdHeal,

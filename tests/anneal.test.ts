@@ -194,11 +194,30 @@ describe('state machine', () => {
     expect(t.action).toBe('call_reject')
   })
 
-  it('returns to HEALTHY and rebaselines after approval', () => {
+  it('does not clear a collector on approval alone', () => {
+    // A preview is a promise, not a result. Approving asks for a production
+    // run; it does not by itself put the collector back into service.
     const t = transition({ state: 'HEALED', attempts: 1 }, { type: 'APPROVED' })
+    expect(t.next).toBe('HEALED')
+    expect(t.action).toBe('confirm_production')
+  })
+
+  it('returns to HEALTHY and rebaselines once production confirms', () => {
+    const t = transition({ state: 'HEALED', attempts: 1 }, { type: 'PRODUCTION_CONFIRMED' })
     expect(t.next).toBe('HEALTHY')
     expect(t.action).toBe('rebaseline')
     expect(t.attempts).toBe(0)
+  })
+
+  it('quarantines an approved fix that production ignores', () => {
+    // Observed on live collectors: correct preview, successful approve, and the
+    // next production run returned the same broken output as before.
+    const t = transition(
+      { state: 'HEALED', attempts: 1 },
+      { type: 'PRODUCTION_UNCHANGED', reasons: ['the fix returned no rows'] },
+    )
+    expect(t.next).toBe('QUARANTINED')
+    expect(t.reason).toMatch(/production is unchanged/)
   })
 
   it('recovers without a heal if the source fixes itself', () => {

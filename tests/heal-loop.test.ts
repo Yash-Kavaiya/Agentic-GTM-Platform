@@ -47,9 +47,18 @@ const baseline = buildBaseline(
   signal,
 )
 
+/**
+ * A stubbed CLI result.
+ *
+ * `rows` is populated from the payload because the real client does exactly
+ * that — `scraperRun` returns `rows: rowsFrom(envelope)`. A stub that always
+ * returned an empty `rows` would make every production-confirmation run look
+ * like a failure, which is a bug in the test rather than in the loop.
+ */
 const envelope = (status: string, preview: unknown): BdResult => ({
   envelope: { status, preview_result: preview },
-  rows: [], stdout: '', stderr: '', code: 0, command: 'brightdata scraper heal', durationMs: 10,
+  rows: Array.isArray(preview) ? (preview as Record<string, unknown>[]) : [],
+  stdout: '', stderr: '', code: 0, command: 'brightdata scraper heal', durationMs: 10,
 })
 
 function makeDeps(previews: unknown[]): HealDeps & {
@@ -166,5 +175,62 @@ describe('heal loop', () => {
     expect(out.baseline).not.toBeNull()
     expect(out.baseline!.rowCountMean).toBe(4)
     expect(out.baseline!.fields['tiers[].name']).toBe(0)
+  })
+})
+
+describe('a preview is a promise, not a result', () => {
+  // Measured on live collectors: `scraper heal` returned a preview that was
+  // genuinely correct (0 rows/100% null -> 3 rows/0% null), `scraper approve`
+  // reported done, and the very next production run returned exactly the
+  // broken output it had before. Verifying only the preview would have marked
+  // that collector HEALTHY and let it feed campaigns.
+  it('quarantines when production is unchanged after approval', async () => {
+    const deps = makeDeps([GOOD])
+    deps.run = async () => envelope('done', BROKEN) // production still broken
+
+    const out = await healCollector(args, deps)
+
+    expect(out.finalState).toBe('QUARANTINED')
+    expect(out.events.at(-1)!.verdict).toBe('approved_ineffective')
+    expect(out.events.at(-1)!.error).toMatch(/production still fails/)
+    // The fix was still approved -- the platform did its part; production did not.
+    expect(deps.approveCalls).toEqual([{ reject: undefined }])
+  })
+
+  it('only clears the collector once production confirms', async () => {
+    const deps = makeDeps([GOOD])
+    const out = await healCollector(args, deps)
+
+    expect(out.finalState).toBe('HEALTHY')
+    expect(out.events.at(-1)!.verdict).toBe('approved')
+    // Rows recovered is measured against the confirming production run, not
+    // the preview, so the number reflects what the source actually returns.
+    expect(out.events.at(-1)!.rowsRecovered).toBe(3)
+  })
+
+  it('quarantines when the confirmation run itself fails', async () => {
+    const deps = makeDeps([GOOD])
+    deps.run = async () => { throw new Error('collector unreachable') }
+
+    const out = await healCollector(args, deps)
+    expect(out.finalState).toBe('QUARANTINED')
+    expect(out.events.at(-1)!.error).toMatch(/confirmation run did not complete/)
+  })
+
+  it('a quarantined collector still blocks campaign approval', async () => {
+    // The end of the chain: an unfixable source must not reach a prospect.
+    const { canApprove } = await import('../src/core/campaign/gate.js')
+    const deps = makeDeps([GOOD])
+    deps.run = async () => envelope('done', BROKEN)
+    const out = await healCollector(args, deps)
+
+    const verdict = canApprove(
+      { evidence: [{ id: 'e1', collectorId: 'c_8f2a91', signalId: 'moving_upmarket', targetId: 'acme',
+        sourceUrl: 'https://acme.com/pricing', scrapedAt: '2026-08-21T04:12:00Z',
+        sentence: 'New Enterprise tier appeared', fields: {} }] },
+      { c_8f2a91: out.finalState },
+    )
+    expect(verdict.ok).toBe(false)
+    expect(verdict.reason).toMatch(/QUARANTINED/)
   })
 })

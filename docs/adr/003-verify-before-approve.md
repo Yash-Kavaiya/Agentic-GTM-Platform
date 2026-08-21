@@ -34,6 +34,43 @@ loop retries. Two failures quarantine the collector.
 
 A quarantined collector blocks campaign approval downstream.
 
+## Amendment, 21 August: a preview is a promise, not a result
+
+The decision above was necessary and not sufficient. Running it against live
+collectors produced this, three times over:
+
+```
+c_mt2tgjmm9mzvu9rjb  HEALING -> VERIFYING (1 preview row)
+c_mt2tgjmm9mzvu9rjb  VERIFYING -> HEALED, approving
+c_mt2tgjmm9mzvu9rjb  HEALED - 3 rows recovered in 68.3s
+```
+
+The previews were genuinely good — `0 rows / 100% null` became
+`3 rows / 0% null` — and the verifier was right to approve them. `scraper
+approve` returned `status: "done"`. And the very next production `scraper run`
+returned exactly the broken output it had before, on all three.
+
+So verifying the preview proves the repair was *proposed* correctly. It does
+not prove the source works. A platform that stops there marks a collector
+HEALTHY, clears the approval gate, and lets a campaign go out citing a source
+that is still broken — which is the precise failure this whole design exists
+to prevent, arrived at by a longer route.
+
+`HEALED` is therefore no longer terminal. After `scraper approve`, Bellwether
+runs the collector against production and scores that run against the same
+contract:
+
+```
+HEALED --production run confirms------> HEALTHY
+HEALED --production still fails-------> QUARANTINED  (verdict: approved_ineffective)
+```
+
+`rowsRecovered` is now measured from the confirming production run rather than
+from the preview, so the number in the heal log reflects what the source
+actually returns.
+
+`bellwether verify` runs the same check on demand without spending a heal.
+
 ## Consequences
 
 **Good**
@@ -52,13 +89,18 @@ A quarantined collector blocks campaign approval downstream.
 
 **Bad**
 
-- Slower than `--auto-approve`, by one verification pass.
+- Slower than `--auto-approve`, by a verification pass and a production run.
+- A confirmation run costs a real collector execution every time a heal
+  completes.
 - The field contract is only as good as `fields.required`. A signal that
   under-specifies its required fields can have a bad fix approved. This is the
   right failure mode — it is visible in config a user can read and fix — but it
   is a real limit.
 - Two attempts is a guess. It is a constant (`MAX_ATTEMPTS`) rather than
   something tuned against data we do not yet have.
+- We do not know *why* an approved fix fails to reach production, only that it
+  does. `approved_ineffective` records the observation without explaining it,
+  which is the honest thing to store but not a diagnosis.
 
 ## What this cost us
 

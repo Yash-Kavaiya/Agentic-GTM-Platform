@@ -8,8 +8,9 @@
  *   HEALTHY    ──drift detected──────────────► DEGRADED
  *   DEGRADED   ──scraper heal────────────────► HEALING
  *   HEALING    ──awaiting_approval + preview─► VERIFYING
- *   VERIFYING  ──preview meets contract──────► HEALED ──rebaseline──► HEALTHY
+ *   VERIFYING  ──preview meets contract──────► HEALED ──production run──► HEALTHY
  *   VERIFYING  ──preview fails──────────────► DEGRADED (retry) | QUARANTINED
+ *   HEALED     ──production unchanged───────► QUARANTINED
  *
  * The VERIFYING state is the whole argument. The Bright Data CLI stops at an
  * approval gate by design, and Bellwether never passes `--auto-approve`: it
@@ -32,6 +33,10 @@ export type AnnealInput =
   | { type: 'VERIFY_PASSED' }
   | { type: 'VERIFY_FAILED'; reasons: string[] }
   | { type: 'APPROVED' }
+  /** A production run after approval confirmed the fix actually took effect. */
+  | { type: 'PRODUCTION_CONFIRMED' }
+  /** Approved, but production still returns the broken output. */
+  | { type: 'PRODUCTION_UNCHANGED'; reasons: string[] }
   | { type: 'REBASELINED' }
 
 export interface AnnealContext {
@@ -43,7 +48,7 @@ export interface Transition {
   next: HealthState
   attempts: number
   /** What the platform should do as a result. */
-  action: 'none' | 'call_heal' | 'call_approve' | 'call_reject' | 'rebaseline'
+  action: 'none' | 'call_heal' | 'call_approve' | 'call_reject' | 'confirm_production' | 'rebaseline'
   reason: string
 }
 
@@ -115,8 +120,28 @@ export function transition(ctx: AnnealContext, input: AnnealInput): Transition {
       return stay('verifying')
 
     case 'HEALED':
-      if (input.type === 'APPROVED' || input.type === 'REBASELINED') {
-        return { next: 'HEALTHY', attempts: 0, action: 'rebaseline', reason: 'healed and rebaselined' }
+      // A preview is a promise, not a result.
+      //
+      // Measured on live collectors: `scraper heal` returned previews that were
+      // genuinely correct — 0 rows and 100% null became 3 rows and 0% null —
+      // and `scraper approve` reported done, and the very next production run
+      // returned exactly the broken output it had before. Verifying only the
+      // preview would mark such a collector HEALTHY and let it feed campaigns.
+      //
+      // So approval alone does not clear a collector. Production has to say so.
+      if (input.type === 'PRODUCTION_CONFIRMED' || input.type === 'REBASELINED') {
+        return { next: 'HEALTHY', attempts: 0, action: 'rebaseline', reason: 'fix confirmed in production' }
+      }
+      if (input.type === 'PRODUCTION_UNCHANGED') {
+        return {
+          next: 'QUARANTINED',
+          attempts: ctx.attempts,
+          action: 'none',
+          reason: `approved but production is unchanged: ${input.reasons.join('; ')}`,
+        }
+      }
+      if (input.type === 'APPROVED') {
+        return { next: 'HEALED', attempts: ctx.attempts, action: 'confirm_production', reason: 'approved, confirming in production' }
       }
       return stay('healed')
 
