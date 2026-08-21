@@ -102,7 +102,9 @@ Being explicit, because it matters:
 - 20/20 brand kits extracted from real homepages, resolving to genuinely correct brand colours (Supabase `#3ecf8e`, Clerk `#6c47ff`, Vanta `#5230d7`)
 - 11 job boards normalising cleanly across Greenhouse, Lever and Ashby with zero null titles
 - 60 observations collected from live sources, zero errors
-- 126 tests, all passing
+- Live Bright Data collectors returning real extraction — Cal.com's compliance badges (ISO 27001, SOC 2, CCPA, GDPR), PostHog's customer stories
+- A complete heal cycle against a genuinely broken collector: `0 rows / 100% null → 5 rows / 0% null`, verdict from `verifyAgainstContract()` rather than from eyeballing the preview
+- 131 tests, all passing
 
 **Scripted, and labelled as such:** the demo scenario in [`cli/seed.ts`](cli/seed.ts). A signal fires on a *change*, so a demo needs two snapshots with something different between them, and real change arrives on a company's roadmap timescale rather than a hackathon's. The snapshots are authored. **The events are not** — they run through the same `match()` the pipeline uses, so every evidence sentence, score and gate verdict is computed by real code from real config. Change a threshold in `signals.yaml` and the demo output changes with it. It writes to a separate database so seeded numbers can never be mistaken for observed ones.
 
@@ -191,7 +193,26 @@ Six bugs found by running the thing rather than reasoning about it — each one 
 | `{{match}}` quoted the whole field | A full paragraph cited where "Snowflake" belonged |
 | Duplicate `any` conditions | The same claim cited twice in one email |
 
-The probe that caught the third one exists for exactly that reason: **nothing is provisioned against a URL that has not returned 200**, because a `scraper create` against a 404 costs 25 minutes and real money. It found 8 wrong job-board tokens out of 20 before a cent was spent.
+The probe that caught the third one exists for exactly that reason: **nothing is provisioned against a URL that has not returned 200**, because a `scraper create` against a 404 costs minutes and real money. It found 8 wrong job-board tokens out of 20 before a cent was spent.
+
+### What the live collectors taught us
+
+Two findings only came from running against real sites, and both changed the architecture. See [ADR 004](docs/adr/004-collector-granularity.md).
+
+**A collector is bound to the page it was seeded from.** Measured:
+
+| Collector | Page | Result |
+|---|---|---|
+| `security`, seeded on `cal.com/security` | its seed page | ISO 27001, SOC 2, CCPA, GDPR |
+| the same collector | `vanta.com/security` | `certification_badges: []` |
+
+A second collector said it outright: `waiting for selector "li.pricing-card" failed`. It had hardcoded a class from its seed page. So the original model — one collector per signal, run across 20 accounts — was wrong in a way that fails silently on 19 of them. The unit of provisioning is now **(signal × account)**, and coverage is a costed decision rather than a default.
+
+**The seed page determines template quality.** Our first pricing collector was seeded on `posthog.com/pricing` — usage-based pricing, no tier cards anywhere. The template it produced returned empty on every site, including, after a repair, the page that repair had previewed successfully against. A full heal cycle went into fixing a collector that was mis-seeded from birth.
+
+That collector is still in `config/collectors.json`. Keeping a genuinely broken source is what lets the approval gate be demonstrated honestly rather than with a mock.
+
+**The two failure modes are not equally easy.** The mis-seeded collector returned `200 OK` with empty arrays — silent. The other returned an explicit `wait_element_timeout` — loud. A monitor that only catches the loud one is not worth paying for, which is why [`detectDrift()`](src/core/anneal/health.ts) watches per-field null rates rather than HTTP status.
 
 ## License
 

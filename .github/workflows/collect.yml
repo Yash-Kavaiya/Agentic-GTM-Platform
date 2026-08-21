@@ -1,0 +1,116 @@
+name: Collect
+
+# Bellwether's engine runs here, not in the web app.
+#
+# The job collects from every source, diffs against the previous snapshot,
+# fires signals, heals any collector that has drifted, and COMMITS the JSON
+# export. That commit is what redeploys the site — see ADR 001.
+#
+# Committing the output is the point, not a side effect: the heal log becomes a
+# git diff, so anyone can read what a collector returned before and after a
+# repair, at the commit where it happened, without taking our word for it.
+
+on:
+  schedule:
+    # 04:12 UTC — before the working day in every timezone we care about, so
+    # the Morning Brief is waiting rather than arriving mid-morning.
+    - cron: '12 4 * * *'
+  workflow_dispatch:
+    inputs:
+      signals:
+        description: 'Comma-separated signal ids (blank = all)'
+        required: false
+      skip_heal:
+        description: 'Skip the Anneal check'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  # Never let two runs race on the same committed export.
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    env:
+      BRIGHTDATA_API_KEY: ${{ secrets.BRIGHTDATA_API_KEY }}
+      # No interactive login in CI, so Bright Data collectors are reached over
+      # HTTP via POST /dca/trigger rather than the CLI. Same Collector ID,
+      # same contract — and healing preserves the ID, so a repaired collector
+      # keeps working on both paths.
+      BELLWETHER_EXEC: http
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Fail fast on a broken build rather than committing a bad export.
+      - name: Check
+        run: npm run check
+
+      - name: Collect
+        run: |
+          npm run bw -- run \
+            ${{ inputs.signals && format('--signal {0}', inputs.signals) || '' }} \
+            ${{ inputs.skip_heal && '--no-heal' || '' }}
+
+      - name: Export
+        run: npm run bw -- export
+
+      - name: Commit
+        run: |
+          git config user.name  "bellwether[bot]"
+          git config user.email "bellwether[bot]@users.noreply.github.com"
+          git add data/export
+          if git diff --cached --quiet; then
+            echo "Nothing moved overnight — no commit."
+            exit 0
+          fi
+          BRIEF=$(node -e "
+            const b = require('./data/export/brief.json');
+            const h = require('./data/export/heals.json');
+            const bits = [b.headline];
+            if (h.stats.attempts) bits.push(h.stats.approved + ' collector(s) healed');
+            console.log(bits.join(' · '));
+          ")
+          git commit -m "$BRIEF" -m "Automated collection run."
+          git push
+
+      # The run summary doubles as the daily digest.
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## $(node -p "require('./data/export/brief.json').headline")"
+            echo ""
+            node -e "
+              const b = require('./data/export/brief.json');
+              for (const e of b.entries) {
+                console.log('### ' + e.account.name + ' — score ' + e.account.score);
+                for (const s of e.overnight)
+                  for (const ev of s.event.evidence)
+                    console.log('- ' + ev.sentence + '  \`' + (ev.collectorId ?? 'public feed') + '\`');
+                if (e.hasBlockedEvidence) console.log('- **Approval blocked** — a cited collector is unhealthy.');
+                console.log('');
+              }
+              const h = require('./data/export/heals.json');
+              if (h.stats.attempts) {
+                console.log('## Anneal');
+                console.log('- ' + h.stats.approved + '/' + h.stats.attempts + ' repairs approved');
+                console.log('- median time to heal: ' + (h.stats.medianMs/1000).toFixed(1) + 's');
+                console.log('- rows recovered: ' + h.stats.rowsRecovered);
+              }
+            "
+          } >> "$GITHUB_STEP_SUMMARY"
