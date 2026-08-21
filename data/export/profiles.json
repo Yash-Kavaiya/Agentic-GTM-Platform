@@ -1,0 +1,313 @@
+{
+  "generatedAt": "2026-08-21T23:59:59.999Z",
+  "profiles": {
+    "posthog": {
+      "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
+      "category": null,
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": []
+    },
+    "cal": {
+      "positioning": "A fully customizable scheduling software for individuals, businesses taking calls and developers building scheduling platforms where users meet users.",
+      "category": null,
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": []
+    },
+    "supabase": {
+      "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
+      "category": null,
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": [
+        "Their pricing page changed — the clearest public sign a company is repositioning who it sells to."
+      ]
+    },
+    "resend": {
+      "positioning": "The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.",
+      "category": null,
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": []
+    },
+    "dub": {
+      "positioning": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.",
+      "category": "modern link attribution platform",
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": []
+    },
+    "hightouch": {
+      "positioning": "Hightouch is the Agentic Marketing Platform powered by the industry-leading Composable CDP: AI marketing that actually knows your brand, customers, and business.",
+      "category": "Agentic Marketing Platform",
+      "openRoles": 2,
+      "hiringFocus": [
+        {
+          "name": "Field",
+          "count": 1
+        },
+        {
+          "name": "Revenue",
+          "count": 1
+        }
+      ],
+      "footprint": [
+        "Remote"
+      ],
+      "techStack": [
+        "Snowflake",
+        "dbt"
+      ],
+      "buyingRoles": [
+        "GTM Engineering"
+      ],
+      "compliance": [
+        "GDPR",
+        "SOC 2 Type II"
+      ],
+      "stage": "Hiring selectively — a handful of open roles",
+      "whyNow": [
+        "They published compliance evidence, which usually means enterprise deals are already in the pipeline.",
+        "They are hiring into the revenue function, so there is now an owner for this decision."
+      ]
+    },
+    "airbyte": {
+      "positioning": "Airbyte is the open-source data integration platform: ELT pipelines into any warehouse, a context layer for AI agents, and 600+ connectors behind both.",
+      "category": "open-source data integration platform",
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": []
+    },
+    "metabase": {
+      "positioning": "Metabase grounds every answer in your semantic layer — your metrics and business logic — so you can inspect the query behind it.",
+      "category": null,
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": []
+    },
+    "vanta": {
+      "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
+      "category": null,
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": []
+    },
+    "retool": {
+      "positioning": "Build, deploy, and manage internal tools with Retool&#x27;s unified engine. Connect to any database, API, or LLM. Leverage AI throughout your business.",
+      "category": null,
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": []
+    },
+    "linear": {
+      "positioning": "Purpose-built for planning and building products with AI agents.",
+      "category": null,
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": []
+    },
+    "neon": {
+      "positioning": "The backend for apps and agents. Build with Lakebase Postgres, Auth, Functions, Storage, and an AI Gateway: instant, branchable, serverless.",
+      "category": null,
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": []
+    },
+    "railway": {
+      "positioning": "Railway is a full-stack cloud for deploying web apps, servers, databases, and more with automatic scaling, monitoring, and security.",
+      "category": "full-stack cloud for deploying web apps, servers, database",
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": []
+    },
+    "clerk": {
+      "positioning": "The easiest way to add authentication and user management to your application. Purpose-built for React, Next.js, Remix, and “The Modern Web”.",
+      "category": null,
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": [
+        "Their pricing page changed — the clearest public sign a company is repositioning who it sells to.",
+        "A new leadership seat appeared, and new leaders re-open closed vendor decisions."
+      ]
+    },
+    "unkey": {
+      "positioning": "Unkey brings API deployment, gateways, and observability into one platform.",
+      "category": null,
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": []
+    },
+    "trigger": {
+      "positioning": "Trigger.dev is the open source platform for building AI workflows in TypeScript. Long-running tasks with retries, queues, observability, and elastic scaling.",
+      "category": "open source platform",
+      "openRoles": 2,
+      "hiringFocus": [
+        {
+          "name": "Engineering",
+          "count": 1
+        },
+        {
+          "name": "Data",
+          "count": 1
+        }
+      ],
+      "footprint": [
+        "Remote"
+      ],
+      "techStack": [
+        "Postgres",
+        "Redis",
+        "Snowflake",
+        "dbt"
+      ],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": "Hiring selectively — a handful of open roles",
+      "whyNow": [
+        "Their job descriptions name Postgres, Redis, Snowflake — a stack they are actively building on."
+      ]
+    },
+    "inngest": {
+      "positioning": "Build reliable background jobs, workflows, and AI agents without extra infrastructure. Automatic retries, flow control, and step-level observability.",
+      "category": null,
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": []
+    },
+    "zluri": {
+      "positioning": "Zluri helps enterprise security and IT teams govern identities, automate access reviews, and enforce least privilege. Get a demo.",
+      "category": null,
+      "openRoles": 3,
+      "hiringFocus": [
+        {
+          "name": "Sales",
+          "count": 1
+        },
+        {
+          "name": "Design",
+          "count": 1
+        },
+        {
+          "name": "Revenue",
+          "count": 1
+        }
+      ],
+      "footprint": [
+        "Remote"
+      ],
+      "techStack": [
+        "dbt",
+        "Salesforce"
+      ],
+      "buyingRoles": [
+        "Head of RevOps"
+      ],
+      "compliance": [],
+      "stage": "Hiring selectively — a handful of open roles",
+      "whyNow": [
+        "Their pricing page changed — the clearest public sign a company is repositioning who it sells to.",
+        "They are hiring into the revenue function, so there is now an owner for this decision."
+      ]
+    },
+    "pylon": {
+      "positioning": "Pylon lets humans and AI agents collaborate on customer work, investigating, resolving, and acting on every signal. Trusted by 1,500+ B2B companies.",
+      "category": null,
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": []
+    },
+    "documenso": {
+      "positioning": "Sign everywhere with Documenso. Build workflows, create templates, and integrate seamlessly with tools you love—modern, secure, and customizable for any scale.",
+      "category": null,
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": []
+    }
+  }
+}

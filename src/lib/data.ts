@@ -137,3 +137,12 @@ export interface CandidatesFile {
 
 export const getCandidates = (): CandidatesFile =>
   read<CandidatesFile>('candidates.json', { generatedAt: '', role: '', candidates: [] })
+
+import type { BusinessProfile } from '../core/enrich/profile.js'
+
+export type ProfileView = BusinessProfile & { whyNow: string[] }
+
+export const getProfiles = (): Record<string, ProfileView> =>
+  read<{ profiles: Record<string, ProfileView> }>('profiles.json', { profiles: {} }).profiles
+
+export const getProfile = (targetId: string): ProfileView | undefined => getProfiles()[targetId]

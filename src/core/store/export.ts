@@ -27,6 +27,9 @@ import { dayOf } from '../clock.js'
 import { forge } from '../campaign/forge.js'
 import { canApprove } from '../campaign/gate.js'
 import type { BrandKit } from '../enrich/brandkit.js'
+import { buildProfile, whyNow } from '../enrich/profile.js'
+import { resolveField, resolveStrings } from '../signals/fieldpath.js'
+import type { JobRow } from '../adapters/jobs.js'
 import { readFileSync, existsSync } from 'node:fs'
 
 const EXPORT_DIR = join(process.cwd(), 'data', 'export')
@@ -92,6 +95,7 @@ export function exportAll(store: Store, at: string = new Date().toISOString()): 
   const brands = loadBrands()
   write('brands.json', { generatedAt: at, brands })
 
+
   /**
    * Campaigns, forged for every account that has evidence.
    *
@@ -112,6 +116,37 @@ export function exportAll(store: Store, at: string = new Date().toISOString()): 
       return { ...campaign, gate: canApprove(campaign, health) }
     })
   write('campaigns.json', { generatedAt: at, campaigns })
+
+  /**
+   * Business profiles — what a salesperson needs, derived from what we observed.
+   *
+   * Job boards are the richest business signal we hold: department mix, office
+   * footprint, the technologies a company names in its own postings, and who
+   * will own the decision. All of it is about the SHAPE of the org, never a
+   * person.
+   */
+  const profiles: Record<string, unknown> = {}
+  for (const t of targets) {
+    // Any jobs-backed signal carries the same board payload.
+    const jobsObs =
+      store.latestObservation('building_the_function', t.id, at) ??
+      store.latestObservation('stack_adoption', t.id, at) ??
+      store.latestObservation('headcount_surge', t.id, at)
+
+    const jobs = jobsObs ? (resolveField(jobsObs.rows, 'jobs[]') as JobRow[]) : null
+
+    // Compliance badges, if the security signal ever ran for this account.
+    const secObs = store.latestObservation('enterprise_readiness', t.id, at)
+    const compliance = secObs ? resolveStrings(secObs.rows, 'badges[].name') : []
+
+    const profile = buildProfile({ jobs, brand: brands[t.id] ?? null, compliance })
+    const account = accounts.find((a) => a.targetId === t.id)
+    profiles[t.id] = {
+      ...profile,
+      whyNow: whyNow(account?.signals.map((sig) => sig.signalName) ?? [], profile),
+    }
+  }
+  write('profiles.json', { generatedAt: at, profiles })
 
   // Prospect candidates from `bellwether discover`, if any have been found.
   const candidatesPath = join(process.cwd(), 'data', 'candidates.json')
