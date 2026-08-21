@@ -1,56 +1,122 @@
-/**
- * Shared display pieces.
- *
- * Two ideas carry most of the interface:
- *
- *   Evidence is always visible with its source. A claim in Bellwether is never
- *   shown without the collector, URL and timestamp that produced it — that is
- *   the product, not a debugging affordance.
- *
- *   Collector health is shown wherever a claim is shown. A user should never
- *   have to visit a dashboard to find out whether what they are reading is
- *   trustworthy.
- */
 import type { HealthState } from '../core/types'
 
-const HEALTH_STYLE: Record<string, { color: string; label: string }> = {
-  HEALTHY: { color: 'var(--color-healthy)', label: 'Healthy' },
-  HEALED: { color: 'var(--color-healthy)', label: 'Healed' },
-  DEGRADED: { color: 'var(--color-degraded)', label: 'Degraded' },
-  HEALING: { color: 'var(--color-healing)', label: 'Healing' },
-  VERIFYING: { color: 'var(--color-healing)', label: 'Verifying' },
-  QUARANTINED: { color: 'var(--color-quarantined)', label: 'Quarantined' },
-  UNKNOWN: { color: 'var(--text-dim)', label: 'Unknown' },
+/**
+ * Shared display pieces, in the Bellwether design language.
+ *
+ * Two rules carry the interface:
+ *
+ *   Evidence is never shown without its source. A claim carries the collector,
+ *   the URL and the minute it came from — that is the product, not a debugging
+ *   affordance.
+ *
+ *   Collector health appears wherever a claim appears, so nobody has to visit a
+ *   dashboard to find out whether what they are reading can be trusted.
+ */
+
+const HEALTH: Record<string, { fg: string; bg: string; label: string }> = {
+  HEALTHY: { fg: '#2f6b4f', bg: 'rgba(47,107,79,.1)', label: 'healthy' },
+  HEALED: { fg: '#2f6b4f', bg: 'rgba(47,107,79,.1)', label: 'healed' },
+  DEGRADED: { fg: '#8a5d16', bg: 'rgba(194,135,42,.14)', label: 'degraded' },
+  HEALING: { fg: '#b8442a', bg: 'rgba(184,68,42,.11)', label: 'healing' },
+  VERIFYING: { fg: '#b8442a', bg: 'rgba(184,68,42,.11)', label: 'verifying' },
+  QUARANTINED: { fg: '#a32c2c', bg: 'rgba(163,44,44,.1)', label: 'quarantined' },
+  UNKNOWN: { fg: '#8b8478', bg: 'rgba(20,18,15,.06)', label: 'unknown' },
 }
 
-export function HealthBadge({ state, className = '' }: { state: HealthState | 'UNKNOWN'; className?: string }) {
-  const s = HEALTH_STYLE[state] ?? HEALTH_STYLE.UNKNOWN!
-  const active = state === 'HEALING' || state === 'VERIFYING'
+export function Pill({ state }: { state: HealthState | 'UNKNOWN' }) {
+  const s = HEALTH[state] ?? HEALTH.UNKNOWN!
+  const busy = state === 'HEALING' || state === 'VERIFYING'
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[11px] font-medium ${className}`}
-      style={{ color: s.color, background: `color-mix(in oklch, ${s.color} 14%, transparent)` }}
+      className="mono"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 5,
+        fontSize: 10,
+        letterSpacing: '.06em',
+        textTransform: 'uppercase',
+        padding: '3px 7px',
+        borderRadius: 4,
+        color: s.fg,
+        background: s.bg,
+        whiteSpace: 'nowrap',
+      }}
     >
-      <span className={`h-1.5 w-1.5 rounded-full ${active ? 'pulsing' : ''}`} style={{ background: s.color }} />
+      <span
+        className={busy ? 'pulsing' : undefined}
+        style={{ width: 5, height: 5, borderRadius: '50%', background: s.fg, flex: 'none' }}
+      />
       {s.label}
     </span>
   )
 }
 
-export function ScorePill({ score, delta }: { score: number; delta: number }) {
-  const up = delta > 0
+export function Tag({ text, tone = 'neutral' }: { text: string; tone?: 'neutral' | 'rust' | 'green' }) {
+  const tones = {
+    neutral: { fg: '#6f6a60', bg: 'rgba(20,18,15,.06)' },
+    rust: { fg: '#b8442a', bg: 'rgba(184,68,42,.1)' },
+    green: { fg: '#2f6b4f', bg: 'rgba(47,107,79,.1)' },
+  }[tone]
   return (
-    <span className="inline-flex items-baseline gap-2">
-      <span className="tnum text-2xl font-semibold tabular-nums">{score}</span>
-      {delta !== 0 && (
-        <span
-          className="tnum text-xs font-medium"
-          style={{ color: up ? 'var(--color-healthy)' : 'var(--text-dim)' }}
-        >
-          {up ? '▲' : '▼'} {Math.abs(delta)}
+    <span
+      className="mono"
+      style={{
+        fontSize: 10,
+        letterSpacing: '.06em',
+        textTransform: 'uppercase',
+        padding: '3px 7px',
+        borderRadius: 4,
+        color: tones.fg,
+        background: tones.bg,
+        whiteSpace: 'nowrap',
+      }}
+    >
+      {text}
+    </span>
+  )
+}
+
+/** The big serif number the design uses for every headline figure. */
+export function Figure({ value, sub }: { value: React.ReactNode; sub?: string }) {
+  return (
+    <span style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+      <span className="display tnum" style={{ fontSize: 28 }}>
+        {value}
+      </span>
+      {sub && (
+        <span className="eyebrow" style={{ letterSpacing: '.1em' }}>
+          {sub}
         </span>
       )}
     </span>
+  )
+}
+
+export function Stat({
+  label,
+  value,
+  sub,
+  subTone,
+}: {
+  label: string
+  value: React.ReactNode
+  sub?: string
+  subTone?: 'green' | 'rust' | 'mute'
+}) {
+  const color =
+    subTone === 'green' ? '#2f6b4f' : subTone === 'rust' ? '#b8442a' : 'var(--color-mute-2)'
+  return (
+    <div
+      className="card"
+      style={{ flex: 1, minWidth: 168, padding: '16px 18px', display: 'flex', flexDirection: 'column', gap: 5 }}
+    >
+      <span className="eyebrow">{label}</span>
+      <span className="display tnum" style={{ fontSize: 30 }}>
+        {value}
+      </span>
+      {sub && <span style={{ fontSize: 11, color }}>{sub}</span>}
+    </div>
   )
 }
 
@@ -63,43 +129,44 @@ export interface EvidenceProps {
   blocked?: boolean
 }
 
-/**
- * One cited fact.
- *
- * The footnote is not decoration. Every claim Bellwether puts in front of a
- * prospect can be traced to the field, the page and the minute it came from,
- * and a reader can check it.
- */
 export function Evidence({ sentence, signalName, collectorId, sourceUrl, scrapedAt, blocked }: EvidenceProps) {
   let host = sourceUrl
   try {
-    host = new URL(sourceUrl).host + new URL(sourceUrl).pathname
+    const u = new URL(sourceUrl)
+    host = u.host + (u.pathname === '/' ? '' : u.pathname)
   } catch {}
 
   return (
-    <div className={`evidence ${blocked ? 'evidence-blocked' : ''} py-1`}>
-      <p className="text-[13.5px] leading-snug">{sentence}</p>
-      <p className="mono mt-1 text-[11px]" style={{ color: 'var(--text-dim)' }}>
-        {signalName}
-        {' · '}
-        {collectorId ? collectorId : 'public feed'}
-        {' · '}
-        <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="underline decoration-dotted underline-offset-2">
+    <div className={`evidence${blocked ? ' evidence-blocked' : ''}`} style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+      <span style={{ fontSize: 13.5, lineHeight: 1.45, color: 'var(--color-ink-2)', textWrap: 'pretty' }}>
+        {sentence}
+      </span>
+      <span className="mono" style={{ fontSize: 10.5, color: 'var(--color-mute-3)' }}>
+        {signalName} · {collectorId ?? 'public feed'} ·{' '}
+        <a href={sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', textDecorationStyle: 'dotted' }}>
           {host}
-        </a>
-        {' · '}
-        {new Date(scrapedAt).toISOString().replace('T', ' ').slice(0, 16)} UTC
-      </p>
+        </a>{' '}
+        · {scrapedAt.replace('T', ' ').slice(0, 16)} UTC
+      </span>
     </div>
   )
 }
 
 export function Empty({ title, hint }: { title: string; hint?: React.ReactNode }) {
   return (
-    <div className="card px-6 py-12 text-center">
-      <p className="text-sm font-medium">{title}</p>
+    <div className="card" style={{ padding: '44px 32px', textAlign: 'center' }}>
+      <p style={{ margin: 0, fontSize: 14, fontWeight: 600 }}>{title}</p>
       {hint && (
-        <p className="mx-auto mt-2 max-w-md text-[13px] leading-relaxed" style={{ color: 'var(--text-dim)' }}>
+        <p
+          style={{
+            margin: '8px auto 0',
+            maxWidth: 460,
+            fontSize: 12.5,
+            lineHeight: 1.6,
+            color: 'var(--color-mute-2)',
+            textWrap: 'pretty',
+          }}
+        >
           {hint}
         </p>
       )}
@@ -107,30 +174,68 @@ export function Empty({ title, hint }: { title: string; hint?: React.ReactNode }
   )
 }
 
-export function Stat({ label, value, sub }: { label: string; value: React.ReactNode; sub?: string }) {
+/** Page masthead: mono eyebrow over an editorial serif headline. */
+export function PageHead({
+  eyebrow,
+  title,
+  lede,
+  right,
+}: {
+  eyebrow: string
+  title: React.ReactNode
+  lede?: React.ReactNode
+  right?: React.ReactNode
+}) {
   return (
-    <div className="card px-4 py-3.5">
-      <p className="text-[11px] uppercase tracking-wide" style={{ color: 'var(--text-dim)' }}>
-        {label}
-      </p>
-      <p className="tnum mt-1 text-xl font-semibold">{value}</p>
-      {sub && (
-        <p className="mono mt-0.5 text-[11px]" style={{ color: 'var(--text-dim)' }}>
-          {sub}
-        </p>
-      )}
-    </div>
+    <header
+      style={{
+        display: 'flex',
+        alignItems: 'flex-end',
+        justifyContent: 'space-between',
+        gap: 24,
+        marginBottom: 26,
+        flexWrap: 'wrap',
+      }}
+    >
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 7, minWidth: 0 }}>
+        <span className="eyebrow" style={{ fontSize: 10, letterSpacing: '.16em' }}>
+          {eyebrow}
+        </span>
+        <h1 className="display" style={{ margin: 0, fontSize: 42 }}>
+          {title}
+        </h1>
+        {lede && (
+          <p
+            style={{
+              margin: '4px 0 0',
+              fontSize: 14,
+              lineHeight: 1.55,
+              color: 'var(--color-mute)',
+              maxWidth: 540,
+              textWrap: 'pretty',
+            }}
+          >
+            {lede}
+          </p>
+        )}
+      </div>
+      {right && <div style={{ flex: 'none', display: 'flex', gap: 8 }}>{right}</div>}
+    </header>
   )
+}
+
+/** Standard page padding from the design. */
+export function Page({ children, max = 1080 }: { children: React.ReactNode; max?: number }) {
+  return <div style={{ padding: '44px 52px 60px', maxWidth: max }}>{children}</div>
 }
 
 /** The plain-language string, presented as the first-class object it is. */
 export function WatchString({ watch }: { watch: string }) {
   return (
-    <div className="rounded-lg px-3.5 py-3" style={{ background: 'var(--surface-2)' }}>
-      <p className="text-[11px] uppercase tracking-wide" style={{ color: 'var(--text-dim)' }}>
-        What we watch for
-      </p>
-      <p className="mt-1.5 text-[13.5px] leading-relaxed italic">“{watch.trim()}”</p>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+      <span className="mono" style={{ fontSize: 10.5, color: 'var(--color-rust)', lineHeight: 1.5 }}>
+        {watch.trim()}
+      </span>
     </div>
   )
 }

@@ -1,113 +1,186 @@
 @import 'tailwindcss';
 
 /**
- * Bellwether design tokens.
+ * Bellwether design system.
  *
- * A bellwether is the lead sheep that wears the bell — the one whose movement
- * the flock follows. The interface is built around that: what moved, how much,
- * and on what evidence. Dense, quiet, and legible at a glance, because this is
- * a screen someone opens every morning before their first coffee.
+ * Implemented from the Claude Design canvas (Bellwether.dc.html). Warm paper
+ * rather than the usual cool SaaS grey, an editorial serif for display, and a
+ * single rust accent that only ever marks the thing that moved.
+ *
+ * The palette commits to one look on purpose. This is a screen someone opens
+ * at 6am before their first coffee to read what changed overnight; the paper
+ * ground and the serif are doing the same job a newspaper masthead does.
  */
 @theme {
-  --color-ink-950: oklch(0.16 0.012 260);
-  --color-ink-900: oklch(0.20 0.014 260);
-  --color-ink-850: oklch(0.24 0.016 260);
-  --color-ink-800: oklch(0.29 0.018 260);
-  --color-ink-700: oklch(0.38 0.018 260);
-  --color-ink-500: oklch(0.60 0.016 260);
-  --color-ink-300: oklch(0.78 0.012 260);
-  --color-ink-100: oklch(0.93 0.008 260);
-  --color-ink-50: oklch(0.97 0.005 260);
+  /* Ground and ink */
+  --color-paper: #f4f1ec;
+  --color-paper-2: #faf8f5;
+  --color-paper-3: #fbfaf7;
+  --color-ink: #14120f;
+  --color-ink-2: #211e19;
+  --color-ink-3: #2b2620;
+  --color-ink-4: #3a352d;
 
-  /* Brass — the bell. Used for the signal that matters. */
-  --color-brass-500: oklch(0.76 0.14 78);
-  --color-brass-400: oklch(0.82 0.13 82);
-  --color-brass-300: oklch(0.88 0.09 85);
+  /* Muted text, warm rather than grey */
+  --color-mute: #5d574d;
+  --color-mute-2: #6f6a60;
+  --color-mute-3: #8b8478;
+  --color-mute-4: #a09889;
 
-  --color-healthy: oklch(0.72 0.15 155);
-  --color-degraded: oklch(0.76 0.16 65);
-  --color-healing: oklch(0.72 0.14 240);
-  --color-quarantined: oklch(0.65 0.20 20);
+  /* Rust — the bell. Marks the signal, never decoration. */
+  --color-rust: #b8442a;
+  --color-rust-deep: #9c3722;
+  --color-rust-dark: #8f3320;
 
-  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace;
+  /* Anneal green and alarm red */
+  --color-anneal: #2f6b4f;
+  --color-alarm: #a32c2c;
+
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Consolas, monospace;
 }
 
 :root {
-  --bg: var(--color-ink-50);
-  --surface: #fff;
-  --surface-2: var(--color-ink-100);
-  --border: oklch(0.89 0.008 260);
-  --text: var(--color-ink-950);
-  --text-dim: var(--color-ink-500);
-  --accent: oklch(0.58 0.13 78);
+  --line: rgba(20, 18, 15, 0.09);
+  --line-2: rgba(20, 18, 15, 0.14);
+  --line-3: rgba(20, 18, 15, 0.22);
+  --on-dark: rgba(244, 241, 236, 1);
+  --on-dark-dim: rgba(244, 241, 236, 0.42);
+  --on-dark-faint: rgba(244, 241, 236, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    --bg: var(--color-ink-950);
-    --surface: var(--color-ink-900);
-    --surface-2: var(--color-ink-850);
-    --border: var(--color-ink-800);
-    --text: var(--color-ink-50);
-    --text-dim: var(--color-ink-500);
-    --accent: var(--color-brass-400);
-  }
-}
-
-:root[data-theme='dark'] {
-  --bg: var(--color-ink-950);
-  --surface: var(--color-ink-900);
-  --surface-2: var(--color-ink-850);
-  --border: var(--color-ink-800);
-  --text: var(--color-ink-50);
-  --text-dim: var(--color-ink-500);
-  --accent: var(--color-brass-400);
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
+  background: var(--color-paper);
+  color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
 
-/* Numerals should line up in score columns and diff tables. */
+::selection {
+  background: #f0d9b5;
+}
+
+a {
+  color: var(--color-rust);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-rust-dark);
+}
+
+/* ------------------------------------------------------------- primitives */
+
+/** Display type. The serif carries every page title and every large number. */
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.4px;
+}
+
+/** Small uppercase mono label. The workhorse of this design. */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--color-mute-3);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
 .tnum {
   font-variant-numeric: tabular-nums;
 }
 
-/* Evidence is quoted machine output. It reads as such. */
-.mono {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  letter-spacing: -0.01em;
-}
-
 .card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 11px;
 }
 
-.hairline {
-  border-color: var(--border);
+.card-hover {
+  transition: border-color 0.14s ease, box-shadow 0.14s ease;
+}
+.card-hover:hover {
+  border-color: rgba(20, 18, 15, 0.22);
+  box-shadow: 0 2px 8px rgba(20, 18, 15, 0.07);
 }
 
-/* A cited claim carries a visible thread back to its source. */
+/** A cited claim keeps a visible thread back to its source. */
 .evidence {
-  border-left: 2px solid var(--accent);
-  padding-left: 0.875rem;
+  padding-left: 11px;
+  border-left: 2px solid rgba(184, 68, 42, 0.28);
 }
-
 .evidence-blocked {
-  border-left-color: var(--color-quarantined);
+  border-left-color: rgba(163, 44, 44, 0.45);
 }
 
-@keyframes pulse-soft {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.45; }
+/* Buttons ---------------------------------------------------------------- */
+
+.btn {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  border-radius: 7px;
+  cursor: pointer;
+  padding: 10px 15px;
+  border: 1px solid transparent;
+  transition: background-color 0.14s ease, border-color 0.14s ease;
+}
+.btn-primary {
+  background: var(--color-rust);
+  color: #fff;
+  font-weight: 500;
+}
+.btn-primary:hover {
+  background: var(--color-rust-deep);
+}
+.btn-ink {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+.btn-ink:hover {
+  background: var(--color-ink-3);
+}
+.btn-quiet {
+  background: #fff;
+  border-color: var(--line-2);
+  color: var(--color-ink);
+}
+.btn-quiet:hover {
+  border-color: rgba(20, 18, 15, 0.4);
+}
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+/* Motion ----------------------------------------------------------------- */
+
+@keyframes bwpulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
 }
 .pulsing {
-  animation: pulse-soft 1.6s ease-in-out infinite;
+  animation: bwpulse 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulsing {
+    animation: none;
+  }
 }

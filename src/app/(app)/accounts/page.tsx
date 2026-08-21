@@ -1,51 +1,65 @@
 import Link from 'next/link'
 import { getAccounts, getMeta } from '../../../lib/data'
-import { ScorePill, Empty } from '../../../components/ui'
+import { Page, PageHead, Empty, Tag } from '../../../components/ui'
 
 /** The watchlist, ranked. */
 export default function AccountsPage() {
   const accounts = getAccounts()
   const meta = getMeta()
+  const scored = accounts.filter((a) => a.score > 0)
 
   return (
-    <div className="space-y-6">
-      <header>
-        <h1 className="text-[26px] font-semibold tracking-tight">Accounts</h1>
-        <p className="mt-1.5 text-[13px]" style={{ color: 'var(--text-dim)' }}>
-          {accounts.length} on the watchlist · ICP threshold {meta.icp.threshold}
-        </p>
-      </header>
+    <Page>
+      <PageHead
+        eyebrow={`Watchlist · ${accounts.length} accounts`}
+        title="Who is worth a look."
+        lede={`Scored against ${meta.icp.name}. Anything under ${meta.icp.threshold} stays out of the brief.`}
+      />
 
       {accounts.length === 0 ? (
         <Empty title="No accounts loaded." hint="Run the engine and export to populate this view." />
       ) : (
-        <ul className="grid gap-3 md:grid-cols-2">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(300px,1fr))', gap: 10 }}>
           {accounts.map((a) => (
-            <li key={a.targetId}>
-              <Link href={`/accounts/${a.targetId}`} className="card block p-4 transition-colors hover:bg-[var(--surface-2)]">
-                <div className="flex items-start justify-between gap-3">
-                  <div className="min-w-0">
-                    <h2 className="text-[15px] font-semibold">{a.name}</h2>
-                    <p className="mono mt-0.5 text-[11px]" style={{ color: 'var(--text-dim)' }}>{a.domain}</p>
-                  </div>
-                  <ScorePill score={a.score} delta={a.delta} />
+            <Link key={a.targetId} href={`/accounts/${a.targetId}`} className="card card-hover" style={{ padding: '16px 18px', display: 'flex', flexDirection: 'column', gap: 10, color: 'inherit' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 10 }}>
+                <div style={{ minWidth: 0 }}>
+                  <div style={{ fontSize: 15, fontWeight: 600 }}>{a.name}</div>
+                  <div className="mono" style={{ fontSize: 10.5, color: 'var(--color-mute-3)' }}>{a.domain}</div>
                 </div>
-                <div className="mt-3 flex items-center gap-2">
-                  <div className="h-1 flex-1 overflow-hidden rounded-full" style={{ background: 'var(--surface-2)' }}>
-                    <div className="h-full rounded-full" style={{ width: `${a.fit * 100}%`, background: 'var(--accent)' }} />
-                  </div>
-                  <span className="tnum text-[11px]" style={{ color: 'var(--text-dim)' }}>
-                    fit {Math.round(a.fit * 100)}%
-                  </span>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: 5 }}>
+                  <span className="display tnum" style={{ fontSize: 28 }}>{a.score}</span>
+                  {a.delta !== 0 && (
+                    <span className="mono tnum" style={{ fontSize: 10, color: a.delta > 0 ? '#2f6b4f' : 'var(--color-mute-3)' }}>
+                      {a.delta > 0 ? '▲' : '▼'}{Math.abs(a.delta)}
+                    </span>
+                  )}
                 </div>
-                <p className="mt-2 text-[12px]" style={{ color: 'var(--text-dim)' }}>
-                  {a.eventCount} signal{a.eventCount === 1 ? '' : 's'} on file
-                </p>
-              </Link>
-            </li>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <div style={{ flex: 1, height: 4, background: 'rgba(20,18,15,.08)', borderRadius: 3, overflow: 'hidden' }}>
+                  <div style={{ width: `${a.fit * 100}%`, height: '100%', background: 'var(--color-rust)' }} />
+                </div>
+                <span className="mono tnum" style={{ fontSize: 10, color: 'var(--color-mute-3)' }}>fit {Math.round(a.fit * 100)}%</span>
+              </div>
+
+              <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+                {a.eventCount > 0
+                  ? <Tag text={`${a.eventCount} signal${a.eventCount === 1 ? '' : 's'}`} tone="rust" />
+                  : <Tag text="quiet" />}
+                {a.score >= meta.icp.threshold && <Tag text="in brief" tone="green" />}
+              </div>
+            </Link>
           ))}
-        </ul>
+        </div>
       )}
-    </div>
+
+      {scored.length === 0 && accounts.length > 0 && (
+        <p style={{ marginTop: 14, fontSize: 12.5, color: 'var(--color-mute-2)' }}>
+          Nothing has scored yet — signals need two snapshots of a source before they can fire.
+        </p>
+      )}
+    </Page>
   )
 }

@@ -16,3 +16,6 @@ data/snapshots/
 
 .vercel
 .DS_Store
+
+# imported design canvas (working reference)
+.design/

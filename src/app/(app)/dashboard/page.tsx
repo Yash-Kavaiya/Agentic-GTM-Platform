@@ -1,245 +1,176 @@
-import { getHeals, getCollectors, getAccounts, getMeta, getAdapters } from '../../../lib/data'
-import { HealthBadge, Stat, Empty } from '../../../components/ui'
-import type { HealEvent, ObservationStats } from '../../../core/types'
+import Link from 'next/link'
+import { getHeals, getCollectors, getAccounts, getMeta, getAdapters, getSignals } from '../../../lib/data'
+import { Page, PageHead, Stat, Pill, Empty } from '../../../components/ui'
 
 /**
- * Dashboard.
+ * Dashboard — pipeline, source health, and what it cost.
  *
- * The Heal Log is the hero. Every other panel reports what the platform found;
- * this one reports what it repaired, with the before/after data that proves it.
+ * Every number here comes from the committed export, which comes from a real
+ * run. Nothing on this page is an estimate.
  */
 export default function DashboardPage() {
-  const { heals, stats } = getHeals()
+  const { stats } = getHeals()
   const collectors = getCollectors()
   const accounts = getAccounts()
   const adapters = getAdapters()
+  const signals = getSignals()
   const meta = getMeta()
 
   const scored = accounts.filter((a) => a.score > 0)
+  const inBrief = accounts.filter((a) => a.score >= meta.icp.threshold)
   const bd = adapters.filter((a) => a.usesBrightData)
+  const types = [...new Set(bd.map((a) => a.scraperType).filter(Boolean))]
+  const healthy = collectors.filter((c) => c.state === 'HEALTHY' || c.state === 'HEALED').length
+
+  // The funnel, from real counts.
+  const funnel = [
+    { label: 'Accounts watched', n: meta.targetCount },
+    { label: 'Signals fired', n: meta.eventCount },
+    { label: 'Accounts scored', n: scored.length },
+    { label: 'Reached the brief', n: inBrief.length },
+  ]
+  const funnelMax = Math.max(...funnel.map((f) => f.n), 1)
 
   return (
-    <div className="space-y-8">
-      <header>
-        <h1 className="text-[26px] font-semibold tracking-tight">Dashboard</h1>
-        <p className="mt-1.5 text-[13px]" style={{ color: 'var(--text-dim)' }}>
-          Last engine run {new Date(meta.generatedAt).toISOString().replace('T', ' ').slice(0, 16)} UTC
-        </p>
-      </header>
+    <Page>
+      <PageHead
+        eyebrow={`Dashboard · engine run ${new Date(meta.generatedAt).toISOString().slice(0, 16).replace('T', ' ')} UTC`}
+        title="Pipeline, health, and what it cost."
+      />
 
-      <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div style={{ display: 'flex', gap: 10, marginBottom: 12, flexWrap: 'wrap' }}>
         <Stat
-          label="Confirmed in production"
-          value={stats.attempts === 0 ? '—' : `${Math.round(stats.successRate * 100)}%`}
-          sub={
-            `${stats.approved} confirmed · ${stats.rejected} rejected` +
-            (stats.ineffective ? ` · ${stats.ineffective} approved but ineffective` : '')
-          }
-        />
-        <Stat
-          label="Median time to heal"
-          value={stats.medianMs ? `${(stats.medianMs / 1000).toFixed(1)}s` : '—'}
-          sub={`${stats.attempts} attempt${stats.attempts === 1 ? '' : 's'}`}
-        />
-        <Stat label="Rows recovered" value={stats.rowsRecovered || '—'} sub="across all repairs" />
-        <Stat
-          label="Sources"
+          label="sources verified"
           value={meta.verifiedSourceCount}
-          sub={`${bd.length} Bright Data · ${adapters.length - bd.length} direct`}
+          sub={`${bd.length} via Bright Data · ${adapters.length - bd.length} direct`}
         />
-      </section>
+        <Stat
+          label="collectors healthy"
+          value={collectors.length === 0 ? '—' : `${healthy}/${collectors.length}`}
+          sub={types.join(' · ') || 'none provisioned'}
+          subTone={healthy === collectors.length && collectors.length > 0 ? 'green' : 'rust'}
+        />
+        <Stat
+          label="repairs confirmed"
+          value={stats.attempts === 0 ? '—' : `${stats.approved}/${stats.attempts}`}
+          sub={
+            stats.ineffective > 0
+              ? `${stats.ineffective} approved but ineffective`
+              : stats.attempts > 0
+                ? `median ${(stats.medianMs / 1000).toFixed(0)}s`
+                : 'nothing has drifted'
+          }
+          subTone={stats.ineffective > 0 ? 'rust' : 'green'}
+        />
+        <Stat label="signal templates" value={signals.length} sub={`${meta.eventCount} events on file`} />
+      </div>
 
-      {/* ---------------------------------------------------------- heal log */}
-      <section>
-        <div className="mb-3 flex items-baseline justify-between">
-          <h2 className="text-[15px] font-semibold">Heal log</h2>
-          <p className="text-[11.5px]" style={{ color: 'var(--text-dim)' }}>
-            Every repair, with the data before and after
-          </p>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: 12, marginBottom: 12 }}>
+        {/* Funnel */}
+        <div className="card" style={{ padding: '18px 20px', display: 'flex', flexDirection: 'column', gap: 14 }}>
+          <h2 style={{ margin: 0, fontSize: 13.5, fontWeight: 600 }}>Pipeline funnel</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            {funnel.map((f) => (
+              <div key={f.label} style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                  <span style={{ fontSize: 12.5, color: 'var(--color-ink-3)' }}>{f.label}</span>
+                  <span className="mono tnum" style={{ fontSize: 11, color: 'var(--color-mute)' }}>
+                    {f.n}
+                  </span>
+                </div>
+                <div style={{ height: 6, background: 'rgba(20,18,15,.07)', borderRadius: 3, overflow: 'hidden' }}>
+                  <div
+                    style={{
+                      width: `${(f.n / funnelMax) * 100}%`,
+                      height: '100%',
+                      background: 'var(--color-rust)',
+                      borderRadius: 3,
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {heals.length === 0 ? (
-          <Empty
-            title="No repairs yet."
-            hint={
-              <>
-                A heal is recorded when a collector drifts — its fields go null or its row count
-                collapses — and Bellwether repairs it. Nothing has drifted yet. Run{' '}
-                <code className="mono">npm run bench</code> to inject drift into the fixture and
-                measure the loop end to end.
-              </>
-            }
-          />
-        ) : (
-          <ul className="space-y-3">
-            {heals.map((h) => (
-              <HealCard key={h.id} heal={h} />
-            ))}
-          </ul>
-        )}
-      </section>
+        {/* Top accounts */}
+        <div className="card" style={{ padding: '18px 20px', display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <h2 style={{ margin: 0, fontSize: 13.5, fontWeight: 600 }}>Highest scoring</h2>
+          {scored.length === 0 ? (
+            <p style={{ margin: 0, fontSize: 12.5, color: 'var(--color-mute-2)' }}>
+              Nothing has scored yet.
+            </p>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              {scored.slice(0, 8).map((a, i) => (
+                <Link
+                  key={a.targetId}
+                  href={`/accounts/${a.targetId}`}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    padding: '8px 0',
+                    borderTop: i === 0 ? 'none' : '1px solid rgba(20,18,15,.06)',
+                    color: 'inherit',
+                  }}
+                >
+                  <span style={{ flex: 1, fontSize: 12.5, minWidth: 0 }}>{a.name}</span>
+                  <span className="mono tnum" style={{ fontSize: 10.5, color: 'var(--color-mute-3)' }}>
+                    fit {Math.round(a.fit * 100)}%
+                  </span>
+                  <span className="display tnum" style={{ fontSize: 18, width: 32, textAlign: 'right' }}>
+                    {a.score}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
 
-      {/* ------------------------------------------------------ signal health */}
+      {/* Source health */}
       <section>
-        <h2 className="mb-3 text-[15px] font-semibold">Signal health</h2>
+        <h2 style={{ margin: '0 0 10px', fontSize: 13.5, fontWeight: 600 }}>Source health</h2>
         {collectors.length === 0 ? (
           <Empty
             title="No collectors provisioned."
             hint={
               <>
-                Run <code className="mono">bdata login</code> then{' '}
-                <code className="mono">npm run bw:provision</code>. Feed and job-board sources need
-                no collector — they already publish structured data.
+                Feed and job-board sources need none — they already publish structured data. Pages
+                that need real extraction get a collector each.
               </>
             }
           />
         ) : (
-          <div className="card divide-y" style={{ borderColor: 'var(--border)' }}>
-            {collectors.map((c) => (
-              <div key={c.collectorId} className="flex flex-wrap items-center gap-3 px-4 py-3">
-                <div className="min-w-0 flex-1">
-                  <p className="text-[13px] font-medium">{c.key}</p>
-                  <p className="mono truncate text-[11px]" style={{ color: 'var(--text-dim)' }}>
-                    {c.collectorId} · {c.scraperType} · {c.seedUrl}
-                  </p>
-                </div>
-                <HealthBadge state={c.state} />
+          <div className="card" style={{ overflow: 'hidden' }}>
+            {collectors.map((c, i) => (
+              <div
+                key={c.collectorId}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 12,
+                  padding: '13px 18px',
+                  borderTop: i === 0 ? 'none' : '1px solid var(--line)',
+                  flexWrap: 'wrap',
+                }}
+              >
+                <span style={{ fontSize: 12.5, fontWeight: 500, width: 200, flex: 'none' }}>{c.key}</span>
+                <span className="mono" style={{ flex: 1, minWidth: 200, fontSize: 10.5, color: 'var(--color-mute-3)', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                  {c.collectorId} · {c.scraperType} · {c.seedUrl}
+                </span>
+                <Pill state={c.state} />
               </div>
             ))}
           </div>
         )}
-      </section>
-
-      {/* ------------------------------------------------------------ pipeline */}
-      <section>
-        <h2 className="mb-3 text-[15px] font-semibold">Pipeline</h2>
-        {scored.length === 0 ? (
-          <Empty title="No accounts have scored yet." hint="Signals need two snapshots of a source before they can fire." />
-        ) : (
-          <div className="card overflow-x-auto">
-            <table className="w-full text-[13px]">
-              <thead>
-                <tr className="border-b hairline text-left text-[11px] uppercase tracking-wide" style={{ color: 'var(--text-dim)' }}>
-                  <th className="px-4 py-2.5 font-medium">Account</th>
-                  <th className="px-4 py-2.5 font-medium">Fit</th>
-                  <th className="px-4 py-2.5 font-medium">Signals</th>
-                  <th className="px-4 py-2.5 text-right font-medium">Score</th>
-                </tr>
-              </thead>
-              <tbody>
-                {scored.slice(0, 15).map((a) => (
-                  <tr key={a.targetId} className="border-b last:border-0 hairline">
-                    <td className="px-4 py-2.5">
-                      <span className="font-medium">{a.name}</span>
-                      <span className="mono ml-2 text-[11px]" style={{ color: 'var(--text-dim)' }}>
-                        {a.domain}
-                      </span>
-                    </td>
-                    <td className="tnum px-4 py-2.5" style={{ color: 'var(--text-dim)' }}>
-                      {Math.round(a.fit * 100)}%
-                    </td>
-                    <td className="tnum px-4 py-2.5" style={{ color: 'var(--text-dim)' }}>
-                      {a.eventCount}
-                    </td>
-                    <td className="tnum px-4 py-2.5 text-right font-semibold">{a.score}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </section>
-    </div>
-  )
-}
-
-/**
- * One repair, with the evidence that it worked.
- *
- * The symptom is shown in full because it is the interesting part: it opens
- * with the user's own plain-language description of what they wanted, and only
- * then says what broke. That is the string doing double duty.
- */
-function HealCard({ heal }: { heal: HealEvent }) {
-  const ok = heal.verdict === 'approved'
-  const color = ok
-    ? 'var(--color-healthy)'
-    : heal.verdict === 'rejected'
-      ? 'var(--color-degraded)'
-      : 'var(--color-quarantined)'
-  const verdictLabel =
-    heal.verdict === 'approved_ineffective' ? 'approved, but production unchanged' : heal.verdict
-
-  return (
-    <li className="card overflow-hidden">
-      <div className="flex flex-wrap items-center gap-3 border-b hairline px-4 py-3">
-        <span className="mono text-[12px]">{heal.collectorId}</span>
-        <span className="text-[12px]" style={{ color: 'var(--text-dim)' }}>
-          {heal.signalId} · {heal.targetId} · attempt {heal.attempt}
-        </span>
-        <span className="ml-auto flex items-center gap-2.5">
-          {heal.durationMs !== null && (
-            <span className="mono tnum text-[11px]" style={{ color: 'var(--text-dim)' }}>
-              {(heal.durationMs / 1000).toFixed(1)}s
-            </span>
-          )}
-          {heal.rowsRecovered ? (
-            <span className="mono tnum text-[11px]" style={{ color: 'var(--color-healthy)' }}>
-              +{heal.rowsRecovered} rows
-            </span>
-          ) : null}
-          <span className="rounded-full px-2 py-0.5 text-[11px] font-medium" style={{ color, background: `color-mix(in oklch, ${color} 14%, transparent)` }}>
-            {verdictLabel ?? `${heal.fromState} → ${heal.toState}`}
-          </span>
-        </span>
-      </div>
-
-      <div className="px-4 py-3">
-        <p className="text-[11px] uppercase tracking-wide" style={{ color: 'var(--text-dim)' }}>
-          Repair prompt sent to Bright Data
+        <p style={{ margin: '10px 0 0', fontSize: 12, lineHeight: 1.55, color: 'var(--color-mute-2)', maxWidth: 620, textWrap: 'pretty' }}>
+          A collector is bound to the page it was generated from, so each watched account gets its
+          own. That is why one account&rsquo;s redesign degrades one collector rather than silently
+          emptying a signal across the whole watchlist.
         </p>
-        <p className="mono mt-1 text-[11.5px] leading-relaxed">{heal.symptom}</p>
-      </div>
-
-      {(heal.before || heal.after) && (
-        <div className="grid gap-px sm:grid-cols-2" style={{ background: 'var(--border)' }}>
-          <StatsPane label="Before" stats={heal.before} tone="var(--color-quarantined)" />
-          <StatsPane label="After" stats={heal.after} tone="var(--color-healthy)" />
-        </div>
-      )}
-
-      {heal.error && (
-        <p className="mono px-4 py-2 text-[11.5px]" style={{ color: 'var(--color-quarantined)' }}>
-          {heal.error}
-        </p>
-      )}
-    </li>
-  )
-}
-
-function StatsPane({ label, stats, tone }: { label: string; stats: ObservationStats | null; tone: string }) {
-  return (
-    <div className="px-4 py-3" style={{ background: 'var(--surface)' }}>
-      <p className="text-[11px] uppercase tracking-wide" style={{ color: tone }}>
-        {label}
-      </p>
-      {!stats ? (
-        <p className="mono mt-1 text-[11.5px]" style={{ color: 'var(--text-dim)' }}>—</p>
-      ) : (
-        <div className="mono mt-1.5 space-y-1 text-[11.5px]">
-          <p className="tnum">
-            <span style={{ color: 'var(--text-dim)' }}>rows</span> {stats.rowCount}
-          </p>
-          {stats.fields.map((f) => (
-            <p key={f.field} className="tnum flex justify-between gap-3">
-              <span className="truncate" style={{ color: 'var(--text-dim)' }}>{f.field}</span>
-              <span style={{ color: f.nullRate > 0.5 ? 'var(--color-quarantined)' : undefined }}>
-                {Math.round(f.nullRate * 100)}% null
-              </span>
-            </p>
-          ))}
-        </div>
-      )}
-    </div>
+      </section>
+    </Page>
   )
 }
