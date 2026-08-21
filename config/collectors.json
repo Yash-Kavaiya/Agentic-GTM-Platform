@@ -8,5 +8,35 @@
     "watch": "the pricing tiers on this page - for each tier, its name, its price, and the exact text of its call-to-action button\n",
     "createdAt": "2026-08-21T09:52:45.511Z",
     "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2rouon238y52ni4l"
+  },
+  "customers": {
+    "key": "customers",
+    "signalId": "segment_shift",
+    "collectorId": "c_mt2rukhggjr0d0t36",
+    "scraperType": "PDP",
+    "seedUrl": "https://posthog.com/customers",
+    "watch": "every customer logo or case study on this page - the company name shown and any descriptive label or industry tag beside it\n",
+    "createdAt": "2026-08-21T09:55:48.893Z",
+    "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2rukhggjr0d0t36"
+  },
+  "security": {
+    "key": "security",
+    "signalId": "enterprise_readiness",
+    "collectorId": "c_mt2runt71zsd8j0kua",
+    "scraperType": "PDP",
+    "seedUrl": "https://cal.com/security",
+    "watch": "the compliance and certification badges listed on this page - the name of each standard or certification, and any status text shown next to it\n",
+    "createdAt": "2026-08-21T09:57:52.166Z",
+    "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2runt71zsd8j0kua"
+  },
+  "integrations": {
+    "key": "integrations",
+    "signalId": "ecosystem_expansion",
+    "collectorId": "c_mt2rum5b119vdu2i7a",
+    "scraperType": "PDP",
+    "seedUrl": "https://posthog.com/integrations",
+    "watch": "every integration or partner listed on this page - the name of the integrated product and the category it is filed under\n",
+    "createdAt": "2026-08-21T10:01:19.974Z",
+    "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2rum5b119vdu2i7a"
   }
 }
