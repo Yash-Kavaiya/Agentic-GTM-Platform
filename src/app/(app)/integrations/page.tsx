@@ -1,4 +1,4 @@
-import { getCollectors, getMeta } from '../../../lib/data'
+import { getCollectors, getMeta, getCapabilities } from '../../../lib/data'
 import { Page, PageHead, Tag } from '../../../components/ui'
 import { buildCatalog, STATUS_LABEL, type Integration, type IntegrationStatus } from '../../../core/integrations'
 
@@ -13,18 +13,15 @@ export default function IntegrationsPage() {
   const collectors = getCollectors()
   const meta = getMeta()
 
+  const caps = getCapabilities()
   const catalog = buildCatalog({
-    hasApiKey: Boolean(process.env.BRIGHTDATA_API_KEY),
-    zones: [
-      process.env.BRIGHTDATA_SERP_ZONE ?? '',
-      process.env.BRIGHTDATA_BROWSER_ZONE ?? '',
-      process.env.BRIGHTDATA_UNLOCKER_ZONE ?? '',
-    ].filter(Boolean),
+    hasApiKey: caps.hasApiKey,
+    zones: caps.zones,
     collectorCount: collectors.length,
     verifiedSourceCount: meta.verifiedSourceCount,
     jobBoardCount: meta.jobBoardCount,
-    webhookConfigured: Boolean(process.env.BELLWETHER_WEBHOOK_URL),
-    slackConfigured: Boolean(process.env.BELLWETHER_SLACK_WEBHOOK_URL),
+    webhookConfigured: caps.webhookConfigured,
+    slackConfigured: caps.slackConfigured,
   })
 
   const groups: { vendor: Integration['vendor']; blurb: string }[] = [

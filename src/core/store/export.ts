@@ -158,6 +158,23 @@ export function exportAll(store: Store, at: string = new Date().toISOString()): 
     }
   }
 
+  /**
+   * Integration state, captured here rather than read from process.env in the
+   * page. The web app runs on a host that has none of these variables, so a
+   * page reading them directly would report a configured zone as missing.
+   */
+  write('capabilities.json', {
+    generatedAt: at,
+    hasApiKey: Boolean(process.env.BRIGHTDATA_API_KEY),
+    zones: [
+      process.env.BRIGHTDATA_SERP_ZONE,
+      process.env.BRIGHTDATA_BROWSER_ZONE,
+      process.env.BRIGHTDATA_UNLOCKER_ZONE,
+    ].filter((z): z is string => Boolean(z)),
+    webhookConfigured: Boolean(process.env.BELLWETHER_WEBHOOK_URL),
+    slackConfigured: Boolean(process.env.BELLWETHER_SLACK_WEBHOOK_URL),
+  })
+
   write('meta.json', {
     generatedAt: at,
     signalCount: signals.length,

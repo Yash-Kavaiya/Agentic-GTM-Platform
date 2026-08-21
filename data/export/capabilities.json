@@ -1,0 +1,10 @@
+{
+  "generatedAt": "2026-08-21T23:59:59.999Z",
+  "hasApiKey": true,
+  "zones": [
+    "serp_api1",
+    "scraping_browser1"
+  ],
+  "webhookConfigured": false,
+  "slackConfigured": false
+}

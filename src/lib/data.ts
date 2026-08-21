@@ -146,3 +146,18 @@ export const getProfiles = (): Record<string, ProfileView> =>
   read<{ profiles: Record<string, ProfileView> }>('profiles.json', { profiles: {} }).profiles
 
 export const getProfile = (targetId: string): ProfileView | undefined => getProfiles()[targetId]
+
+export interface Capabilities {
+  hasApiKey: boolean
+  zones: string[]
+  webhookConfigured: boolean
+  slackConfigured: boolean
+}
+
+export const getCapabilities = (): Capabilities =>
+  read<Capabilities>('capabilities.json', {
+    hasApiKey: false,
+    zones: [],
+    webhookConfigured: false,
+    slackConfigured: false,
+  })
