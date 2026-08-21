@@ -1,0 +1,113 @@
+@import 'tailwindcss';
+
+/**
+ * Bellwether design tokens.
+ *
+ * A bellwether is the lead sheep that wears the bell — the one whose movement
+ * the flock follows. The interface is built around that: what moved, how much,
+ * and on what evidence. Dense, quiet, and legible at a glance, because this is
+ * a screen someone opens every morning before their first coffee.
+ */
+@theme {
+  --color-ink-950: oklch(0.16 0.012 260);
+  --color-ink-900: oklch(0.20 0.014 260);
+  --color-ink-850: oklch(0.24 0.016 260);
+  --color-ink-800: oklch(0.29 0.018 260);
+  --color-ink-700: oklch(0.38 0.018 260);
+  --color-ink-500: oklch(0.60 0.016 260);
+  --color-ink-300: oklch(0.78 0.012 260);
+  --color-ink-100: oklch(0.93 0.008 260);
+  --color-ink-50: oklch(0.97 0.005 260);
+
+  /* Brass — the bell. Used for the signal that matters. */
+  --color-brass-500: oklch(0.76 0.14 78);
+  --color-brass-400: oklch(0.82 0.13 82);
+  --color-brass-300: oklch(0.88 0.09 85);
+
+  --color-healthy: oklch(0.72 0.15 155);
+  --color-degraded: oklch(0.76 0.16 65);
+  --color-healing: oklch(0.72 0.14 240);
+  --color-quarantined: oklch(0.65 0.20 20);
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace;
+}
+
+:root {
+  --bg: var(--color-ink-50);
+  --surface: #fff;
+  --surface-2: var(--color-ink-100);
+  --border: oklch(0.89 0.008 260);
+  --text: var(--color-ink-950);
+  --text-dim: var(--color-ink-500);
+  --accent: oklch(0.58 0.13 78);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: var(--color-ink-950);
+    --surface: var(--color-ink-900);
+    --surface-2: var(--color-ink-850);
+    --border: var(--color-ink-800);
+    --text: var(--color-ink-50);
+    --text-dim: var(--color-ink-500);
+    --accent: var(--color-brass-400);
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: var(--color-ink-950);
+  --surface: var(--color-ink-900);
+  --surface-2: var(--color-ink-850);
+  --border: var(--color-ink-800);
+  --text: var(--color-ink-50);
+  --text-dim: var(--color-ink-500);
+  --accent: var(--color-brass-400);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Numerals should line up in score columns and diff tables. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Evidence is quoted machine output. It reads as such. */
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: -0.01em;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+
+.hairline {
+  border-color: var(--border);
+}
+
+/* A cited claim carries a visible thread back to its source. */
+.evidence {
+  border-left: 2px solid var(--accent);
+  padding-left: 0.875rem;
+}
+
+.evidence-blocked {
+  border-left-color: var(--color-quarantined);
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+.pulsing {
+  animation: pulse-soft 1.6s ease-in-out infinite;
+}

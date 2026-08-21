@@ -1,0 +1,402 @@
+{
+  "generatedAt": "2026-08-21T05:53:54.308Z",
+  "signals": [
+    {
+      "id": "moving_upmarket",
+      "name": "Moving Upmarket",
+      "category": "pricing",
+      "adapter": "web",
+      "path": "/pricing",
+      "watch": "the pricing tiers on this page - for each tier, its name, its price, and the exact text of its call-to-action button\n",
+      "fields": {
+        "required": [
+          "tiers[].name"
+        ],
+        "optional": [
+          "tiers[].price",
+          "tiers[].cta"
+        ]
+      },
+      "fire_when": {
+        "any": [
+          {
+            "field": "tiers[].name",
+            "op": "appears_matching",
+            "value": "(?i)enterprise|business|custom",
+            "direction": "any",
+            "window_days": 30
+          },
+          {
+            "field": "tiers[].cta",
+            "op": "appears_matching",
+            "value": "(?i)contact sales|talk to sales|book a demo",
+            "direction": "any",
+            "window_days": 30
+          }
+        ]
+      },
+      "evidence_template": "Added a {{tier.name}} tier with \"{{tier.cta}}\" on {{observed_at}}",
+      "weight": 30,
+      "cadence": "daily",
+      "coverage": 20,
+      "collector": null
+    },
+    {
+      "id": "price_change",
+      "name": "Price Change",
+      "category": "pricing",
+      "adapter": "web",
+      "path": "/pricing",
+      "watch": "the pricing tiers on this page - for each tier, its name, its price, and the exact text of its call-to-action button\n",
+      "fields": {
+        "required": [
+          "tiers[].name"
+        ],
+        "optional": [
+          "tiers[].price",
+          "tiers[].cta"
+        ]
+      },
+      "fire_when": {
+        "any": [
+          {
+            "field": "tiers[].price",
+            "op": "value_changed",
+            "direction": "any",
+            "window_days": 30
+          }
+        ]
+      },
+      "evidence_template": "{{tier.name}} moved from {{tier.price_before}} to {{tier.price}} on {{observed_at}}",
+      "weight": 24,
+      "cadence": "daily",
+      "coverage": 20,
+      "collector": null
+    },
+    {
+      "id": "enterprise_readiness",
+      "name": "Enterprise Readiness",
+      "category": "posture",
+      "adapter": "web",
+      "path": "/security",
+      "watch": "the compliance and certification badges listed on this page - the name of each standard or certification, and any status text shown next to it\n",
+      "fields": {
+        "required": [
+          "badges[].name"
+        ],
+        "optional": [
+          "badges[].status"
+        ]
+      },
+      "fire_when": {
+        "any": [
+          {
+            "field": "badges[].name",
+            "op": "appears_matching",
+            "value": "(?i)soc ?2|iso ?27001|hipaa|fedramp|gdpr",
+            "direction": "any",
+            "window_days": 30
+          }
+        ]
+      },
+      "evidence_template": "Published a {{badge.name}} badge on {{observed_at}}",
+      "weight": 26,
+      "cadence": "weekly",
+      "coverage": 14,
+      "collector": null
+    },
+    {
+      "id": "building_the_function",
+      "name": "Building the Function",
+      "category": "hiring",
+      "adapter": "jobs",
+      "watch": "every open role on this job board - the job title, the department, the location, and the full text of the job description\n",
+      "fields": {
+        "required": [
+          "jobs[].title"
+        ],
+        "optional": [
+          "jobs[].department",
+          "jobs[].location",
+          "jobs[].description",
+          "jobs[].posted_at"
+        ]
+      },
+      "fire_when": {
+        "any": [
+          {
+            "field": "jobs[].title",
+            "op": "appears_matching",
+            "value": "(?i)revops|revenue operations|gtm engineer|sales engineer|growth engineer",
+            "direction": "any",
+            "window_days": 30
+          }
+        ]
+      },
+      "evidence_template": "Posted \"{{job.title}}\" on {{job.posted_at}}",
+      "weight": 22,
+      "cadence": "daily",
+      "coverage": 11,
+      "collector": null
+    },
+    {
+      "id": "headcount_surge",
+      "name": "Headcount Surge",
+      "category": "hiring",
+      "adapter": "jobs",
+      "watch": "every open role on this job board - the job title, the department, the location, and the full text of the job description\n",
+      "fields": {
+        "required": [
+          "jobs[].title"
+        ],
+        "optional": [
+          "jobs[].department",
+          "jobs[].location",
+          "jobs[].description",
+          "jobs[].posted_at"
+        ]
+      },
+      "fire_when": {
+        "any": [
+          {
+            "field": "jobs[]",
+            "op": "count_delta_pct",
+            "value": 30,
+            "direction": "up",
+            "window_days": 30
+          }
+        ]
+      },
+      "evidence_template": "Open roles grew {{delta_pct}}% in {{window_days}} days, to {{count}}",
+      "weight": 18,
+      "cadence": "daily",
+      "coverage": 11,
+      "collector": null
+    },
+    {
+      "id": "stack_adoption",
+      "name": "Stack Adoption",
+      "category": "hiring",
+      "adapter": "jobs",
+      "watch": "every open role on this job board - the job title, the department, the location, and the full text of the job description\n",
+      "fields": {
+        "required": [
+          "jobs[].title"
+        ],
+        "optional": [
+          "jobs[].description"
+        ]
+      },
+      "fire_when": {
+        "any": [
+          {
+            "field": "jobs[].description",
+            "op": "appears_matching",
+            "value": "(?i)snowflake|databricks|dbt|segment|hubspot|salesforce|clickhouse",
+            "direction": "any",
+            "window_days": 30
+          }
+        ]
+      },
+      "evidence_template": "{{match}} named in the \"{{job.title}}\" job description",
+      "weight": 20,
+      "cadence": "daily",
+      "coverage": 11,
+      "collector": null
+    },
+    {
+      "id": "ecosystem_expansion",
+      "name": "Ecosystem Expansion",
+      "category": "product",
+      "adapter": "web",
+      "path": "/integrations",
+      "watch": "every integration or partner listed on this page - the name of the integrated product and the category it is filed under\n",
+      "fields": {
+        "required": [
+          "integrations[].name"
+        ],
+        "optional": [
+          "integrations[].category"
+        ]
+      },
+      "fire_when": {
+        "any": [
+          {
+            "field": "integrations[].name",
+            "op": "appears_matching",
+            "value": ".+",
+            "direction": "any",
+            "window_days": 30
+          }
+        ]
+      },
+      "evidence_template": "Added a {{integration.name}} integration on {{observed_at}}",
+      "weight": 16,
+      "cadence": "weekly",
+      "coverage": 14,
+      "collector": null
+    },
+    {
+      "id": "segment_shift",
+      "name": "Segment Shift",
+      "category": "product",
+      "adapter": "web",
+      "path": "/customers",
+      "watch": "every customer logo or case study on this page - the company name shown and any descriptive label or industry tag beside it\n",
+      "fields": {
+        "required": [
+          "customers[].name"
+        ],
+        "optional": [
+          "customers[].label"
+        ]
+      },
+      "fire_when": {
+        "any": [
+          {
+            "field": "customers[].name",
+            "op": "appears_matching",
+            "value": ".+",
+            "direction": "any",
+            "window_days": 30
+          }
+        ]
+      },
+      "evidence_template": "Added {{customer.name}} to the customer wall on {{observed_at}}",
+      "weight": 14,
+      "cadence": "weekly",
+      "coverage": 19,
+      "collector": null
+    },
+    {
+      "id": "leadership_change",
+      "name": "Leadership Change",
+      "category": "org",
+      "adapter": "web",
+      "path": "/about",
+      "watch": "the leadership roles listed on this page - the job title of each leadership position shown, and the team or function it leads\n",
+      "fields": {
+        "required": [
+          "roles[].title"
+        ],
+        "optional": [
+          "roles[].function"
+        ]
+      },
+      "fire_when": {
+        "any": [
+          {
+            "field": "roles[].title",
+            "op": "appears_matching",
+            "value": "(?i)chief revenue|cro|vp of (sales|revenue|marketing)",
+            "direction": "any",
+            "window_days": 30
+          }
+        ]
+      },
+      "evidence_template": "A {{role.title}} seat appeared on the leadership page on {{observed_at}}",
+      "weight": 21,
+      "cadence": "weekly",
+      "coverage": 15,
+      "collector": null
+    },
+    {
+      "id": "shipping_velocity",
+      "name": "Shipping Velocity",
+      "category": "product",
+      "adapter": "rss",
+      "path": "/changelog/rss.xml",
+      "watch": "every release note in this feed - the release title, its publication date, and the summary text\n",
+      "fields": {
+        "required": [
+          "entries[].title",
+          "entries[].published_at"
+        ],
+        "optional": [
+          "entries[].summary"
+        ]
+      },
+      "fire_when": {
+        "any": [
+          {
+            "field": "entries[]",
+            "op": "count_delta_pct",
+            "value": 40,
+            "direction": "any",
+            "window_days": 30
+          }
+        ]
+      },
+      "evidence_template": "Release cadence moved {{delta_pct}}% over {{window_days}} days",
+      "weight": 15,
+      "cadence": "daily",
+      "coverage": 2,
+      "collector": null
+    },
+    {
+      "id": "announcement",
+      "name": "Announcement",
+      "category": "news",
+      "adapter": "rss",
+      "path": "/blog/rss.xml",
+      "watch": "every post in this feed - the post title, its publication date, and the summary text\n",
+      "fields": {
+        "required": [
+          "entries[].title",
+          "entries[].published_at"
+        ],
+        "optional": [
+          "entries[].summary"
+        ]
+      },
+      "fire_when": {
+        "any": [
+          {
+            "field": "entries[].title",
+            "op": "appears_matching",
+            "value": "(?i)series [abcd]|acquires|acquisition|partnership|launches",
+            "direction": "any",
+            "window_days": 30
+          }
+        ]
+      },
+      "evidence_template": "Published \"{{entry.title}}\" on {{entry.published_at}}",
+      "weight": 25,
+      "cadence": "daily",
+      "coverage": 5,
+      "collector": null
+    },
+    {
+      "id": "surface_growth",
+      "name": "Surface Growth",
+      "category": "product",
+      "adapter": "sitemap",
+      "path": "/sitemap.xml",
+      "watch": "every documentation URL listed in this sitemap, together with the last-modified date reported for each one\n",
+      "fields": {
+        "required": [
+          "urls[].loc"
+        ],
+        "optional": [
+          "urls[].lastmod"
+        ]
+      },
+      "fire_when": {
+        "any": [
+          {
+            "field": "urls[]",
+            "op": "count_delta_pct",
+            "value": 20,
+            "direction": "up",
+            "window_days": 30
+          }
+        ]
+      },
+      "evidence_template": "Documentation grew {{delta_pct}}% to {{count}} pages",
+      "weight": 12,
+      "cadence": "weekly",
+      "coverage": 20,
+      "collector": null
+    }
+  ]
+}

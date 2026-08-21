@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-08-21T05:53:54.308Z",
+  "signalCount": 12,
+  "targetCount": 20,
+  "collectorCount": 0,
+  "eventCount": 0,
+  "verifiedSourceCount": 129,
+  "icp": {
+    "name": "Mid-market B2B SaaS moving upmarket",
+    "threshold": 40
+  }
+}

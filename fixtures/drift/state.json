@@ -1,0 +1,6 @@
+{
+  "note": "Which fixture cases currently serve the redesigned markup. Flipping a case here and redeploying genuinely changes the DOM at a stable URL -- the same thing a real site does when it ships a redesign. This is the drift-injection switch for `npm run bench`.",
+  "variant": "v1",
+  "drifted": [],
+  "history": []
+}

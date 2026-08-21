@@ -16,6 +16,10 @@ import { loadSignals, loadTargets, getSignal } from '../src/core/config/load.js'
 import { loadCollectors } from '../src/core/adapters/web.js'
 import { allAdapters } from '../src/core/adapters/index.js'
 import { checkAndHeal } from '../src/core/anneal/heal.js'
+import { buildBrief, renderBriefText } from '../src/core/brief.js'
+import { exportAll } from '../src/core/store/export.js'
+import { loadIcp } from '../src/core/config/load.js'
+import { dayOf } from '../src/core/clock.js'
 
 const argv = process.argv.slice(2)
 const command = argv[0] ?? 'help'
@@ -134,10 +138,40 @@ async function cmdHeal() {
   store.close()
 }
 
+function cmdBrief() {
+  const store = new Store()
+  const date = flag('date') ?? dayOf(new Date())
+  const at = `${date}T23:59:59.999Z`
+
+  const brief = buildBrief({
+    date,
+    targets: loadTargets(),
+    events: store.eventsUpTo(at, 90),
+    signals: loadSignals(),
+    icp: loadIcp(),
+    health: store.healthMap(),
+    windowHours: Number(flag('window') ?? 24),
+  })
+
+  console.log(renderBriefText(brief))
+  store.close()
+}
+
+function cmdExport() {
+  const store = new Store()
+  const at = flag('date') ? `${flag('date')}T23:59:59.999Z` : new Date().toISOString()
+  const result = exportAll(store, at)
+  console.log(`exported ${result.files.length} files to data/export/`)
+  for (const [k, v] of Object.entries(result.counts)) console.log(`  ${k.padEnd(14)} ${v}`)
+  store.close()
+}
+
 function help() {
   console.log(`bellwether — agentic GTM signal platform
 
   run     [--signal a,b] [--target a,b] [--date ISO] [--no-heal]
+  brief   [--date YYYY-MM-DD] [--window HOURS]
+  export  [--date YYYY-MM-DD]
   status
   heal    <collectorId>
 `)
@@ -146,6 +180,8 @@ function help() {
 const commands: Record<string, () => void | Promise<void>> = {
   run: cmdRun,
   status: cmdStatus,
+  brief: cmdBrief,
+  export: cmdExport,
   heal: cmdHeal,
   help,
 }

@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2026-08-21T05:53:54.308Z",
+  "heals": [],
+  "stats": {
+    "attempts": 0,
+    "approved": 0,
+    "rejected": 0,
+    "errored": 0,
+    "quarantined": 0,
+    "successRate": 0,
+    "medianMs": 0,
+    "rowsRecovered": 0
+  }
+}

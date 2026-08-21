@@ -1,0 +1,865 @@
+{
+  "generatedAt": "2026-08-21T05:53:54.308Z",
+  "accounts": [
+    {
+      "targetId": "posthog",
+      "name": "PostHog",
+      "domain": "posthog.com",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 0.8,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": true,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": false,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "cal",
+      "name": "Cal.com",
+      "domain": "cal.com",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 0.8,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": false,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "supabase",
+      "name": "Supabase",
+      "domain": "supabase.com",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 1,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": true,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "resend",
+      "name": "Resend",
+      "domain": "resend.com",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 0.8,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": true,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": false,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "dub",
+      "name": "Dub",
+      "domain": "dub.co",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 0.8,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": false,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "hightouch",
+      "name": "Hightouch",
+      "domain": "hightouch.com",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 1,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": true,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "airbyte",
+      "name": "Airbyte",
+      "domain": "airbyte.com",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 0.8,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": true,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": false,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "metabase",
+      "name": "Metabase",
+      "domain": "metabase.com",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 1,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": true,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "vanta",
+      "name": "Vanta",
+      "domain": "vanta.com",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 1,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": true,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "retool",
+      "name": "Retool",
+      "domain": "retool.com",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 0.6000000000000001,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": false,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": false,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "linear",
+      "name": "Linear",
+      "domain": "linear.app",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 1,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": true,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "neon",
+      "name": "Neon",
+      "domain": "neon.tech",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 0.8,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": false,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "railway",
+      "name": "Railway",
+      "domain": "railway.app",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 1,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": true,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "clerk",
+      "name": "Clerk",
+      "domain": "clerk.com",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 0.8,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": true,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": false,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "unkey",
+      "name": "Unkey",
+      "domain": "unkey.com",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 0.4,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": false,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": false,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": false,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "trigger",
+      "name": "Trigger.dev",
+      "domain": "trigger.dev",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 0.4,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": false,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": false,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": false,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "inngest",
+      "name": "Inngest",
+      "domain": "inngest.com",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 0.8,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": true,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": false,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "zluri",
+      "name": "Zluri",
+      "domain": "zluri.com",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 0.8,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": false,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "pylon",
+      "name": "Pylon",
+      "domain": "usepylon.com",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 0.8,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": false,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": true,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    },
+    {
+      "targetId": "documenso",
+      "name": "Documenso",
+      "domain": "documenso.com",
+      "score": 0,
+      "previousScore": 0,
+      "delta": 0,
+      "fit": 0.4,
+      "fitBreakdown": [
+        {
+          "criterionId": "has_public_pricing",
+          "met": true,
+          "weight": 0.25,
+          "description": "Publishes a pricing page with named tiers"
+        },
+        {
+          "criterionId": "has_public_job_board",
+          "met": false,
+          "weight": 0.2,
+          "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+        },
+        {
+          "criterionId": "has_docs_site",
+          "met": true,
+          "weight": 0.15,
+          "description": "Maintains a public documentation site with a sitemap"
+        },
+        {
+          "criterionId": "has_integrations_page",
+          "met": false,
+          "weight": 0.2,
+          "description": "Publishes an integrations or partners directory"
+        },
+        {
+          "criterionId": "has_security_page",
+          "met": false,
+          "weight": 0.2,
+          "description": "Publishes a security, trust, or compliance page"
+        }
+      ],
+      "signals": [],
+      "eventCount": 0
+    }
+  ]
+}

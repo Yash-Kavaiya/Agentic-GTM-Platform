@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-08-21T05:53:54.308Z",
+  "collectors": [],
+  "adapters": [
+    {
+      "kind": "web",
+      "usesBrightData": true,
+      "scraperType": "PDP"
+    },
+    {
+      "kind": "jobs",
+      "usesBrightData": false,
+      "scraperType": null
+    },
+    {
+      "kind": "rss",
+      "usesBrightData": false,
+      "scraperType": null
+    },
+    {
+      "kind": "sitemap",
+      "usesBrightData": false,
+      "scraperType": null
+    },
+    {
+      "kind": "docs",
+      "usesBrightData": true,
+      "scraperType": "Sitemap"
+    },
+    {
+      "kind": "search",
+      "usesBrightData": true,
+      "scraperType": "Search"
+    }
+  ]
+}

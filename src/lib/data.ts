@@ -1,0 +1,109 @@
+/**
+ * Export readers.
+ *
+ * The web app never touches the database, the network, or the Bright Data CLI.
+ * It reads the JSON the engine committed, at build time. That is what keeps the
+ * deployed app a pure function of the repo — and what makes the heal log
+ * reviewable as a git diff.
+ */
+import { readFileSync, existsSync } from 'node:fs'
+import { join } from 'node:path'
+import type { Brief } from '../core/brief.js'
+import type { ScoredAccount } from '../core/signals/score.js'
+import type { SignalSpec, HealEvent, HealthState } from '../core/types.js'
+
+const DIR = join(process.cwd(), 'data', 'export')
+
+function read<T>(name: string, fallback: T): T {
+  const path = join(DIR, name)
+  if (!existsSync(path)) return fallback
+  try {
+    return JSON.parse(readFileSync(path, 'utf8')) as T
+  } catch {
+    return fallback
+  }
+}
+
+export interface CollectorView {
+  key: string
+  signalId: string
+  collectorId: string
+  scraperType: string
+  seedUrl: string
+  watch: string
+  createdAt: string
+  viewUrl?: string
+  state: HealthState | 'UNKNOWN'
+}
+
+export interface AdapterView {
+  kind: string
+  usesBrightData: boolean
+  scraperType: string | null
+}
+
+export type SignalView = SignalSpec & {
+  coverage: number
+  collector: { collectorId: string; scraperType: string } | null
+}
+
+export interface HealStats {
+  attempts: number
+  approved: number
+  rejected: number
+  errored: number
+  quarantined: number
+  successRate: number
+  medianMs: number
+  rowsRecovered: number
+}
+
+const EMPTY_BRIEF: Brief = {
+  date: new Date().toISOString().slice(0, 10),
+  generatedAt: new Date().toISOString(),
+  headline: 'No brief generated yet',
+  entries: [],
+  belowThreshold: 0,
+  totals: { accountsMoved: 0, signalsFired: 0, evidenceItems: 0 },
+}
+
+export const getBrief = (date?: string): Brief =>
+  read<Brief>(date ? `brief-${date}.json` : 'brief.json', EMPTY_BRIEF)
+
+export const getAccounts = (): ScoredAccount[] =>
+  read<{ accounts: ScoredAccount[] }>('accounts.json', { accounts: [] }).accounts
+
+export const getAccount = (id: string): ScoredAccount | undefined =>
+  getAccounts().find((a) => a.targetId === id)
+
+export const getSignals = (): SignalView[] =>
+  read<{ signals: SignalView[] }>('signals.json', { signals: [] }).signals
+
+export const getCollectors = (): CollectorView[] =>
+  read<{ collectors: CollectorView[] }>('collectors.json', { collectors: [] }).collectors
+
+export const getAdapters = (): AdapterView[] =>
+  read<{ adapters: AdapterView[] }>('collectors.json', { adapters: [] }).adapters
+
+export const getHeals = (): { heals: HealEvent[]; stats: HealStats } =>
+  read<{ heals: HealEvent[]; stats: HealStats }>('heals.json', {
+    heals: [],
+    stats: { attempts: 0, approved: 0, rejected: 0, errored: 0, quarantined: 0, successRate: 0, medianMs: 0, rowsRecovered: 0 },
+  })
+
+export interface Meta {
+  generatedAt: string
+  signalCount: number
+  targetCount: number
+  collectorCount: number
+  eventCount: number
+  verifiedSourceCount: number
+  icp: { name: string; threshold: number }
+}
+
+export const getMeta = (): Meta =>
+  read<Meta>('meta.json', {
+    generatedAt: new Date().toISOString(),
+    signalCount: 0, targetCount: 0, collectorCount: 0, eventCount: 0, verifiedSourceCount: 0,
+    icp: { name: 'unknown', threshold: 0 },
+  })
