@@ -320,3 +320,52 @@ describe('schema tolerance', () => {
     expect(isMissing(REAL, 'tiers[].cta')).toBe(false)
   })
 })
+
+describe('real collector schemas observed in production', () => {
+  // These are verbatim shapes returned by live Bright Data collectors generated
+  // from our own `watch` strings. Every one of them differs from the field path
+  // the signal declares, and every one must still resolve -- otherwise a
+  // working collector is scored as 100% null and quarantined.
+
+  it('customers[].name resolves customer_stories[].company_name', () => {
+    // Plural is the whole obstacle: "customer_stories" does not contain
+    // "customers", so only stemming finds it.
+    const rows = [{
+      customer_stories: [
+        { company_name: 'Legit Media', title: 'How Legit Media fixed reports' },
+        { company_name: 'Fastr', title: 'How Fastr ships dashboards' },
+      ],
+      product_page_url: 'https://posthog.com/customers',
+    }]
+    expect(resolveStrings(rows, 'customers[].name')).toEqual(['Legit Media', 'Fastr'])
+    expect(nullRate(rows, 'customers[].name')).toBe(0)
+  })
+
+  it('badges[].name resolves certification_badges[].badge_name', () => {
+    const rows = [{
+      certification_badges: [
+        { badge_name: 'ISO 27001', badge_link: 'https://cal.com/security' },
+        { badge_name: 'SOC 2', badge_link: 'https://cal.com/security' },
+      ],
+    }]
+    expect(resolveStrings(rows, 'badges[].name')).toEqual(['ISO 27001', 'SOC 2'])
+  })
+
+  it('tiers[].cta resolves pricing_tiers[].cta_button_text', () => {
+    const rows = [{ pricing_tiers: [{ name: 'Free', cta_button_text: 'Get started - free' }] }]
+    expect(resolveStrings(rows, 'tiers[].cta')).toEqual(['Get started - free'])
+  })
+
+  it('does not stem its way into an unrelated field', () => {
+    // The guard on the stemming rule: a word boundary is required, so `plan`
+    // must never quietly match `explanation`.
+    const rows = [{ items: [{ explanation: 'nope' }] }]
+    expect(resolveStrings(rows, 'items[].plans')).toEqual([])
+  })
+
+  it('reports a genuinely absent collection as missing', () => {
+    // Tolerance must not become "always finds something".
+    const rows = [{ pricing_tiers: [{ name: 'Free' }] }]
+    expect(isMissing(rows, 'jobs[].title')).toBe(true)
+  })
+})

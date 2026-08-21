@@ -74,7 +74,28 @@ export function findKey(record: Record<string, unknown>, wanted: string): string
   // Last resort. Shortest match wins, so `cta` prefers `cta_text` over
   // `secondary_cta_button_text` — and the choice is deterministic.
   const contains = keys.filter((k) => k.toLowerCase().includes(w)).sort((a, b) => a.length - b.length)
-  return contains[0]
+  if (contains[0]) return contains[0]
+
+  // Singular and plural are the same collection.
+  //
+  // A signal watches `customers[]`; the generated collector called it
+  // `customer_stories`. Nothing above matches, because "customer_stories" does
+  // not contain "customers" — the plural is the whole obstacle. Signal authors
+  // naturally write collections in the plural and extraction schemas do not
+  // always agree, so the stem is tried too.
+  //
+  // Deliberately last, and deliberately one rule: strip a trailing "s" and
+  // require a word boundary on the match, so `tiers` finds `tier_list` but
+  // `plan` never quietly matches `explanation`.
+  if (w.endsWith('s') && w.length > 3) {
+    const stem = w.slice(0, -1)
+    const stemmed = keys
+      .filter((k) => new RegExp(`(^|_)${stem}(s)?(_|$)`, 'i').test(k))
+      .sort((a, b) => a.length - b.length)
+    if (stemmed[0]) return stemmed[0]
+  }
+
+  return undefined
 }
 
 /**
