@@ -29,6 +29,7 @@ const COLLECTORS_PATH = join(process.cwd(), 'config', 'collectors.json')
 export interface CollectorRecord {
   key: string
   signalId: string
+  targetId: string
   collectorId: string
   scraperType: string
   seedUrl: string
@@ -51,9 +52,18 @@ export const resetCollectorCache = () => {
   cache = null
 }
 
-/** The collector provisioned for a signal, if one exists yet. */
-export function collectorFor(signalId: string): CollectorRecord | null {
-  return Object.values(loadCollectors()).find((c) => c.signalId === signalId) ?? null
+/**
+ * The collector provisioned for a (signal, account) pair.
+ *
+ * Keyed by the pair rather than the signal because a PDP collector encodes the
+ * DOM of the page it was generated from: one seeded on cal.com/security returns
+ * real badges there and an empty array on vanta.com/security. Looking a
+ * collector up by signal alone would hand back one bound to a different
+ * company's markup, which fails silently rather than loudly.
+ * See docs/adr/004-collector-granularity.md.
+ */
+export function collectorFor(signalId: string, targetId: string): CollectorRecord | null {
+  return loadCollectors()[`${signalId}:${targetId}`] ?? null
 }
 
 /**
@@ -73,7 +83,7 @@ export const webAdapter: SourceAdapter = {
 
   bind(signal: SignalSpec, target: Target): CollectorBinding | null {
     if (!hasVerifiedSource(signal, target)) return null
-    const collector = collectorFor(signal.id)
+    const collector = collectorFor(signal.id, target.id)
 
     return {
       collectorId: collector?.collectorId ?? null,
