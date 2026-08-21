@@ -42,7 +42,7 @@ signals:
       any:
         - { field: "tiers[].name", op: appears_matching, value: "(?i)enterprise|business|custom" }
         - { field: "tiers[].cta", op: appears_matching, value: "(?i)contact sales|talk to sales|book a demo" }
-    evidence_template: "Added a {{tier.name}} tier with \"{{tier.cta}}\" on {{observed_at}}"
+    evidence_template: "New {{tier.name}} tier appeared with \"{{tier.cta}}\" on {{observed_at}}"
     weight: 30
     cadence: daily
 

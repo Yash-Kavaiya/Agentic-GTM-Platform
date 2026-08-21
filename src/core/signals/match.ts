@@ -12,7 +12,7 @@
  */
 import type { Condition, SignalSpec, Observation, EvidenceRef, SignalEvent } from '../types.js'
 import { diffSet, diffPaired, splitLeaf } from './diff.js'
-import { resolveStrings } from './fieldpath.js'
+import { resolveStrings, resolveField } from './fieldpath.js'
 
 export interface MatchHit {
   condition: Condition
@@ -92,8 +92,8 @@ export function evaluateCondition(
         .filter((v) => re.test(v))
         .map((v) => ({
           condition,
-          values: { match: v, value: v, name: v, title: v, observed_at: null },
-          sentence: v,
+          values: hitValues(after, condition.field, v, re),
+          sentence: re.exec(v)?.[0] ?? v,
         }))
     }
 
@@ -103,7 +103,11 @@ export function evaluateCondition(
       const { removed } = diffSet(before, after, condition.field)
       return removed
         .filter((v) => re.test(v))
-        .map((v) => ({ condition, values: { match: v, value: v, name: v }, sentence: v }))
+        .map((v) => ({
+          condition,
+          values: hitValues(before, condition.field, v, re),
+          sentence: re.exec(v)?.[0] ?? v,
+        }))
     }
 
     case 'value_changed': {
@@ -181,6 +185,48 @@ export function evaluate(
   return { fired: hits.length > 0, hits }
 }
 
+/**
+ * Build the value bag for a match.
+ *
+ * A matched string on its own is not enough to write an evidence sentence.
+ * "Enterprise" appeared in `tiers[].name`, but the template wants to say
+ * `Added a {{tier.name}} tier with "{{tier.cta}}"` — which needs the whole
+ * tier, not just the field that matched. So the owning item is located and its
+ * fields are merged in, letting a template reference any sibling field.
+ *
+ * `match` is the regex's matched SUBSTRING rather than the whole field. When a
+ * signal watches job descriptions for "Snowflake", the evidence should read
+ * "Snowflake named in the Analytics Engineer job description" — not the entire
+ * paragraph the word appeared in.
+ */
+function hitValues(
+  rows: unknown[],
+  field: string,
+  matchedValue: string,
+  re: RegExp,
+): Record<string, unknown> {
+  const base: Record<string, unknown> = {
+    match: re.exec(matchedValue)?.[0] ?? matchedValue,
+    value: matchedValue,
+  }
+
+  const parts = splitLeaf(field)
+  if (!parts) return { ...base, name: matchedValue, title: matchedValue }
+
+  const norm = (s: string) => s.trim().replace(/\s+/g, ' ')
+  for (const item of resolveField(rows, parts.collection)) {
+    if (typeof item !== 'object' || item === null || Array.isArray(item)) continue
+    const record = item as Record<string, unknown>
+    const leaf = record[parts.leaf]
+    const asText = typeof leaf === 'string' ? leaf : leaf === undefined ? null : JSON.stringify(leaf)
+    if (asText === null || norm(asText) !== norm(matchedValue)) continue
+    // Sibling fields first, so the specific match still wins on collision.
+    return { ...record, ...base }
+  }
+
+  return { ...base, name: matchedValue, title: matchedValue }
+}
+
 let evidenceSeq = 0
 const nextId = (prefix: string) => `${prefix}_${Date.now().toString(36)}_${(evidenceSeq++).toString(36)}`
 
@@ -196,19 +242,37 @@ export function match(
   const result = evaluate(signal, previous ? previous.rows : null, current.rows)
   if (!result.fired) return null
 
-  const evidence: EvidenceRef[] = result.hits.map((hit) => {
+  /**
+   * One fact, one citation.
+   *
+   * A signal's `any` block can have several conditions describing the same
+   * underlying event from different angles — a new Enterprise tier matches both
+   * "a tier named Enterprise appeared" and "a CTA saying Contact sales
+   * appeared". Both are true, both fire, and both render the identical
+   * sentence. Emitting it twice would put the same claim in a prospect's inbox
+   * twice and inflate the evidence count, so identical sentences collapse to
+   * one citation.
+   */
+  const seen = new Set<string>()
+  const evidence: EvidenceRef[] = []
+
+  for (const hit of result.hits) {
     const values = { ...hit.values, observed_at: current.observedAt.slice(0, 10) }
-    return {
+    const sentence = renderTemplate(signal.evidence_template, values)
+    if (seen.has(sentence)) continue
+    seen.add(sentence)
+
+    evidence.push({
       id: nextId('ev'),
       collectorId: current.collectorId,
       signalId: signal.id,
       targetId: current.targetId,
       sourceUrl: current.sourceUrl,
       scrapedAt: current.observedAt,
-      sentence: renderTemplate(signal.evidence_template, values),
+      sentence,
       fields: values,
-    }
-  })
+    })
+  }
 
   return {
     id: nextId('sig'),

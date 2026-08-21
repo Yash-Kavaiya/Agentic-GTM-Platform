@@ -208,3 +208,74 @@ describe('shipped signals.yaml', () => {
     expect(bad).toEqual([])
   })
 })
+
+describe('evidence carries the whole matched item', () => {
+  // A matched string alone cannot fill a template. "Enterprise" appeared in
+  // tiers[].name, but the sentence wants the tier's CTA too.
+  const withCta: SignalSpec = {
+    ...upmarket,
+    evidence_template: 'New {{tier.name}} tier appeared with "{{tier.cta}}" on {{observed_at}}',
+  }
+
+  it('resolves sibling fields of the item that matched', () => {
+    const ev = match(
+      withCta,
+      obs([{ name: 'Pro', price: '$20', cta: 'Buy' }], '2026-08-20T04:00:00Z'),
+      obs(
+        [
+          { name: 'Pro', price: '$20', cta: 'Buy' },
+          { name: 'Enterprise', price: 'Custom', cta: 'Contact sales' },
+        ],
+        '2026-08-21T04:00:00Z',
+      ),
+    )
+    expect(ev!.evidence[0]!.sentence).toBe(
+      'New Enterprise tier appeared with "Contact sales" on 2026-08-21',
+    )
+  })
+
+  it('cites the matched substring, not the whole field it appeared in', () => {
+    // Watching job descriptions for a technology should say "dbt", not quote
+    // the entire paragraph the word occurred in.
+    const stack: SignalSpec = {
+      ...upmarket,
+      fields: { required: ['jobs[].title'], optional: ['jobs[].description'] },
+      fire_when: {
+        any: [{ field: 'jobs[].description', op: 'appears_matching', value: '(?i)snowflake|dbt', direction: 'any', window_days: 30 }],
+      },
+      evidence_template: '{{match}} named in the "{{job.title}}" job description',
+    }
+    const ev = match(
+      stack,
+      obs([{ jobs: [{ title: 'Backend Engineer', description: 'Postgres at scale.' }] }], '2026-08-20T04:00:00Z'),
+      obs(
+        [{ jobs: [
+          { title: 'Backend Engineer', description: 'Postgres at scale.' },
+          { title: 'Analytics Engineer', description: 'Model our warehouse in dbt on Snowflake.' },
+        ] }],
+        '2026-08-21T04:00:00Z',
+      ),
+    )
+    expect(ev!.evidence[0]!.sentence).toBe('dbt named in the "Analytics Engineer" job description')
+  })
+
+  it('leaves no unresolved placeholders in any shipped template', async () => {
+    // An unfilled {{placeholder}} would be pasted straight into a prospect email.
+    const { loadSignals } = await import('../src/core/config/load.js')
+    const unresolved: string[] = []
+    for (const s of loadSignals()) {
+      if (!/\{\{/.test(s.evidence_template)) continue
+      // Every placeholder must be one the evaluator can actually supply.
+      const keys = [...s.evidence_template.matchAll(/\{\{\s*([\w.]+)\s*\}\}/g)].map((m) => m[1]!)
+      for (const k of keys) {
+        const tail = k.split('.').pop()!
+        const known = ['observed_at', 'match', 'value', 'delta_pct', 'count', 'count_before', 'window_days']
+        const fieldNames = [...s.fields.required, ...s.fields.optional].map((f) => f.split('.').pop()!)
+        if (!known.includes(tail) && !fieldNames.includes(tail) && !tail.endsWith('_before')) {
+          unresolved.push(`${s.id}: {{${k}}}`)
+        }
+      }
+    }
+    expect(unresolved).toEqual([])
+  })
+})

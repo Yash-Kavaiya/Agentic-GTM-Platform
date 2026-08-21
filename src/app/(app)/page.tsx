@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { getBrief, getMeta, getCollectors, getAdapters } from '../lib/data'
-import { Evidence, ScorePill, Empty, HealthBadge } from '../components/ui'
+import { getBrief, getMeta, getCollectors, getAdapters } from '../../lib/data'
+import { Evidence, ScorePill, Empty, HealthBadge } from '../../components/ui'
 
 /**
  * The Morning Brief — the daily surface.

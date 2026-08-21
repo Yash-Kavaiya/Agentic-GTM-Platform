@@ -20,6 +20,9 @@ import { buildBrief, renderBriefText } from '../src/core/brief.js'
 import { exportAll } from '../src/core/store/export.js'
 import { loadIcp } from '../src/core/config/load.js'
 import { dayOf } from '../src/core/clock.js'
+import { extractBrandKit, type BrandKit } from '../src/core/enrich/brandkit.js'
+import { writeFileSync, existsSync, readFileSync, mkdirSync } from 'node:fs'
+import { join } from 'node:path'
 
 const argv = process.argv.slice(2)
 const command = argv[0] ?? 'help'
@@ -138,6 +141,48 @@ async function cmdHeal() {
   store.close()
 }
 
+const BRANDS_PATH = join(process.cwd(), 'data', 'brands.json')
+
+/**
+ * Read each target's visual identity off its own homepage.
+ *
+ * Cached to data/brands.json because a brand kit changes on the timescale of a
+ * rebrand, not a cron tick, and re-fetching 20 homepages every run would be
+ * rude to the targets for no benefit.
+ */
+async function cmdEnrich() {
+  const targets = loadTargets().filter((t) => !list('target') || list('target')!.includes(t.id))
+  const existing: Record<string, BrandKit> = existsSync(BRANDS_PATH)
+    ? JSON.parse(readFileSync(BRANDS_PATH, 'utf8'))
+    : {}
+  const force = has('force')
+
+  console.log(`enriching ${targets.length} target(s)\n`)
+  let done = 0
+  await Promise.all(
+    targets.map(async (t) => {
+      if (existing[t.id] && !force) {
+        console.log(`  ${t.id.padEnd(12)} cached`)
+        return
+      }
+      try {
+        const kit = await extractBrandKit(t.domain)
+        existing[t.id] = kit
+        done++
+        console.log(
+          `  ${t.id.padEnd(12)} ${(kit.primary ?? '-').padEnd(8)} ${kit.fonts.slice(0, 2).join(', ') || 'no webfont'}`,
+        )
+      } catch (e) {
+        console.log(`  ${t.id.padEnd(12)} ERROR ${(e as Error).message.slice(0, 70)}`)
+      }
+    }),
+  )
+
+  mkdirSync(join(process.cwd(), 'data'), { recursive: true })
+  writeFileSync(BRANDS_PATH, JSON.stringify(existing, null, 2) + '\n')
+  console.log(`\n${done} fetched, ${Object.keys(existing).length} on file -> data/brands.json`)
+}
+
 function cmdBrief() {
   const store = new Store()
   const date = flag('date') ?? dayOf(new Date())
@@ -171,6 +216,7 @@ function help() {
 
   run     [--signal a,b] [--target a,b] [--date ISO] [--no-heal]
   brief   [--date YYYY-MM-DD] [--window HOURS]
+  enrich  [--target a,b] [--force]
   export  [--date YYYY-MM-DD]
   status
   heal    <collectorId>
@@ -181,6 +227,7 @@ const commands: Record<string, () => void | Promise<void>> = {
   run: cmdRun,
   status: cmdStatus,
   brief: cmdBrief,
+  enrich: cmdEnrich,
   export: cmdExport,
   heal: cmdHeal,
   help,

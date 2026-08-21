@@ -107,3 +107,20 @@ export const getMeta = (): Meta =>
     signalCount: 0, targetCount: 0, collectorCount: 0, eventCount: 0, verifiedSourceCount: 0,
     icp: { name: 'unknown', threshold: 0 },
   })
+
+import type { Campaign } from '../core/campaign/forge.js'
+import type { GateVerdict } from '../core/campaign/gate.js'
+import type { BrandKit } from '../core/enrich/brandkit.js'
+
+export type CampaignView = Campaign & { gate: GateVerdict }
+
+export const getCampaigns = (): CampaignView[] =>
+  read<{ campaigns: CampaignView[] }>('campaigns.json', { campaigns: [] }).campaigns
+
+export const getCampaign = (targetId: string): CampaignView | undefined =>
+  getCampaigns().find((c) => c.targetId === targetId)
+
+export const getBrands = (): Record<string, BrandKit> =>
+  read<{ brands: Record<string, BrandKit> }>('brands.json', { brands: {} }).brands
+
+export const getBrand = (targetId: string): BrandKit | undefined => getBrands()[targetId]

@@ -1,12 +1,699 @@
 {
   "date": "2026-08-21",
-  "generatedAt": "2026-08-21T05:53:54.403Z",
-  "headline": "Friday 21 August — nothing moved overnight",
-  "entries": [],
-  "belowThreshold": 0,
+  "generatedAt": "2026-08-21T06:14:09.376Z",
+  "headline": "Friday 21 August — 4 accounts moved overnight",
+  "entries": [
+    {
+      "account": {
+        "targetId": "hightouch",
+        "name": "Hightouch",
+        "domain": "hightouch.com",
+        "score": 58,
+        "previousScore": 0,
+        "delta": 58,
+        "fit": 1,
+        "fitBreakdown": [
+          {
+            "criterionId": "has_public_pricing",
+            "met": true,
+            "weight": 0.25,
+            "description": "Publishes a pricing page with named tiers"
+          },
+          {
+            "criterionId": "has_public_job_board",
+            "met": true,
+            "weight": 0.2,
+            "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+          },
+          {
+            "criterionId": "has_docs_site",
+            "met": true,
+            "weight": 0.15,
+            "description": "Maintains a public documentation site with a sitemap"
+          },
+          {
+            "criterionId": "has_integrations_page",
+            "met": true,
+            "weight": 0.2,
+            "description": "Publishes an integrations or partners directory"
+          },
+          {
+            "criterionId": "has_security_page",
+            "met": true,
+            "weight": 0.2,
+            "description": "Publishes a security, trust, or compliance page"
+          }
+        ],
+        "signals": [
+          {
+            "signalId": "enterprise_readiness",
+            "signalName": "Enterprise Readiness",
+            "firedAt": "2026-08-21T04:12:00.000Z",
+            "raw": 26,
+            "multiplier": 1.3,
+            "freshness": 0.9599767893556228,
+            "contribution": 32.44721548022005,
+            "event": {
+              "id": "sig_mt2juxoa_5",
+              "signalId": "enterprise_readiness",
+              "targetId": "hightouch",
+              "firedAt": "2026-08-21T04:12:00.000Z",
+              "weight": 26,
+              "evidence": [
+                {
+                  "id": "ev_mt2juxoa_4",
+                  "collectorId": "c_3d71bb",
+                  "signalId": "enterprise_readiness",
+                  "targetId": "hightouch",
+                  "sourceUrl": "https://hightouch.com/security",
+                  "scrapedAt": "2026-08-21T04:12:00.000Z",
+                  "sentence": "Published a SOC 2 Type II badge on 2026-08-21",
+                  "fields": {
+                    "name": "SOC 2 Type II",
+                    "status": "Certified",
+                    "match": "SOC 2",
+                    "value": "SOC 2 Type II",
+                    "observed_at": "2026-08-21"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "signalId": "building_the_function",
+            "signalName": "Building the Function",
+            "firedAt": "2026-08-21T04:12:00.000Z",
+            "raw": 22,
+            "multiplier": 1.2,
+            "freshness": 0.9599767893556228,
+            "contribution": 25.34338723898844,
+            "event": {
+              "id": "sig_mt2juxoj_7",
+              "signalId": "building_the_function",
+              "targetId": "hightouch",
+              "firedAt": "2026-08-21T04:12:00.000Z",
+              "weight": 22,
+              "evidence": [
+                {
+                  "id": "ev_mt2juxoj_6",
+                  "collectorId": null,
+                  "signalId": "building_the_function",
+                  "targetId": "hightouch",
+                  "sourceUrl": "https://hightouch.com/",
+                  "scrapedAt": "2026-08-21T04:12:00.000Z",
+                  "sentence": "Posted \"GTM Engineer\" on 2026-08-20",
+                  "fields": {
+                    "title": "GTM Engineer",
+                    "department": "Revenue",
+                    "location": "Remote",
+                    "description": "Build and own the go-to-market data stack on Snowflake and dbt.",
+                    "posted_at": "2026-08-20",
+                    "match": "GTM Engineer",
+                    "value": "GTM Engineer",
+                    "observed_at": "2026-08-21"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "eventCount": 2
+      },
+      "overnight": [
+        {
+          "signalId": "enterprise_readiness",
+          "signalName": "Enterprise Readiness",
+          "firedAt": "2026-08-21T04:12:00.000Z",
+          "raw": 26,
+          "multiplier": 1.3,
+          "freshness": 0.9599767893556228,
+          "contribution": 32.44721548022005,
+          "event": {
+            "id": "sig_mt2juxoa_5",
+            "signalId": "enterprise_readiness",
+            "targetId": "hightouch",
+            "firedAt": "2026-08-21T04:12:00.000Z",
+            "weight": 26,
+            "evidence": [
+              {
+                "id": "ev_mt2juxoa_4",
+                "collectorId": "c_3d71bb",
+                "signalId": "enterprise_readiness",
+                "targetId": "hightouch",
+                "sourceUrl": "https://hightouch.com/security",
+                "scrapedAt": "2026-08-21T04:12:00.000Z",
+                "sentence": "Published a SOC 2 Type II badge on 2026-08-21",
+                "fields": {
+                  "name": "SOC 2 Type II",
+                  "status": "Certified",
+                  "match": "SOC 2",
+                  "value": "SOC 2 Type II",
+                  "observed_at": "2026-08-21"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "signalId": "building_the_function",
+          "signalName": "Building the Function",
+          "firedAt": "2026-08-21T04:12:00.000Z",
+          "raw": 22,
+          "multiplier": 1.2,
+          "freshness": 0.9599767893556228,
+          "contribution": 25.34338723898844,
+          "event": {
+            "id": "sig_mt2juxoj_7",
+            "signalId": "building_the_function",
+            "targetId": "hightouch",
+            "firedAt": "2026-08-21T04:12:00.000Z",
+            "weight": 22,
+            "evidence": [
+              {
+                "id": "ev_mt2juxoj_6",
+                "collectorId": null,
+                "signalId": "building_the_function",
+                "targetId": "hightouch",
+                "sourceUrl": "https://hightouch.com/",
+                "scrapedAt": "2026-08-21T04:12:00.000Z",
+                "sentence": "Posted \"GTM Engineer\" on 2026-08-20",
+                "fields": {
+                  "title": "GTM Engineer",
+                  "department": "Revenue",
+                  "location": "Remote",
+                  "description": "Build and own the go-to-market data stack on Snowflake and dbt.",
+                  "posted_at": "2026-08-20",
+                  "match": "GTM Engineer",
+                  "value": "GTM Engineer",
+                  "observed_at": "2026-08-21"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "hasBlockedEvidence": false
+    },
+    {
+      "account": {
+        "targetId": "zluri",
+        "name": "Zluri",
+        "domain": "zluri.com",
+        "score": 53,
+        "previousScore": 0,
+        "delta": 53,
+        "fit": 0.8,
+        "fitBreakdown": [
+          {
+            "criterionId": "has_public_pricing",
+            "met": true,
+            "weight": 0.25,
+            "description": "Publishes a pricing page with named tiers"
+          },
+          {
+            "criterionId": "has_public_job_board",
+            "met": false,
+            "weight": 0.2,
+            "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+          },
+          {
+            "criterionId": "has_docs_site",
+            "met": true,
+            "weight": 0.15,
+            "description": "Maintains a public documentation site with a sitemap"
+          },
+          {
+            "criterionId": "has_integrations_page",
+            "met": true,
+            "weight": 0.2,
+            "description": "Publishes an integrations or partners directory"
+          },
+          {
+            "criterionId": "has_security_page",
+            "met": true,
+            "weight": 0.2,
+            "description": "Publishes a security, trust, or compliance page"
+          }
+        ],
+        "signals": [
+          {
+            "signalId": "moving_upmarket",
+            "signalName": "Moving Upmarket",
+            "firedAt": "2026-08-21T04:12:00.000Z",
+            "raw": 30,
+            "multiplier": 1.4,
+            "freshness": 0.9599767893556228,
+            "contribution": 40.319025152936156,
+            "event": {
+              "id": "sig_mt2juxnt_1",
+              "signalId": "moving_upmarket",
+              "targetId": "zluri",
+              "firedAt": "2026-08-21T04:12:00.000Z",
+              "weight": 30,
+              "evidence": [
+                {
+                  "id": "ev_mt2juxnt_0",
+                  "collectorId": "c_8f2a91",
+                  "signalId": "moving_upmarket",
+                  "targetId": "zluri",
+                  "sourceUrl": "https://zluri.com/pricing",
+                  "scrapedAt": "2026-08-21T04:12:00.000Z",
+                  "sentence": "New Enterprise tier appeared with \"Contact sales\" on 2026-08-21",
+                  "fields": {
+                    "name": "Enterprise",
+                    "price": "Custom",
+                    "cta": "Contact sales",
+                    "match": "Enterprise",
+                    "value": "Enterprise",
+                    "observed_at": "2026-08-21"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "signalId": "building_the_function",
+            "signalName": "Building the Function",
+            "firedAt": "2026-08-21T04:12:00.000Z",
+            "raw": 22,
+            "multiplier": 1.2,
+            "freshness": 0.9599767893556228,
+            "contribution": 25.34338723898844,
+            "event": {
+              "id": "sig_mt2juxo4_3",
+              "signalId": "building_the_function",
+              "targetId": "zluri",
+              "firedAt": "2026-08-21T04:12:00.000Z",
+              "weight": 22,
+              "evidence": [
+                {
+                  "id": "ev_mt2juxo4_2",
+                  "collectorId": null,
+                  "signalId": "building_the_function",
+                  "targetId": "zluri",
+                  "sourceUrl": "https://zluri.com/",
+                  "scrapedAt": "2026-08-21T04:12:00.000Z",
+                  "sentence": "Posted \"Senior RevOps Manager\" on 2026-08-18",
+                  "fields": {
+                    "title": "Senior RevOps Manager",
+                    "department": "Revenue",
+                    "location": "Remote",
+                    "description": "Own the revenue stack end to end, including Salesforce and dbt models.",
+                    "posted_at": "2026-08-18",
+                    "match": "RevOps",
+                    "value": "Senior RevOps Manager",
+                    "observed_at": "2026-08-21"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "eventCount": 2
+      },
+      "overnight": [
+        {
+          "signalId": "moving_upmarket",
+          "signalName": "Moving Upmarket",
+          "firedAt": "2026-08-21T04:12:00.000Z",
+          "raw": 30,
+          "multiplier": 1.4,
+          "freshness": 0.9599767893556228,
+          "contribution": 40.319025152936156,
+          "event": {
+            "id": "sig_mt2juxnt_1",
+            "signalId": "moving_upmarket",
+            "targetId": "zluri",
+            "firedAt": "2026-08-21T04:12:00.000Z",
+            "weight": 30,
+            "evidence": [
+              {
+                "id": "ev_mt2juxnt_0",
+                "collectorId": "c_8f2a91",
+                "signalId": "moving_upmarket",
+                "targetId": "zluri",
+                "sourceUrl": "https://zluri.com/pricing",
+                "scrapedAt": "2026-08-21T04:12:00.000Z",
+                "sentence": "New Enterprise tier appeared with \"Contact sales\" on 2026-08-21",
+                "fields": {
+                  "name": "Enterprise",
+                  "price": "Custom",
+                  "cta": "Contact sales",
+                  "match": "Enterprise",
+                  "value": "Enterprise",
+                  "observed_at": "2026-08-21"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "signalId": "building_the_function",
+          "signalName": "Building the Function",
+          "firedAt": "2026-08-21T04:12:00.000Z",
+          "raw": 22,
+          "multiplier": 1.2,
+          "freshness": 0.9599767893556228,
+          "contribution": 25.34338723898844,
+          "event": {
+            "id": "sig_mt2juxo4_3",
+            "signalId": "building_the_function",
+            "targetId": "zluri",
+            "firedAt": "2026-08-21T04:12:00.000Z",
+            "weight": 22,
+            "evidence": [
+              {
+                "id": "ev_mt2juxo4_2",
+                "collectorId": null,
+                "signalId": "building_the_function",
+                "targetId": "zluri",
+                "sourceUrl": "https://zluri.com/",
+                "scrapedAt": "2026-08-21T04:12:00.000Z",
+                "sentence": "Posted \"Senior RevOps Manager\" on 2026-08-18",
+                "fields": {
+                  "title": "Senior RevOps Manager",
+                  "department": "Revenue",
+                  "location": "Remote",
+                  "description": "Own the revenue stack end to end, including Salesforce and dbt models.",
+                  "posted_at": "2026-08-18",
+                  "match": "RevOps",
+                  "value": "Senior RevOps Manager",
+                  "observed_at": "2026-08-21"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "hasBlockedEvidence": false
+    },
+    {
+      "account": {
+        "targetId": "supabase",
+        "name": "Supabase",
+        "domain": "supabase.com",
+        "score": 40,
+        "previousScore": 0,
+        "delta": 40,
+        "fit": 1,
+        "fitBreakdown": [
+          {
+            "criterionId": "has_public_pricing",
+            "met": true,
+            "weight": 0.25,
+            "description": "Publishes a pricing page with named tiers"
+          },
+          {
+            "criterionId": "has_public_job_board",
+            "met": true,
+            "weight": 0.2,
+            "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+          },
+          {
+            "criterionId": "has_docs_site",
+            "met": true,
+            "weight": 0.15,
+            "description": "Maintains a public documentation site with a sitemap"
+          },
+          {
+            "criterionId": "has_integrations_page",
+            "met": true,
+            "weight": 0.2,
+            "description": "Publishes an integrations or partners directory"
+          },
+          {
+            "criterionId": "has_security_page",
+            "met": true,
+            "weight": 0.2,
+            "description": "Publishes a security, trust, or compliance page"
+          }
+        ],
+        "signals": [
+          {
+            "signalId": "moving_upmarket",
+            "signalName": "Moving Upmarket",
+            "firedAt": "2026-08-21T04:12:00.000Z",
+            "raw": 30,
+            "multiplier": 1.4,
+            "freshness": 0.9599767893556228,
+            "contribution": 40.319025152936156,
+            "event": {
+              "id": "sig_mt2juxon_9",
+              "signalId": "moving_upmarket",
+              "targetId": "supabase",
+              "firedAt": "2026-08-21T04:12:00.000Z",
+              "weight": 30,
+              "evidence": [
+                {
+                  "id": "ev_mt2juxon_8",
+                  "collectorId": "c_8f2a91",
+                  "signalId": "moving_upmarket",
+                  "targetId": "supabase",
+                  "sourceUrl": "https://supabase.com/pricing",
+                  "scrapedAt": "2026-08-21T04:12:00.000Z",
+                  "sentence": "New Enterprise tier appeared with \"Contact sales\" on 2026-08-21",
+                  "fields": {
+                    "name": "Enterprise",
+                    "price": "Custom",
+                    "cta": "Contact sales",
+                    "match": "Enterprise",
+                    "value": "Enterprise",
+                    "observed_at": "2026-08-21"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "eventCount": 1
+      },
+      "overnight": [
+        {
+          "signalId": "moving_upmarket",
+          "signalName": "Moving Upmarket",
+          "firedAt": "2026-08-21T04:12:00.000Z",
+          "raw": 30,
+          "multiplier": 1.4,
+          "freshness": 0.9599767893556228,
+          "contribution": 40.319025152936156,
+          "event": {
+            "id": "sig_mt2juxon_9",
+            "signalId": "moving_upmarket",
+            "targetId": "supabase",
+            "firedAt": "2026-08-21T04:12:00.000Z",
+            "weight": 30,
+            "evidence": [
+              {
+                "id": "ev_mt2juxon_8",
+                "collectorId": "c_8f2a91",
+                "signalId": "moving_upmarket",
+                "targetId": "supabase",
+                "sourceUrl": "https://supabase.com/pricing",
+                "scrapedAt": "2026-08-21T04:12:00.000Z",
+                "sentence": "New Enterprise tier appeared with \"Contact sales\" on 2026-08-21",
+                "fields": {
+                  "name": "Enterprise",
+                  "price": "Custom",
+                  "cta": "Contact sales",
+                  "match": "Enterprise",
+                  "value": "Enterprise",
+                  "observed_at": "2026-08-21"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "hasBlockedEvidence": false
+    },
+    {
+      "account": {
+        "targetId": "clerk",
+        "name": "Clerk",
+        "domain": "clerk.com",
+        "score": 35,
+        "previousScore": 0,
+        "delta": 35,
+        "fit": 0.8,
+        "fitBreakdown": [
+          {
+            "criterionId": "has_public_pricing",
+            "met": true,
+            "weight": 0.25,
+            "description": "Publishes a pricing page with named tiers"
+          },
+          {
+            "criterionId": "has_public_job_board",
+            "met": true,
+            "weight": 0.2,
+            "description": "Runs a public job board on Greenhouse, Lever, or Ashby"
+          },
+          {
+            "criterionId": "has_docs_site",
+            "met": true,
+            "weight": 0.15,
+            "description": "Maintains a public documentation site with a sitemap"
+          },
+          {
+            "criterionId": "has_integrations_page",
+            "met": false,
+            "weight": 0.2,
+            "description": "Publishes an integrations or partners directory"
+          },
+          {
+            "criterionId": "has_security_page",
+            "met": true,
+            "weight": 0.2,
+            "description": "Publishes a security, trust, or compliance page"
+          }
+        ],
+        "signals": [
+          {
+            "signalId": "price_change",
+            "signalName": "Price Change",
+            "firedAt": "2026-08-21T04:12:00.000Z",
+            "raw": 24,
+            "multiplier": 1,
+            "freshness": 0.9599767893556228,
+            "contribution": 23.039442944534947,
+            "event": {
+              "id": "sig_mt2juxow_b",
+              "signalId": "price_change",
+              "targetId": "clerk",
+              "firedAt": "2026-08-21T04:12:00.000Z",
+              "weight": 24,
+              "evidence": [
+                {
+                  "id": "ev_mt2juxow_a",
+                  "collectorId": "c_8f2a91",
+                  "signalId": "price_change",
+                  "targetId": "clerk",
+                  "sourceUrl": "https://clerk.com/pricing",
+                  "scrapedAt": "2026-08-21T04:12:00.000Z",
+                  "sentence": "Pro moved from $25 to $29 on 2026-08-21",
+                  "fields": {
+                    "name": "Pro",
+                    "price_before": "$25",
+                    "price": "$29",
+                    "observed_at": "2026-08-21"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "signalId": "leadership_change",
+            "signalName": "Leadership Change",
+            "firedAt": "2026-08-21T04:12:00.000Z",
+            "raw": 21,
+            "multiplier": 1,
+            "freshness": 0.9599767893556228,
+            "contribution": 20.159512576468078,
+            "event": {
+              "id": "sig_mt2juxp2_d",
+              "signalId": "leadership_change",
+              "targetId": "clerk",
+              "firedAt": "2026-08-21T04:12:00.000Z",
+              "weight": 21,
+              "evidence": [
+                {
+                  "id": "ev_mt2juxp2_c",
+                  "collectorId": "c_9a4c02",
+                  "signalId": "leadership_change",
+                  "targetId": "clerk",
+                  "sourceUrl": "https://clerk.com/about",
+                  "scrapedAt": "2026-08-21T04:12:00.000Z",
+                  "sentence": "A VP of Revenue seat appeared on the leadership page on 2026-08-21",
+                  "fields": {
+                    "title": "VP of Revenue",
+                    "function": "Revenue",
+                    "match": "VP of Revenue",
+                    "value": "VP of Revenue",
+                    "observed_at": "2026-08-21"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "eventCount": 2
+      },
+      "overnight": [
+        {
+          "signalId": "price_change",
+          "signalName": "Price Change",
+          "firedAt": "2026-08-21T04:12:00.000Z",
+          "raw": 24,
+          "multiplier": 1,
+          "freshness": 0.9599767893556228,
+          "contribution": 23.039442944534947,
+          "event": {
+            "id": "sig_mt2juxow_b",
+            "signalId": "price_change",
+            "targetId": "clerk",
+            "firedAt": "2026-08-21T04:12:00.000Z",
+            "weight": 24,
+            "evidence": [
+              {
+                "id": "ev_mt2juxow_a",
+                "collectorId": "c_8f2a91",
+                "signalId": "price_change",
+                "targetId": "clerk",
+                "sourceUrl": "https://clerk.com/pricing",
+                "scrapedAt": "2026-08-21T04:12:00.000Z",
+                "sentence": "Pro moved from $25 to $29 on 2026-08-21",
+                "fields": {
+                  "name": "Pro",
+                  "price_before": "$25",
+                  "price": "$29",
+                  "observed_at": "2026-08-21"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "signalId": "leadership_change",
+          "signalName": "Leadership Change",
+          "firedAt": "2026-08-21T04:12:00.000Z",
+          "raw": 21,
+          "multiplier": 1,
+          "freshness": 0.9599767893556228,
+          "contribution": 20.159512576468078,
+          "event": {
+            "id": "sig_mt2juxp2_d",
+            "signalId": "leadership_change",
+            "targetId": "clerk",
+            "firedAt": "2026-08-21T04:12:00.000Z",
+            "weight": 21,
+            "evidence": [
+              {
+                "id": "ev_mt2juxp2_c",
+                "collectorId": "c_9a4c02",
+                "signalId": "leadership_change",
+                "targetId": "clerk",
+                "sourceUrl": "https://clerk.com/about",
+                "scrapedAt": "2026-08-21T04:12:00.000Z",
+                "sentence": "A VP of Revenue seat appeared on the leadership page on 2026-08-21",
+                "fields": {
+                  "title": "VP of Revenue",
+                  "function": "Revenue",
+                  "match": "VP of Revenue",
+                  "value": "VP of Revenue",
+                  "observed_at": "2026-08-21"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "hasBlockedEvidence": false
+    }
+  ],
+  "belowThreshold": 1,
   "totals": {
-    "accountsMoved": 0,
-    "signalsFired": 0,
-    "evidenceItems": 0
+    "accountsMoved": 4,
+    "signalsFired": 7,
+    "evidenceItems": 7
   }
 }

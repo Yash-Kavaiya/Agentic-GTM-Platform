@@ -24,6 +24,10 @@ import { allAdapters } from '../adapters/index.js'
 import { scoreAll } from '../signals/score.js'
 import { buildBrief } from '../brief.js'
 import { dayOf } from '../clock.js'
+import { forge } from '../campaign/forge.js'
+import { canApprove } from '../campaign/gate.js'
+import type { BrandKit } from '../enrich/brandkit.js'
+import { readFileSync, existsSync } from 'node:fs'
 
 const EXPORT_DIR = join(process.cwd(), 'data', 'export')
 
@@ -84,6 +88,31 @@ export function exportAll(store: Store, at: string = new Date().toISOString()): 
 
   write('heals.json', { generatedAt: at, heals, stats: healStats(heals) })
 
+  // Brand kits, read off each company's own homepage by `bellwether enrich`.
+  const brands = loadBrands()
+  write('brands.json', { generatedAt: at, brands })
+
+  /**
+   * Campaigns, forged for every account that has evidence.
+   *
+   * Each is generated with its approval verdict already computed, so the UI
+   * never has to decide whether a draft is safe to send — the gate is part of
+   * the artifact. A campaign citing a broken collector arrives blocked.
+   */
+  const campaigns = accounts
+    .filter((a) => a.signals.length > 0)
+    .map((a) => {
+      const campaign = forge({
+        account: a,
+        signals: a.signals,
+        icp,
+        brand: brands[a.targetId] ?? null,
+        at,
+      })
+      return { ...campaign, gate: canApprove(campaign, health) }
+    })
+  write('campaigns.json', { generatedAt: at, campaigns })
+
   write('meta.json', {
     generatedAt: at,
     signalCount: signals.length,
@@ -104,6 +133,16 @@ export function exportAll(store: Store, at: string = new Date().toISOString()): 
       heals: heals.length,
       briefEntries: brief.entries.length,
     },
+  }
+}
+
+function loadBrands(): Record<string, BrandKit> {
+  const path = join(process.cwd(), 'data', 'brands.json')
+  if (!existsSync(path)) return {}
+  try {
+    return JSON.parse(readFileSync(path, 'utf8')) as Record<string, BrandKit>
+  } catch {
+    return {}
   }
 }
 

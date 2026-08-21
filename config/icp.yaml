@@ -56,7 +56,13 @@ icp:
     floor: 0.1
 
   # An account must clear this to appear in the Morning Brief.
-  brief_threshold: 40
+  #
+  # Calibrated against the observed score distribution rather than guessed. At
+  # 35 the cut lands between "two corroborating signals on a company that fits"
+  # and "one mid-weight signal on a company that does not". A repricing plus a
+  # new VP of Revenue seat (35) is a real buying signal; a technology mentioned
+  # in one job description at a 40%-fit account (7) is not.
+  brief_threshold: 35
 
   # What we sell, used by Campaign Forge to write the pitch.
   offering:

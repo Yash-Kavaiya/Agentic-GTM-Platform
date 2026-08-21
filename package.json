@@ -16,7 +16,8 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "bw:provision": "tsx cli/provision.ts",
-    "boards": "node scripts/find-boards.mjs"
+    "boards": "node scripts/find-boards.mjs",
+    "seed": "tsx cli/seed.ts"
   },
   "dependencies": {
     "next": "^15.1.0",

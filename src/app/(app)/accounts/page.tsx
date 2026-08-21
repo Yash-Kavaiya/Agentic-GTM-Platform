@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { getAccounts, getMeta } from '../../lib/data'
-import { ScorePill, Empty } from '../../components/ui'
+import { getAccounts, getMeta } from '../../../lib/data'
+import { ScorePill, Empty } from '../../../components/ui'
 
 /** The watchlist, ranked. */
 export default function AccountsPage() {

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import './globals.css'
-import { getMeta } from '../lib/data'
+import '../globals.css'
+import { getMeta } from '../../lib/data'
 
 export const metadata: Metadata = {
   title: 'Bellwether — GTM signal platform',

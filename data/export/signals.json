@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-21T05:53:54.308Z",
+  "generatedAt": "2026-08-21T23:59:59.999Z",
   "signals": [
     {
       "id": "moving_upmarket",
@@ -35,7 +35,7 @@
           }
         ]
       },
-      "evidence_template": "Added a {{tier.name}} tier with \"{{tier.cta}}\" on {{observed_at}}",
+      "evidence_template": "New {{tier.name}} tier appeared with \"{{tier.cta}}\" on {{observed_at}}",
       "weight": 30,
       "cadence": "daily",
       "coverage": 20,

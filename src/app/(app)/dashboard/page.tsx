@@ -1,6 +1,6 @@
-import { getHeals, getCollectors, getAccounts, getMeta, getAdapters } from '../../lib/data'
-import { HealthBadge, Stat, Empty } from '../../components/ui'
-import type { HealEvent, ObservationStats } from '../../core/types'
+import { getHeals, getCollectors, getAccounts, getMeta, getAdapters } from '../../../lib/data'
+import { HealthBadge, Stat, Empty } from '../../../components/ui'
+import type { HealEvent, ObservationStats } from '../../../core/types'
 
 /**
  * Dashboard.

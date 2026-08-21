@@ -1,0 +1,561 @@
+{
+  "generatedAt": "2026-08-21T23:59:59.999Z",
+  "brands": {
+    "posthog": {
+      "domain": "posthog.com",
+      "fetchedAt": "2026-08-21T06:04:45.769Z",
+      "logoUrl": "https://posthog.com/images/og/default.png",
+      "faviconUrl": "https://posthog.com/favicon-32x32.png?v=6e5ac8d4a5b381b5caa29396fbf7c955",
+      "palette": [
+        "#f7a501",
+        "#f54e00",
+        "#2f80fa",
+        "#6aa84f",
+        "#eb9d2a",
+        "#29dbbb"
+      ],
+      "primary": "#f7a501",
+      "fonts": [
+        "IBM Plex Sans Variable",
+        "Source Code Pro",
+        "RoundHog"
+      ],
+      "headline": "PostHog – We make your product self-driving",
+      "description": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
+      "voiceSamples": [
+        "Now, PostHog automatically diagnoses problems , fixes bugs , and generates pull requests – all without you having to prompt it.",
+        "Join 500,000+ teams already shipping with PostHog.",
+        "Open Customers All your data, working together Built-in, the context warehouse ships with:",
+        "Combine everything in PostHog&#x27;s context warehouse so that you, your agents, and your dashboard can query it directly. That includes:",
+        "The data your agents need to make good decisions is already here. Ready to turn tell me what happened into here&#x27;s what to fix next."
+      ]
+    },
+    "documenso": {
+      "domain": "documenso.com",
+      "fetchedAt": "2026-08-21T06:04:45.993Z",
+      "logoUrl": "https://framerusercontent.com/images/x66EcGbzu3IQEriNXuRmOBonGyo.png",
+      "faviconUrl": "https://framerusercontent.com/images/pnOoSsXUlWASeXtpNMCqNsgk.png",
+      "palette": [
+        "#b83e7b",
+        "#7509bd",
+        "#d69929",
+        "#5cb31e",
+        "#1f3d0a",
+        "#1f7ede"
+      ],
+      "primary": "#b83e7b",
+      "fonts": [
+        "Inter"
+      ],
+      "headline": "Documenso - The Open Source DocuSign Alternative",
+      "description": "Sign everywhere with Documenso. Build workflows, create templates, and integrate seamlessly with tools you love—modern, secure, and customizable for any scale.",
+      "voiceSamples": [
+        "E-Signatures. For Everyone.",
+        "Fully compliant signatures out of the box. Ready to use or ready to be built upon.",
+        "Deliver a frictionless signing experience to your users at any scale with enterprise-grade functionality that is ready when you are.",
+        "Check out the Platform Plan",
+        "Partnership contract.pdf"
+      ]
+    },
+    "metabase": {
+      "domain": "metabase.com",
+      "fetchedAt": "2026-08-21T06:04:46.034Z",
+      "logoUrl": "https://cdn.metabase.com/images/opengraph/home-og.webp",
+      "faviconUrl": "https://metabase.com/images/favicon.svg",
+      "palette": [],
+      "primary": null,
+      "fonts": [],
+      "headline": "Open source AI analytics you can verify | Metabase",
+      "description": "Metabase grounds every answer in your semantic layer — your metrics and business logic — so you can inspect the query behind it.",
+      "voiceSamples": [
+        "Business Intelligence Self-service analytics for your team",
+        "Fast, flexible customer-facing analytics",
+        "Everyone exploring and analyzing data",
+        "Developers building in-product analytics",
+        "People running their company's instance"
+      ]
+    },
+    "cal": {
+      "domain": "cal.com",
+      "fetchedAt": "2026-08-21T06:04:46.074Z",
+      "logoUrl": "https://framerusercontent.com/images/pPSh5HDe1qaySb4R7xBgMHudhU.png",
+      "faviconUrl": "https://framerusercontent.com/images/KLEuLsreYtfUbTcK9TjmfF0QoGY.png",
+      "palette": [
+        "#0099ff",
+        "#222a35",
+        "#374151",
+        "#6349ea",
+        "#7826b1",
+        "#aa61f1"
+      ],
+      "primary": "#0099ff",
+      "fonts": [
+        "Inter"
+      ],
+      "headline": "Cal.com | Scheduling Software for Online Bookings",
+      "description": "A fully customizable scheduling software for individuals, businesses taking calls and developers building scheduling platforms where users meet users.",
+      "voiceSamples": [
+        "')\"> Scheduling Components",
+        "Use our react atoms to add scheduling to your app",
+        "Integrate Cal.com using OAuth",
+        "')\"> \"> Font: Cal Sans UI Text",
+        "Our own variable typeface for user interface design"
+      ]
+    },
+    "hightouch": {
+      "domain": "hightouch.com",
+      "fetchedAt": "2026-08-21T06:04:46.100Z",
+      "logoUrl": "https://hightouch.com/assets/meta.png",
+      "faviconUrl": "https://hightouch.com/favicon.ico?v=3",
+      "palette": [
+        "#40de9e",
+        "#2ea281",
+        "#4299e1",
+        "#f85d3e",
+        "#de2d22",
+        "#29b5e8"
+      ],
+      "primary": "#40de9e",
+      "fonts": [
+        "SFMono-Regular",
+        "swiper-icons"
+      ],
+      "headline": "Hightouch | Customer Data &amp; AI Platform for Marketers (CDP &amp; AI Agents)",
+      "description": "Hightouch is the Agentic Marketing Platform powered by the industry-leading Composable CDP: AI marketing that actually knows your brand, customers, and business.",
+      "voiceSamples": [
+        "Learn about the benefits of a Composable CDP and how it compares to a traditional CDP solution",
+        "See why Hightouch was named a CDP Leader by Gartner®",
+        "The world’s most innovative companies choose Hightouch self.__wrap_n!=1&&self.__wrap_b(\":R16la6nkm:\",1)",
+        "Brainstorm winning campaigns faster. Use agents to aggregate signals across your data, market, and competitors to surface what to act on next.",
+        "Create any audience with a no-code builder, then orchestrate personalized journeys across every channel in your stack."
+      ]
+    },
+    "retool": {
+      "domain": "retool.com",
+      "fetchedAt": "2026-08-21T06:04:46.264Z",
+      "logoUrl": "https://retool-dot-com.s3.us-west-2.amazonaws.com/page-assets/homepage/homepage-meta-image.png",
+      "faviconUrl": "https://dqpcjghenxt8u.cloudfront.net/images/sanity/retool-favicon-light-128x128.svg",
+      "palette": [
+        "#518dd2",
+        "#c72844",
+        "#b0ccea",
+        "#f6d6a0",
+        "#e8765e",
+        "#f5c2b2"
+      ],
+      "primary": "#518dd2",
+      "fonts": [
+        "Px Grotesk",
+        "pxGroteskFont",
+        "saansFont"
+      ],
+      "headline": "Build internal software better, with AI. | Retool",
+      "description": "Build, deploy, and manage internal tools with Retool&#x27;s unified engine. Connect to any database, API, or LLM. Leverage AI throughout your business.",
+      "voiceSamples": [
+        "Build an app from your favorite AI coding agent and deploy it here within your governed Retool environment.",
+        "Deploy apps built in Lovable, Replit, and other platforms. Upload a ZIP file or sync with GitHub.",
+        "Every app you build connects directly to your production data sources. Access is governed by your existing permissions—no extra configuration required.",
+        "Deploy with auth, access controls, and audit logging already in place. Fast to production, without sacrificing security.",
+        "Why enterprises choose Retool"
+      ]
+    },
+    "clerk": {
+      "domain": "clerk.com",
+      "fetchedAt": "2026-08-21T06:04:46.294Z",
+      "logoUrl": "https://clerk.com/opengraph-image.jpg?opengraph-image.0goco-shezoln.jpg?dpl=dpl_2Jbq9kLXW2A16nnso2G4NLKMPjeM",
+      "faviconUrl": "https://clerk.com/v2/favicon.ico",
+      "palette": [
+        "#6c47ff",
+        "#191c21",
+        "#64e5ff",
+        "#5de3ff",
+        "#222a35",
+        "#6248f6"
+      ],
+      "primary": "#6c47ff",
+      "fonts": [
+        "suisse",
+        "Inter",
+        "soehneMono"
+      ],
+      "headline": "Clerk | Authentication and User Management",
+      "description": "The easiest way to add authentication and user management to your application. Purpose-built for React, Next.js, Remix, and “The Modern Web”.",
+      "voiceSamples": [
+        "Trusted by fast-growing companies around the world.",
+        "Pixel-perfect UIs, embedded in minutes",
+        "User Authentication Add user SignUp/ and SignIn/ , provide account access through a dropdown menu, and manage profile and security settings.",
+        "Allow your users to create new organizations, switch between accounts, manage settings and billing, and view memberships and invitations.",
+        "Display pricing plans with feature comparisons and subscription options to help your users choose the right plan for their needs."
+      ]
+    },
+    "resend": {
+      "domain": "resend.com",
+      "fetchedAt": "2026-08-21T06:04:46.353Z",
+      "logoUrl": "https://resend.com/static/cover.png",
+      "faviconUrl": "https://resend.com/static/favicons/favicon-marketing.ico?v=1",
+      "palette": [
+        "#62ffb3",
+        "#22c55e",
+        "#70b8ff",
+        "#9c6b2e",
+        "#f76004",
+        "#8f3e1e"
+      ],
+      "primary": "#62ffb3",
+      "fonts": [
+        "domaine",
+        "aBCFavorit",
+        "commitMono"
+      ],
+      "headline": "Resend · Email for developers",
+      "description": "The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.",
+      "voiceSamples": [
+        "Write using a delightful editor",
+        "A modern editor that makes it easy for anyone to write, format, and send emails. Visually build your email and change the design by adding custom styles.",
+        "Contact management Import your list in minutes, regardless the size of your audience. Get full visibility of each contact and their personal attributes.",
+        "Broadcast analytics Unlock powerful insights and understand exactly how your audience is interacting with your broadcast emails.",
+        "Develop emails using React"
+      ]
+    },
+    "dub": {
+      "domain": "dub.co",
+      "fetchedAt": "2026-08-21T06:04:46.427Z",
+      "logoUrl": "https://assets.dub.co/thumbnail.jpg",
+      "faviconUrl": "https://assets.dub.co/favicons/apple-touch-icon.png",
+      "palette": [
+        "#3b82f6",
+        "#2563eb",
+        "#ff0000",
+        "#ea580c",
+        "#f97316",
+        "#ef4444"
+      ],
+      "primary": "#3b82f6",
+      "fonts": [
+        "Inter",
+        "GeistMono",
+        "satoshi"
+      ],
+      "headline": "Dub - The Modern Link Attribution Platform",
+      "description": "Dub is the modern link attribution platform for short links, conversion tracking, and affiliate programs.",
+      "voiceSamples": [
+        "Conversion Analytics Understand exactly how your marketing drives revenue with Dub&#x27;s powerful attribution engine",
+        "Short Links Create and manage short links at scale, with advanced features, folders, and role-based access control",
+        "Marketing isn&#x27;t just about clicks. It&#x27;s about outcomes.",
+        "Dub is the modern link attribution platform that unifies short links real-time analytics and affiliate programs – all in one place.",
+        "It&#x27;s fast. It&#x27;s reliable. It&#x27;s beautiful. And it scales with you."
+      ]
+    },
+    "supabase": {
+      "domain": "supabase.com",
+      "fetchedAt": "2026-08-21T06:04:46.494Z",
+      "logoUrl": "https://supabase.com/images/og/supabase-og.png",
+      "faviconUrl": "https://supabase.com/favicon/favicon.ico",
+      "palette": [
+        "#3ecf8e",
+        "#bda4ff",
+        "#6b35dc",
+        "#15593b",
+        "#ffcda1",
+        "#f1a10d"
+      ],
+      "primary": "#3ecf8e",
+      "fonts": [
+        "Inter",
+        "Source Code Pro",
+        "Manrope"
+      ],
+      "headline": "Supabase | The Postgres Development Platform",
+      "description": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
+      "voiceSamples": [
+        "Product Developers Solutions Pricing",
+        "Postgres Database Every project is a full Postgres database , the world&#x27;s most trusted relational database.",
+        "100% portable Built-in Auth with RLS Easy to extend Authentication Add user sign ups and logins , securing your data with Row Level Security.",
+        "Edge Functions Easily write custom code without deploying or scaling servers.",
+        "Storage Store, organize, and serve large files, from videos to images."
+      ]
+    },
+    "linear": {
+      "domain": "linear.app",
+      "fetchedAt": "2026-08-21T06:04:46.527Z",
+      "logoUrl": "https://linear.app/static/og/homepage.jpg",
+      "faviconUrl": "https://linear.app/favicon.ico?v=2",
+      "palette": [
+        "#02b8cc",
+        "#6366f1",
+        "#191d20",
+        "#eb5757",
+        "#8b5cf6",
+        "#f34e52"
+      ],
+      "primary": "#02b8cc",
+      "fonts": [],
+      "headline": "Linear – The system for product development",
+      "description": "Purpose-built for planning and building products with AI agents.",
+      "voiceSamples": [
+        "Powered by agents Designed for workflows shared by humans and agents. From drafting PRDs to pushing PRs.",
+        "Designed for speed Reduces noise and restores momentum to help teams ship with high velocity and focus.",
+        "Purpose-built Linear is shaped by the practices and principles of world-class product teams.",
+        "Make product operations self-driving",
+        "Turn conversations and customer feedback into actionable issues that are routed, labeled, and prioritized for the right team."
+      ]
+    },
+    "trigger": {
+      "domain": "trigger.dev",
+      "fetchedAt": "2026-08-21T06:04:46.625Z",
+      "logoUrl": "https://trigger.dev/assets/og-image-hAiXVmBp.jpg",
+      "faviconUrl": "https://trigger.dev/favicon.ico",
+      "palette": [
+        "#9c9af2",
+        "#d9f07c",
+        "#e888f8",
+        "#afec73",
+        "#9b99ff",
+        "#7655fd"
+      ],
+      "primary": "#9c9af2",
+      "fonts": [
+        "Ubuntu",
+        "Satoshi-Variable",
+        "Geist"
+      ],
+      "headline": "Trigger.dev | Build and deploy fully-managed AI agents and workflows.",
+      "description": "Trigger.dev is the open source platform for building AI workflows in TypeScript. Long-running tasks with retries, queues, observability, and elastic scaling.",
+      "voiceSamples": [
+        "How it works Product Product All features AI Agents Build and deploy invincible AI agents.",
+        "Trigger.dev Realtime Connect your frontend app to your tasks.",
+        "Control how many tasks run at once.",
+        "Scheduled tasks Durable cron schedules without timeouts.",
+        "Observability monitoring Real-time monitoring and tracing of tasks."
+      ]
+    },
+    "neon": {
+      "domain": "neon.tech",
+      "fetchedAt": "2026-08-21T06:04:46.769Z",
+      "logoUrl": "https://neon.com/images/social-previews/index.jpg?updated=2026-05-27",
+      "faviconUrl": "https://neon.tech/favicon/favicon.svg",
+      "palette": [
+        "#00e599",
+        "#0055ff",
+        "#39a57d",
+        "#34d59a",
+        "#00cc88",
+        "#38a57d"
+      ],
+      "primary": "#00e599",
+      "fonts": [
+        "Inter",
+        "IBM Plex Sans",
+        "IBM Plex Sans Fallback"
+      ],
+      "headline": "Neon — Postgres backends for apps and agents",
+      "description": "The backend for apps and agents. Build with Lakebase Postgres, Auth, Functions, Storage, and an AI Gateway: instant, branchable, serverless.",
+      "voiceSamples": [
+        "Built around Lakebase Postgres, by Databricks",
+        "Managed Better Auth . Authentication with users and sessions stored in Postgres.",
+        "Functions . Long-running, without timeouts, and closer to your database.",
+        "Object Storage . S3-compatible blob storage that branches with your projects.",
+        "AI Gateway . All models, one API, one bill. Powered by Databricks."
+      ]
+    },
+    "railway": {
+      "domain": "railway.app",
+      "fetchedAt": "2026-08-21T06:04:47.102Z",
+      "logoUrl": "https://railway.com/og.png?v=2",
+      "faviconUrl": "https://railway.app/favicon.ico",
+      "palette": [
+        "#13111c",
+        "#5d487d",
+        "#59497a",
+        "#d97757",
+        "#1c1a28",
+        "#4285f4"
+      ],
+      "primary": "#13111c",
+      "fonts": [],
+      "headline": "Railway | The all-in-one intelligent cloud provider",
+      "description": "Railway is a full-stack cloud for deploying web apps, servers, databases, and more with automatic scaling, monitoring, and security.",
+      "voiceSamples": [
+        "Railway Product Developers Enterprise Company Pricing Ship software peacefully With the all-in-one intelligent cloud provider",
+        "Deploy your app to production effortlessly New Project Dashboard New Project Deploy",
+        "Deploy anything without the complexity",
+        "Connect your repo, Railway handles the rest. Auto-config, instant previews, no new tools to learn. Learn more →",
+        "0 + deploys per month (and counting)"
+      ]
+    },
+    "airbyte": {
+      "domain": "airbyte.com",
+      "fetchedAt": "2026-08-21T06:04:47.233Z",
+      "logoUrl": "https://airbyte.com/images/opengraph-context-layer-ai-agents.png",
+      "faviconUrl": "https://airbyte.com/favicon-192x192.png?v=20260618",
+      "palette": [
+        "#5d51d5",
+        "#a299ff",
+        "#695edf",
+        "#433bfb",
+        "#140f43",
+        "#07072b"
+      ],
+      "primary": "#5d51d5",
+      "fonts": [
+        "Booton",
+        "Fragmentmono",
+        "Booton Hero"
+      ],
+      "headline": "Airbyte | The Context Layer for AI Agents | Open-Source Data Integration",
+      "description": "Airbyte is the open-source data integration platform: ELT pipelines into any warehouse, a context layer for AI agents, and 600+ connectors behind both.",
+      "voiceSamples": [
+        "Why agents struggle in production",
+        "MCPs give agents access. They do not give agents a map.",
+        "Token waste Raw API responses pile up in the context window before the agent starts reasoning. It spends tokens cleaning data instead of answering.",
+        "Latency Every source is another round trip. Five systems means five sequential API calls, each with its own rate limits, before the agent can begin.",
+        "No map APIs only answer questions you already know how to ask. The agent can&#x27;t see what data exists or how it connects."
+      ]
+    },
+    "inngest": {
+      "domain": "inngest.com",
+      "fetchedAt": "2026-08-21T06:04:47.938Z",
+      "logoUrl": "https://www.inngest.com/assets/homepage/open-graph-2026.png",
+      "faviconUrl": "https://inngest.com/favicon-june-2025-light.svg",
+      "palette": [
+        "#fb5536",
+        "#c2a46a",
+        "#1e293b",
+        "#334155",
+        "#a8ef3c",
+        "#0f172a"
+      ],
+      "primary": "#fb5536",
+      "fonts": [
+        "CircularXX",
+        "WhyteV1",
+        "Whyte Inktrap"
+      ],
+      "headline": "Inngest - Durable Execution for Workflows &amp; AI",
+      "description": "Build reliable background jobs, workflows, and AI agents without extra infrastructure. Automatic retries, flow control, and step-level observability.",
+      "voiceSamples": [
+        "No workers. No queues. No refactoring.",
+        "Your code has to work no matter what. Add steps to any codebase to automate retries from failure— not from scratch.",
+        "Don’t let one needy user starve the rest. Add rate limits, per-tenant concurrency, and throttling with one line of code.",
+        "Observability that lives outside the execution chain misses context. Trace everything, replay anything, and eval variants based on real product outcomes.",
+        "Durability belongs in code"
+      ]
+    },
+    "zluri": {
+      "domain": "zluri.com",
+      "fetchedAt": "2026-08-21T06:04:48.191Z",
+      "logoUrl": "https://cdn.prod.website-files.com/6629779f6456fbdfaf4f728b/6a5dfba97e841f9b100448a2_zluri-open-graph-image.png",
+      "faviconUrl": "https://cdn.prod.website-files.com/6629779f6456fbdfaf4f728b/66ea4d6243f2ff597aa51e79_favicon-new-zluri-webflow.png",
+      "palette": [
+        "#366ecf",
+        "#d3ff57",
+        "#4ad89a",
+        "#1d4ba6",
+        "#d52a00",
+        "#3898ec"
+      ],
+      "primary": "#366ecf",
+      "fonts": [
+        "Inter",
+        "Satoshi",
+        "Lexend"
+      ],
+      "headline": "Zluri | Next-Gen Identity Governance and Administration",
+      "description": "Zluri helps enterprise security and IT teams govern identities, automate access reviews, and enforce least privilege. Get a demo.",
+      "voiceSamples": [
+        "Identity Visibility Intelligence",
+        "Identity Governance Administration",
+        "Identity Security Posture Management",
+        "SaaS Management Platform",
+        "Discover human and non-human identities across SaaS, cloud, and enterprise apps. Map access and activity via a unified identity graph."
+      ]
+    },
+    "pylon": {
+      "domain": "usepylon.com",
+      "fetchedAt": "2026-08-21T06:04:48.208Z",
+      "logoUrl": "https://cdn.prod.website-files.com/6a2c6d7ab6674379553c0824/6a5111b6d4c0a3f164cc342d_og-image.jpg",
+      "faviconUrl": "https://cdn.prod.website-files.com/6a2c6d7ab6674379553c0824/6a579b0543ca00b47b0262f3_Light%20Mode%20-%20Favicon%20(1).png",
+      "palette": [
+        "#3898ec",
+        "#5d6c7b",
+        "#0082f3",
+        "#5b0eff",
+        "#18ad3a",
+        "#4169e1"
+      ],
+      "primary": "#3898ec",
+      "fonts": [
+        "Die Grotesk C",
+        "Die Grotesk A",
+        "Die Grotesk B"
+      ],
+      "headline": "Pylon: Agentic B2B Support",
+      "description": "Pylon lets humans and AI agents collaborate on customer work, investigating, resolving, and acting on every signal. Trusted by 1,500+ B2B companies.",
+      "voiceSamples": [
+        "Stop doing the work. Start directing agents.",
+        "Your personal AI operator. Ask it to investigate, use your tools, take action, or delegate work to external agents.",
+        "Background Agent Specialized agents that run skills automatically when triggered, then post their work back into the issue.",
+        "Slack Agent Ask questions and take action from Slack using the same customer context, tools, and permissions available in Pylon.",
+        "Support Agent Resolve customer questions automatically across every channel, bringing in humans when judgment is needed."
+      ]
+    },
+    "vanta": {
+      "domain": "vanta.com",
+      "fetchedAt": "2026-08-21T06:04:48.496Z",
+      "logoUrl": "https://cdn.prod.website-files.com/64009032676f24f376f002fc/693c66c494e0178e6fae41c8_OG_default.jpg",
+      "faviconUrl": "https://cdn.prod.website-files.com/64009032676f24f376f002fc/6a8611e08f776b721ca750c9_ilma-favicon.png",
+      "palette": [
+        "#5230d7",
+        "#240642",
+        "#ac55ff",
+        "#acfcd9",
+        "#3898ec",
+        "#5e05c4"
+      ],
+      "primary": "#5230d7",
+      "fonts": [
+        "Reckless",
+        "Nib Pro",
+        "SC Ripley"
+      ],
+      "headline": "SOC 2, HIPAA, ISO 27001, PCI, and GDPR Compliance",
+      "description": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of months.",
+      "voiceSamples": [
+        "Compliance, risk, and proof. All in the #1 Agentic Trust Platform.",
+        "Get and stay compliant with automation and continuous monitoring.",
+        "See and manage risk in one place.",
+        "Stay on top of vendor risk with Vanta&#x27;s Agent for TPRM.",
+        "Audit prep with ease, no spreadsheets required."
+      ]
+    },
+    "unkey": {
+      "domain": "unkey.com",
+      "fetchedAt": "2026-08-21T06:04:49.885Z",
+      "logoUrl": "https://unkey.com/social-previews/main.jpg",
+      "faviconUrl": "https://unkey.com/favicon/favicon.ico",
+      "palette": [
+        "#3ceeae",
+        "#3dc5fa",
+        "#fb1048",
+        "#ffd55d",
+        "#a3c7fa",
+        "#def135"
+      ],
+      "primary": "#3ceeae",
+      "fonts": [
+        "Inter",
+        "JetBrains Mono",
+        "articulat-cf"
+      ],
+      "headline": "Unkey | The Developer Platform for Modern APIs",
+      "description": "Unkey brings API deployment, gateways, and observability into one platform.",
+      "voiceSamples": [
+        "Unify your fragmented API stack with a single control plane for access and traffic.",
+        "Faster to ship. Go from code to running API in minutes. Test safely, promote when ready, roll back if needed.",
+        "Safer by default. Protect every endpoint with keys, rate limits, and instant access revocation out of the box.",
+        "Simpler to run. One single unified platform for deployments, gateways, and full observability.",
+        "Visible from day one. Every request logged. Every decision tracked. Debug issues before users notice."
+      ]
+    }
+  }
+}

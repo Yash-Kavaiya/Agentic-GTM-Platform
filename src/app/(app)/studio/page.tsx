@@ -1,6 +1,6 @@
-import { getSignals } from '../../lib/data'
-import { HealthBadge, WatchString } from '../../components/ui'
-import { SignalBuilder } from '../../components/SignalBuilder'
+import { getSignals } from '../../../lib/data'
+import { HealthBadge, WatchString } from '../../../components/ui'
+import { SignalBuilder } from '../../../components/SignalBuilder'
 
 /**
  * Signal Studio.
