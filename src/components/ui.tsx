@@ -13,13 +13,14 @@ import type { HealthState } from '../core/types'
  *   dashboard to find out whether what they are reading can be trusted.
  */
 
+/** Validated steps — see charts.tsx for why these differ from the canvas. */
 const HEALTH: Record<string, { fg: string; bg: string; label: string }> = {
-  HEALTHY: { fg: '#2f6b4f', bg: 'rgba(47,107,79,.1)', label: 'healthy' },
-  HEALED: { fg: '#2f6b4f', bg: 'rgba(47,107,79,.1)', label: 'healed' },
-  DEGRADED: { fg: '#8a5d16', bg: 'rgba(194,135,42,.14)', label: 'degraded' },
-  HEALING: { fg: '#b8442a', bg: 'rgba(184,68,42,.11)', label: 'healing' },
-  VERIFYING: { fg: '#b8442a', bg: 'rgba(184,68,42,.11)', label: 'verifying' },
-  QUARANTINED: { fg: '#a32c2c', bg: 'rgba(163,44,44,.1)', label: 'quarantined' },
+  HEALTHY: { fg: '#2f8259', bg: 'rgba(47,130,89,.11)', label: 'healthy' },
+  HEALED: { fg: '#2f8259', bg: 'rgba(47,130,89,.11)', label: 'healed' },
+  DEGRADED: { fg: '#6b6459', bg: 'rgba(20,18,15,.07)', label: 'degraded' },
+  HEALING: { fg: '#6b6459', bg: 'rgba(20,18,15,.07)', label: 'healing' },
+  VERIFYING: { fg: '#6b6459', bg: 'rgba(20,18,15,.07)', label: 'verifying' },
+  QUARANTINED: { fg: '#901f1f', bg: 'rgba(144,31,31,.09)', label: 'quarantined' },
   UNKNOWN: { fg: '#8b8478', bg: 'rgba(20,18,15,.06)', label: 'unknown' },
 }
 

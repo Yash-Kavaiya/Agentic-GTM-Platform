@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getHeals, getCollectors, getAccounts, getMeta, getAdapters, getSignals } from '../../../lib/data'
 import { Page, PageHead, Stat, Pill, Empty } from '../../../components/ui'
+import { BarList, HealthMix, Gauge } from '../../../components/charts'
 
 /**
  * Dashboard — pipeline, source health, and what it cost.
@@ -69,28 +70,7 @@ export default function DashboardPage() {
         {/* Funnel */}
         <div className="card" style={{ padding: '18px 20px', display: 'flex', flexDirection: 'column', gap: 14 }}>
           <h2 style={{ margin: 0, fontSize: 13.5, fontWeight: 600 }}>Pipeline funnel</h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-            {funnel.map((f) => (
-              <div key={f.label} style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                  <span style={{ fontSize: 12.5, color: 'var(--color-ink-3)' }}>{f.label}</span>
-                  <span className="mono tnum" style={{ fontSize: 11, color: 'var(--color-mute)' }}>
-                    {f.n}
-                  </span>
-                </div>
-                <div style={{ height: 6, background: 'rgba(20,18,15,.07)', borderRadius: 3, overflow: 'hidden' }}>
-                  <div
-                    style={{
-                      width: `${(f.n / funnelMax) * 100}%`,
-                      height: '100%',
-                      background: 'var(--color-rust)',
-                      borderRadius: 3,
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+          <BarList data={funnel.map((f) => ({ label: f.label, value: f.n }))} max={funnelMax} />
         </div>
 
         {/* Top accounts */}
@@ -129,9 +109,43 @@ export default function DashboardPage() {
         </div>
       </div>
 
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: 12, marginBottom: 12 }}>
+        <div className="card" style={{ padding: '18px 20px', display: 'flex', flexDirection: 'column', gap: 14 }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+            <h2 style={{ margin: 0, fontSize: 13.5, fontWeight: 600 }}>Source health</h2>
+            <span className="mono" style={{ fontSize: 10, color: 'var(--color-mute-3)' }}>by severity</span>
+          </div>
+          <HealthMix
+            slices={[
+              { label: 'Healthy', tone: 'good', count: collectors.filter((c) => c.state === 'HEALTHY' || c.state === 'HEALED').length },
+              { label: 'Repairing', tone: 'mid', count: collectors.filter((c) => c.state === 'HEALING' || c.state === 'VERIFYING' || c.state === 'DEGRADED').length },
+              { label: 'Quarantined', tone: 'bad', count: collectors.filter((c) => c.state === 'QUARANTINED').length },
+            ]}
+          />
+          <p style={{ margin: 0, fontSize: 12, lineHeight: 1.5, color: 'var(--color-mute-2)', textWrap: 'pretty' }}>
+            Ordered by severity rather than shown as separate categories — a quarantined source is
+            not simply a different kind of source from a healthy one.
+          </p>
+        </div>
+
+        <div className="card" style={{ padding: '18px 20px', display: 'flex', flexDirection: 'column', gap: 14 }}>
+          <h2 style={{ margin: 0, fontSize: 13.5, fontWeight: 600 }}>Repairs confirmed in production</h2>
+          <Gauge
+            value={stats.approved}
+            total={stats.attempts}
+            label="confirmed"
+            tone={stats.attempts > 0 && stats.approved === stats.attempts ? 'good' : 'bad'}
+          />
+          <p style={{ margin: 0, fontSize: 12, lineHeight: 1.5, color: 'var(--color-mute-2)', textWrap: 'pretty' }}>
+            A repair counts only once a production run agrees with its preview. Approval alone is a
+            promise.
+          </p>
+        </div>
+      </div>
+
       {/* Source health */}
       <section>
-        <h2 style={{ margin: '0 0 10px', fontSize: 13.5, fontWeight: 600 }}>Source health</h2>
+        <h2 style={{ margin: '0 0 10px', fontSize: 13.5, fontWeight: 600 }}>Collectors</h2>
         {collectors.length === 0 ? (
           <Empty
             title="No collectors provisioned."

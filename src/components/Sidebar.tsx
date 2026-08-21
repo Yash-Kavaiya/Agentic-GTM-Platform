@@ -14,19 +14,33 @@ import type { CollectorView, Meta } from '../lib/data'
 
 const NAV = [
   { num: '01', href: '/', label: 'Morning Brief' },
-  { num: '02', href: '/studio', label: 'Signal Studio' },
-  { num: '03', href: '/accounts', label: 'Accounts' },
-  { num: '04', href: '/heal', label: 'Heal Log' },
-  { num: '05', href: '/dashboard', label: 'Dashboard' },
+  { num: '02', href: '/discover', label: 'Find Accounts' },
+  { num: '03', href: '/studio', label: 'Signal Studio' },
+  { num: '04', href: '/accounts', label: 'Accounts' },
+  { num: '05', href: '/integrations', label: 'Integrations' },
+  { num: '06', href: '/heal', label: 'Heal Log' },
+  { num: '07', href: '/dashboard', label: 'Dashboard' },
 ] as const
 
+/**
+ * Validated diverging steps, not the design's originals.
+ *
+ * The canvas used #2f6b4f / #a32c2c. The palette validator rejected both: the
+ * green fell under the chroma floor (0.078 — it reads grey), and the red sat
+ * ΔE 6.8 from the rust accent in NORMAL vision, meaning a full-colour reader
+ * could not reliably tell a broken collector from an accent mark.
+ *
+ * Health is ordered by severity, so these are diverging poles with a neutral
+ * middle rather than four categorical hues. Every bar also carries a `title`,
+ * and the states are labelled in full on the dashboard — never colour alone.
+ */
 const HEALTH_COLOR: Record<string, string> = {
-  HEALTHY: '#2f6b4f',
-  HEALED: '#2f6b4f',
-  DEGRADED: '#c2872a',
-  HEALING: '#b8442a',
-  VERIFYING: '#b8442a',
-  QUARANTINED: '#a32c2c',
+  HEALTHY: '#2f8259',
+  HEALED: '#2f8259',
+  DEGRADED: '#a8a196',
+  HEALING: '#a8a196',
+  VERIFYING: '#a8a196',
+  QUARANTINED: '#901f1f',
   UNKNOWN: 'rgba(244,241,236,.22)',
 }
 

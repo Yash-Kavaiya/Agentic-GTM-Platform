@@ -113,6 +113,16 @@ export function exportAll(store: Store, at: string = new Date().toISOString()): 
     })
   write('campaigns.json', { generatedAt: at, campaigns })
 
+  // Prospect candidates from `bellwether discover`, if any have been found.
+  const candidatesPath = join(process.cwd(), 'data', 'candidates.json')
+  if (existsSync(candidatesPath)) {
+    try {
+      write('candidates.json', JSON.parse(readFileSync(candidatesPath, 'utf8')))
+    } catch {
+      /* a malformed candidates file must not fail the whole export */
+    }
+  }
+
   write('meta.json', {
     generatedAt: at,
     signalCount: signals.length,
@@ -120,6 +130,7 @@ export function exportAll(store: Store, at: string = new Date().toISOString()): 
     collectorCount: Object.keys(collectors).length,
     eventCount: events.length,
     verifiedSourceCount: Object.values(sources).reduce((a, v) => a + Object.keys(v).length, 0),
+    jobBoardCount: targets.filter((t) => t.jobs).length,
     icp: { name: icp.name, threshold: icp.brief_threshold },
   })
 

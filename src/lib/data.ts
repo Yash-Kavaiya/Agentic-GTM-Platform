@@ -99,13 +99,14 @@ export interface Meta {
   collectorCount: number
   eventCount: number
   verifiedSourceCount: number
+  jobBoardCount: number
   icp: { name: string; threshold: number }
 }
 
 export const getMeta = (): Meta =>
   read<Meta>('meta.json', {
     generatedAt: new Date().toISOString(),
-    signalCount: 0, targetCount: 0, collectorCount: 0, eventCount: 0, verifiedSourceCount: 0,
+    signalCount: 0, targetCount: 0, collectorCount: 0, eventCount: 0, verifiedSourceCount: 0, jobBoardCount: 0,
     icp: { name: 'unknown', threshold: 0 },
   })
 
@@ -125,3 +126,14 @@ export const getBrands = (): Record<string, BrandKit> =>
   read<{ brands: Record<string, BrandKit> }>('brands.json', { brands: {} }).brands
 
 export const getBrand = (targetId: string): BrandKit | undefined => getBrands()[targetId]
+
+import type { Candidate } from '../core/discover.js'
+
+export interface CandidatesFile {
+  generatedAt: string
+  role: string
+  candidates: Candidate[]
+}
+
+export const getCandidates = (): CandidatesFile =>
+  read<CandidatesFile>('candidates.json', { generatedAt: '', role: '', candidates: [] })

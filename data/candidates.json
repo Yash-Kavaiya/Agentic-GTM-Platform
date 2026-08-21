@@ -1,0 +1,217 @@
+{
+  "generatedAt": "2026-08-21T13:03:27.460Z",
+  "role": "Revenue Operations Manager",
+  "candidates": [
+    {
+      "token": "singlestore",
+      "provider": "greenhouse",
+      "name": "SingleStore",
+      "triggerRole": "Revenue Operations Manager",
+      "boardUrl": "https://boards-api.greenhouse.io/v1/boards/singlestore/jobs?content=true",
+      "openRoles": 36,
+      "revenueRoles": [
+        "Revenue Operations Manager",
+        "Sr. Revenue Operations Analyst "
+      ],
+      "domain": "singlestore.com",
+      "domainVerified": true,
+      "hasPricing": true,
+      "score": 100,
+      "notes": [
+        "36 open roles on a public board",
+        "hiring Revenue Operations Manager, Sr. Revenue Operations Analyst ",
+        "publishes a pricing page — sells software, not services"
+      ]
+    },
+    {
+      "token": "brex",
+      "provider": "greenhouse",
+      "name": "Brex",
+      "triggerRole": "Revenue Operations Manager | Career Opportunities",
+      "boardUrl": "https://boards-api.greenhouse.io/v1/boards/brex/jobs?content=true",
+      "openRoles": 297,
+      "revenueRoles": [
+        "Director, Revenue Operations",
+        "Director, Revenue Operations",
+        "Engineering Manager, GTM Engineering ",
+        "Engineering Manager, GTM Engineering ",
+        "Engineering Manager, GTM Engineering "
+      ],
+      "domain": "brex.com",
+      "domainVerified": true,
+      "hasPricing": true,
+      "score": 100,
+      "notes": [
+        "297 open roles on a public board",
+        "hiring Director, Revenue Operations, Director, Revenue Operations",
+        "publishes a pricing page — sells software, not services"
+      ]
+    },
+    {
+      "token": "appspace",
+      "provider": "greenhouse",
+      "name": "Appspace",
+      "triggerRole": "Revenue Operations Manager",
+      "boardUrl": "https://boards-api.greenhouse.io/v1/boards/appspace/jobs?content=true",
+      "openRoles": 11,
+      "revenueRoles": [
+        "Revenue Operations Manager",
+        "Strategic Customer Success Manager"
+      ],
+      "domain": "appspace.com",
+      "domainVerified": true,
+      "hasPricing": true,
+      "score": 100,
+      "notes": [
+        "11 open roles on a public board",
+        "hiring Revenue Operations Manager, Strategic Customer Success Manager",
+        "publishes a pricing page — sells software, not services"
+      ]
+    },
+    {
+      "token": "bestow",
+      "provider": "ashby",
+      "name": "Bestow",
+      "triggerRole": "Revenue Operations Manager @ Bestow",
+      "boardUrl": "https://api.ashbyhq.com/posting-api/job-board/bestow",
+      "openRoles": 21,
+      "revenueRoles": [
+        "Revenue Operations Manager"
+      ],
+      "domain": "bestow.co",
+      "domainVerified": true,
+      "hasPricing": true,
+      "score": 85,
+      "notes": [
+        "21 open roles on a public board",
+        "hiring Revenue Operations Manager",
+        "publishes a pricing page — sells software, not services"
+      ]
+    },
+    {
+      "token": "sardine",
+      "provider": "ashby",
+      "name": "Sardine",
+      "triggerRole": "Revenue Operations Manager @ Sardine",
+      "boardUrl": "https://api.ashbyhq.com/posting-api/job-board/sardine",
+      "openRoles": 35,
+      "revenueRoles": [
+        "Solutions Architect, Integrations (US/CA)",
+        "Solutions Architect, Integrations (UK/EU)",
+        "Solutions Architect Lead - US/CAN, West Coast",
+        "Revenue Operations Manager",
+        "Solutions Architect, Integrations (APAC)"
+      ],
+      "domain": null,
+      "domainVerified": false,
+      "hasPricing": false,
+      "score": 55,
+      "notes": [
+        "35 open roles on a public board",
+        "hiring Solutions Architect, Integrations (US/CA), Solutions Architect, Integrations (UK/EU)",
+        "domain not confirmed — needs a human to check"
+      ]
+    },
+    {
+      "token": "eliseai",
+      "provider": "ashby",
+      "name": "EliseAI",
+      "triggerRole": "Revenue Operations Manager @ EliseAI",
+      "boardUrl": "https://api.ashbyhq.com/posting-api/job-board/eliseai",
+      "openRoles": 105,
+      "revenueRoles": [
+        "GTM Engineer",
+        "Customer Success Specialist | Housing ",
+        "Customer Success Manager | Housing",
+        "VP of Revenue Operations ",
+        "Revenue Operations Manager "
+      ],
+      "domain": null,
+      "domainVerified": false,
+      "hasPricing": false,
+      "score": 55,
+      "notes": [
+        "105 open roles on a public board",
+        "hiring GTM Engineer, Customer Success Specialist | Housing ",
+        "domain not confirmed — needs a human to check"
+      ]
+    },
+    {
+      "token": "orbital",
+      "provider": "ashby",
+      "name": "Orbital",
+      "triggerRole": "Revenue Operations Manager (Sales) @ Orbital",
+      "boardUrl": "https://api.ashbyhq.com/posting-api/job-board/orbital",
+      "openRoles": 26,
+      "revenueRoles": [
+        "Legal Solutions Architect  (CRE Lawyer)",
+        "Revenue Operations Manager (Sales)"
+      ],
+      "domain": null,
+      "domainVerified": false,
+      "hasPricing": false,
+      "score": 55,
+      "notes": [
+        "26 open roles on a public board",
+        "hiring Legal Solutions Architect  (CRE Lawyer), Revenue Operations Manager (Sales)",
+        "domain not confirmed — needs a human to check"
+      ]
+    },
+    {
+      "token": "palette-media",
+      "provider": "ashby",
+      "name": "Palette Media",
+      "triggerRole": "Revenue Operations Manager @ Palette Media",
+      "boardUrl": "https://api.ashbyhq.com/posting-api/job-board/palette-media",
+      "openRoles": 6,
+      "revenueRoles": [
+        "Revenue Operations Manager"
+      ],
+      "domain": null,
+      "domainVerified": false,
+      "hasPricing": false,
+      "score": 40,
+      "notes": [
+        "6 open roles on a public board",
+        "hiring Revenue Operations Manager",
+        "domain not confirmed — needs a human to check"
+      ]
+    },
+    {
+      "token": "chownow",
+      "provider": "lever",
+      "name": "ChowNow",
+      "triggerRole": "Senior Revenue Operations Manager - ChowNow",
+      "boardUrl": "https://api.lever.co/v0/postings/chownow?mode=json",
+      "openRoles": 11,
+      "revenueRoles": [
+        "Senior Revenue Operations Manager"
+      ],
+      "domain": null,
+      "domainVerified": false,
+      "hasPricing": false,
+      "score": 40,
+      "notes": [
+        "11 open roles on a public board",
+        "hiring Senior Revenue Operations Manager",
+        "domain not confirmed — needs a human to check"
+      ]
+    },
+    {
+      "token": "whatnot",
+      "provider": "ashby",
+      "name": "Whatnot",
+      "triggerRole": "Revenue Operations Manager, Compensation @ Whatnot",
+      "boardUrl": "https://api.ashbyhq.com/posting-api/job-board/whatnot",
+      "openRoles": null,
+      "revenueRoles": [],
+      "domain": null,
+      "domainVerified": false,
+      "hasPricing": false,
+      "score": 0,
+      "notes": [
+        "domain not confirmed — needs a human to check"
+      ]
+    }
+  ]
+}

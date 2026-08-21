@@ -267,6 +267,40 @@ ${healthy}/${chosen.length} healthy`)
   store.close()
 }
 
+/**
+ * Find companies that should be on the watchlist.
+ *
+ *   npm run bw -- discover --role "Revenue Operations Manager"
+ *
+ * Searches public job boards for the role that signals a company is building
+ * the function you sell into. The company that posted it is the prospect.
+ */
+async function cmdDiscover() {
+  const role = flag('role') ?? 'Revenue Operations Manager'
+  const { discoverProspects } = await import('../src/core/discover.js')
+  const { writeFileSync: wf, mkdirSync: mk } = await import('node:fs')
+
+  const known = loadTargets().map((t) => t.jobs?.token ?? t.id)
+  const candidates = await discoverProspects({ role, known, log: (l) => console.log(l) })
+
+  mk(join(process.cwd(), 'data'), { recursive: true })
+  wf(
+    join(process.cwd(), 'data', 'candidates.json'),
+    JSON.stringify({ generatedAt: new Date().toISOString(), role, candidates }, null, 2) + '\n',
+  )
+
+  console.log(`\n${candidates.length} candidate(s) -> data/candidates.json`)
+  const strong = candidates.filter((c) => c.score >= 60)
+  if (strong.length) {
+    console.log(`
+Worth a look:`)
+    for (const c of strong) {
+      console.log(`  ${c.name.padEnd(24)} ${String(c.score).padStart(3)}  ${c.domain ?? '-'}`)
+      for (const n of c.notes) console.log(`  ${''.padEnd(24)}      ${n}`)
+    }
+  }
+}
+
 function cmdBrief() {
   const store = new Store(dbPath())
   const date = flag('date') ?? dayOf(new Date())
@@ -300,6 +334,7 @@ function help() {
 
   run     [--signal a,b] [--target a,b] [--date ISO] [--no-heal]
   brief   [--date YYYY-MM-DD] [--window HOURS]
+  discover [--role "Revenue Operations Manager"]  find new accounts
   verify  [--collector c_a,c_b]   check collectors against production
   enrich  [--target a,b] [--force]
   export  [--date YYYY-MM-DD]
@@ -313,6 +348,7 @@ const commands: Record<string, () => void | Promise<void>> = {
   status: cmdStatus,
   brief: cmdBrief,
   verify: cmdVerify,
+  discover: cmdDiscover,
   enrich: cmdEnrich,
   export: cmdExport,
   heal: cmdHeal,
