@@ -1,0 +1,18 @@
+node_modules
+.next
+out
+*.tsbuildinfo
+next-env.d.ts
+
+# secrets — never commit (hackathon best practice 4)
+.env
+.env.*
+!.env.example
+
+# local engine state
+data/bellwether.db*
+data/probe.json
+data/snapshots/
+
+.vercel
+.DS_Store

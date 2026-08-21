@@ -1,0 +1,70 @@
+# Bellwether ICP definition.
+#
+# Who we sell to, and what a signal is worth when it comes from them.
+#
+# An account's score is the sum of its recent signal weights, each multiplied by
+# the ICP's `signal_multipliers` entry for that signal, then scaled by `fit`.
+# Anneal's second loop rewrites `signal_multipliers` from approve/reject/engage
+# outcomes — this file is the thing that learns.
+
+version: 1
+
+icp:
+  name: Mid-market B2B SaaS moving upmarket
+  description: >
+    Product-led SaaS companies between roughly 50 and 500 employees that are
+    starting to sell to enterprise buyers. They show it first on their pricing
+    page and in who they hire, weeks before it reaches a press release.
+
+  # Attributes we can actually observe from public pages. Each contributes to
+  # `fit`, a 0-1 multiplier on the account's raw signal score.
+  fit_criteria:
+    - id: has_public_pricing
+      description: Publishes a pricing page with named tiers
+      weight: 0.25
+    - id: has_public_job_board
+      description: Runs a public job board on Greenhouse, Lever, or Ashby
+      weight: 0.20
+    - id: has_docs_site
+      description: Maintains a public documentation site with a sitemap
+      weight: 0.15
+    - id: has_integrations_page
+      description: Publishes an integrations or partners directory
+      weight: 0.20
+    - id: has_security_page
+      description: Publishes a security, trust, or compliance page
+      weight: 0.20
+
+  # Starting weights. Loop 2 of Anneal reweights these from outcomes.
+  signal_multipliers:
+    moving_upmarket: 1.4
+    enterprise_readiness: 1.3
+    building_the_function: 1.2
+    announcement: 1.1
+    price_change: 1.0
+    leadership_change: 1.0
+    stack_adoption: 0.9
+    ecosystem_expansion: 0.8
+    headcount_surge: 0.8
+    shipping_velocity: 0.7
+    segment_shift: 0.7
+    surface_growth: 0.6
+
+  # Decay: a signal is worth less the older it is.
+  freshness:
+    half_life_days: 14
+    floor: 0.1
+
+  # An account must clear this to appear in the Morning Brief.
+  brief_threshold: 40
+
+  # What we sell, used by Campaign Forge to write the pitch.
+  offering:
+    name: Bellwether
+    one_liner: >
+      Describe a buying signal in plain English and wake up to the companies
+      that just showed it, with the campaign already drafted.
+    value_props:
+      - Signals your competitors are not buying from the same three vendors
+      - Every claim footnoted to a scraped field with a timestamp
+      - Collectors that repair themselves when the source page changes

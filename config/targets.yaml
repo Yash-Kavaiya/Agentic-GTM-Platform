@@ -1,0 +1,111 @@
+# Bellwether target accounts.
+#
+# Mid-market B2B SaaS companies — the shape of company that actually shows the
+# "moving upmarket" signals Bellwether watches for.
+#
+# `paths` overrides the default path from the signal template when a company
+# files a page somewhere non-standard. Anything not overridden uses the
+# signal's own `path`.
+#
+# `jobs` is a public job-board binding. All three supported providers expose
+# documented, unauthenticated JSON endpoints — no login wall, no personal data:
+#   greenhouse  https://boards-api.greenhouse.io/v1/boards/<token>/jobs?content=true
+#   lever       https://api.lever.co/v0/postings/<token>?mode=json
+#   ashby       https://api.ashbyhq.com/posting-api/job-board/<token>
+#
+# Every entry here is VERIFIED by `npm run probe` before any collector is
+# provisioned against it. Unverified paths are never sent to `scraper create`.
+
+version: 1
+
+targets:
+  - id: posthog
+    name: PostHog
+    domain: posthog.com
+    jobs: { provider: ashby, token: posthog }
+
+  - id: cal
+    name: Cal.com
+    domain: cal.com
+
+  - id: supabase
+    name: Supabase
+    domain: supabase.com
+    jobs: { provider: ashby, token: supabase }
+
+  - id: resend
+    name: Resend
+    domain: resend.com
+    jobs: { provider: ashby, token: resend }
+
+  - id: dub
+    name: Dub
+    domain: dub.co
+
+  - id: hightouch
+    name: Hightouch
+    domain: hightouch.com
+    jobs: { provider: ashby, token: hightouch }
+
+  - id: airbyte
+    name: Airbyte
+    domain: airbyte.com
+    jobs: { provider: ashby, token: airbyte }
+
+  - id: metabase
+    name: Metabase
+    domain: metabase.com
+    jobs: { provider: lever, token: metabase }
+
+  - id: vanta
+    name: Vanta
+    domain: vanta.com
+    jobs: { provider: ashby, token: vanta }
+
+  - id: retool
+    name: Retool
+    domain: retool.com
+
+  - id: linear
+    name: Linear
+    domain: linear.app
+    jobs: { provider: ashby, token: linear }
+
+  - id: neon
+    name: Neon
+    domain: neon.tech
+
+  - id: railway
+    name: Railway
+    domain: railway.app
+    jobs: { provider: ashby, token: railway }
+
+  - id: clerk
+    name: Clerk
+    domain: clerk.com
+    jobs: { provider: ashby, token: clerk }
+
+  - id: unkey
+    name: Unkey
+    domain: unkey.com
+
+  - id: trigger
+    name: Trigger.dev
+    domain: trigger.dev
+
+  - id: inngest
+    name: Inngest
+    domain: inngest.com
+    jobs: { provider: ashby, token: inngest }
+
+  - id: zluri
+    name: Zluri
+    domain: zluri.com
+
+  - id: pylon
+    name: Pylon
+    domain: usepylon.com
+
+  - id: documenso
+    name: Documenso
+    domain: documenso.com

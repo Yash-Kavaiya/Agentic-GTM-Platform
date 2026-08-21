@@ -1,0 +1,246 @@
+# Bellwether signal templates.
+#
+# THE ONE STRING
+# --------------
+# Every signal's `watch` field is plain language written by a GTM user, and it is the
+# only place that description lives. Four consumers read it from this one file:
+#
+#   1. Signal Studio renders it as the human-readable definition of the signal
+#   2. `brightdata scraper create <url> "<watch>"` provisions the collector from it
+#   3. `brightdata scraper heal <cid> "<watch>. Observed failure: ..."` repairs it
+#   4. The campaign cites it beside the claim it produced
+#
+# `watch` says WHAT TO EXTRACT. `fire_when` says WHEN IT COUNTS. `evidence_template`
+# says HOW TO SAY IT. Keep those three jobs separate; only `watch` reaches Bright Data.
+#
+# fire_when operators
+# -------------------
+#   appears_matching     value matching regex is present now and was absent before
+#   disappears_matching  value matching regex was present before and is absent now
+#   value_changed        field differs from the previous snapshot
+#   count_delta_pct      item count moved more than `value` percent over `window_days`
+#   contains             field contains the literal string (state check, not a diff)
+#
+# `fields.required` is the contract Anneal verifies a heal against before approving it.
+
+version: 1
+
+signals:
+  # ---------------------------------------------------------------- pricing
+  - id: moving_upmarket
+    name: Moving Upmarket
+    category: pricing
+    adapter: web
+    path: /pricing
+    watch: >
+      the pricing tiers on this page - for each tier, its name, its price,
+      and the exact text of its call-to-action button
+    fields:
+      required: ["tiers[].name"]
+      optional: ["tiers[].price", "tiers[].cta"]
+    fire_when:
+      any:
+        - { field: "tiers[].name", op: appears_matching, value: "(?i)enterprise|business|custom" }
+        - { field: "tiers[].cta", op: appears_matching, value: "(?i)contact sales|talk to sales|book a demo" }
+    evidence_template: "Added a {{tier.name}} tier with \"{{tier.cta}}\" on {{observed_at}}"
+    weight: 30
+    cadence: daily
+
+  - id: price_change
+    name: Price Change
+    category: pricing
+    adapter: web
+    path: /pricing
+    watch: >
+      the pricing tiers on this page - for each tier, its name, its price,
+      and the exact text of its call-to-action button
+    fields:
+      required: ["tiers[].name"]
+      optional: ["tiers[].price", "tiers[].cta"]
+    fire_when:
+      any:
+        - { field: "tiers[].price", op: value_changed }
+    evidence_template: "{{tier.name}} moved from {{tier.price_before}} to {{tier.price}} on {{observed_at}}"
+    weight: 24
+    cadence: daily
+
+  # ------------------------------------------------------- enterprise posture
+  - id: enterprise_readiness
+    name: Enterprise Readiness
+    category: posture
+    adapter: web
+    path: /security
+    watch: >
+      the compliance and certification badges listed on this page - the name of
+      each standard or certification, and any status text shown next to it
+    fields:
+      required: ["badges[].name"]
+      optional: ["badges[].status"]
+    fire_when:
+      any:
+        - { field: "badges[].name", op: appears_matching, value: "(?i)soc ?2|iso ?27001|hipaa|fedramp|gdpr" }
+    evidence_template: "Published a {{badge.name}} badge on {{observed_at}}"
+    weight: 26
+    cadence: weekly
+
+  # ------------------------------------------------------------------- jobs
+  - id: building_the_function
+    name: Building the Function
+    category: hiring
+    adapter: jobs
+    watch: >
+      every open role on this job board - the job title, the department,
+      the location, and the full text of the job description
+    fields:
+      required: ["jobs[].title"]
+      optional: ["jobs[].department", "jobs[].location", "jobs[].description", "jobs[].posted_at"]
+    fire_when:
+      any:
+        - { field: "jobs[].title", op: appears_matching, value: "(?i)revops|revenue operations|gtm engineer|sales engineer|growth engineer" }
+    evidence_template: "Posted \"{{job.title}}\" on {{job.posted_at}}"
+    weight: 22
+    cadence: daily
+
+  - id: headcount_surge
+    name: Headcount Surge
+    category: hiring
+    adapter: jobs
+    watch: >
+      every open role on this job board - the job title, the department,
+      the location, and the full text of the job description
+    fields:
+      required: ["jobs[].title"]
+      optional: ["jobs[].department", "jobs[].location", "jobs[].description", "jobs[].posted_at"]
+    fire_when:
+      any:
+        - { field: "jobs[]", op: count_delta_pct, value: 30, direction: up, window_days: 30 }
+    evidence_template: "Open roles grew {{delta_pct}}% in {{window_days}} days, to {{count}}"
+    weight: 18
+    cadence: daily
+
+  - id: stack_adoption
+    name: Stack Adoption
+    category: hiring
+    adapter: jobs
+    watch: >
+      every open role on this job board - the job title, the department,
+      the location, and the full text of the job description
+    fields:
+      required: ["jobs[].title"]
+      optional: ["jobs[].description"]
+    fire_when:
+      any:
+        - { field: "jobs[].description", op: appears_matching, value: "(?i)snowflake|databricks|dbt|segment|hubspot|salesforce|clickhouse" }
+    evidence_template: "{{match}} named in the \"{{job.title}}\" job description"
+    weight: 20
+    cadence: daily
+
+  # -------------------------------------------------------------- ecosystem
+  - id: ecosystem_expansion
+    name: Ecosystem Expansion
+    category: product
+    adapter: web
+    path: /integrations
+    watch: >
+      every integration or partner listed on this page - the name of the
+      integrated product and the category it is filed under
+    fields:
+      required: ["integrations[].name"]
+      optional: ["integrations[].category"]
+    fire_when:
+      any:
+        - { field: "integrations[].name", op: appears_matching, value: ".+" }
+    evidence_template: "Added a {{integration.name}} integration on {{observed_at}}"
+    weight: 16
+    cadence: weekly
+
+  - id: segment_shift
+    name: Segment Shift
+    category: product
+    adapter: web
+    path: /customers
+    watch: >
+      every customer logo or case study on this page - the company name shown
+      and any descriptive label or industry tag beside it
+    fields:
+      required: ["customers[].name"]
+      optional: ["customers[].label"]
+    fire_when:
+      any:
+        - { field: "customers[].name", op: appears_matching, value: ".+" }
+    evidence_template: "Added {{customer.name}} to the customer wall on {{observed_at}}"
+    weight: 14
+    cadence: weekly
+
+  - id: leadership_change
+    name: Leadership Change
+    category: org
+    adapter: web
+    path: /about
+    watch: >
+      the leadership roles listed on this page - the job title of each
+      leadership position shown, and the team or function it leads
+    fields:
+      required: ["roles[].title"]
+      optional: ["roles[].function"]
+    fire_when:
+      any:
+        - { field: "roles[].title", op: appears_matching, value: "(?i)chief revenue|cro|vp of (sales|revenue|marketing)" }
+    evidence_template: "A {{role.title}} seat appeared on the leadership page on {{observed_at}}"
+    weight: 21
+    cadence: weekly
+
+  # ------------------------------------------------------------------ feeds
+  - id: shipping_velocity
+    name: Shipping Velocity
+    category: product
+    adapter: rss
+    path: /changelog/rss.xml
+    watch: >
+      every release note in this feed - the release title, its publication
+      date, and the summary text
+    fields:
+      required: ["entries[].title", "entries[].published_at"]
+      optional: ["entries[].summary"]
+    fire_when:
+      any:
+        - { field: "entries[]", op: count_delta_pct, value: 40, direction: any, window_days: 30 }
+    evidence_template: "Release cadence moved {{delta_pct}}% over {{window_days}} days"
+    weight: 15
+    cadence: daily
+
+  - id: announcement
+    name: Announcement
+    category: news
+    adapter: rss
+    path: /blog/rss.xml
+    watch: >
+      every post in this feed - the post title, its publication date,
+      and the summary text
+    fields:
+      required: ["entries[].title", "entries[].published_at"]
+      optional: ["entries[].summary"]
+    fire_when:
+      any:
+        - { field: "entries[].title", op: appears_matching, value: "(?i)series [abcd]|acquires|acquisition|partnership|launches" }
+    evidence_template: "Published \"{{entry.title}}\" on {{entry.published_at}}"
+    weight: 25
+    cadence: daily
+
+  - id: surface_growth
+    name: Surface Growth
+    category: product
+    adapter: sitemap
+    path: /sitemap.xml
+    watch: >
+      every documentation URL listed in this sitemap, together with the
+      last-modified date reported for each one
+    fields:
+      required: ["urls[].loc"]
+      optional: ["urls[].lastmod"]
+    fire_when:
+      any:
+        - { field: "urls[]", op: count_delta_pct, value: 20, direction: up, window_days: 30 }
+    evidence_template: "Documentation grew {{delta_pct}}% to {{count}} pages"
+    weight: 12
+    cadence: weekly
