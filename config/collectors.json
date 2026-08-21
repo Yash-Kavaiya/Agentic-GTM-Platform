@@ -1,0 +1,12 @@
+{
+  "pricing": {
+    "key": "pricing",
+    "signalId": "moving_upmarket",
+    "collectorId": "c_mt2rouon238y52ni4l",
+    "scraperType": "PDP",
+    "seedUrl": "https://posthog.com/pricing",
+    "watch": "the pricing tiers on this page - for each tier, its name, its price, and the exact text of its call-to-action button\n",
+    "createdAt": "2026-08-21T09:52:45.511Z",
+    "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2rouon238y52ni4l"
+  }
+}

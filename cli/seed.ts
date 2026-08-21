@@ -25,7 +25,9 @@ import { loadSignals, loadTargets, getSignal, resolveUrl } from '../src/core/con
 import { match } from '../src/core/signals/match.js'
 import type { Observation, SignalSpec, Target } from '../src/core/types.js'
 
-const DB = process.env.BELLWETHER_DB ?? 'data/demo.db'
+const argv = process.argv.slice(2)
+const dbFlag = argv.indexOf('--db')
+const DB = (dbFlag >= 0 ? argv[dbFlag + 1] : undefined) ?? process.env.BELLWETHER_DB ?? 'data/demo.db'
 
 /** Yesterday and this morning, fixed so the demo replays identically. */
 const T0 = '2026-08-20T04:12:00.000Z'

@@ -13,6 +13,9 @@
  * Nothing is provisioned against a URL that data/probe.json has not seen return
  * 200 — a create against a 404 costs real money and 25 minutes.
  */
+import { loadEnv } from '../src/core/env.js'
+loadEnv()
+
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { loadSignals, loadTargets, resolveUrl, assertWatchIntegrity } from '../src/core/config/load.js'

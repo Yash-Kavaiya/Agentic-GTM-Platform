@@ -9,6 +9,9 @@
  * The terminal is the primary interface for the engine; the web app reads what
  * the engine writes. That split is what lets the whole pipeline run in CI.
  */
+import { loadEnv } from '../src/core/env.js'
+loadEnv()
+
 import { Store } from '../src/core/store/db.js'
 import { runCollection } from '../src/core/pipeline.js'
 import { systemClock, fixedClock } from '../src/core/clock.js'
@@ -34,8 +37,17 @@ const flag = (name: string): string | undefined => {
 const has = (name: string) => argv.includes(`--${name}`)
 const list = (name: string): string[] | undefined => flag(name)?.split(',').filter(Boolean)
 
+/**
+ * Which database to use.
+ *
+ * A `--db` flag rather than an env-var prefix: `BELLWETHER_DB=x npm run ...`
+ * is a POSIX-ism that fails in Windows cmd, and `make demo` has to work from a
+ * clean clone on any machine.
+ */
+const dbPath = (): string | undefined => flag('db') ?? process.env.BELLWETHER_DB
+
 async function cmdRun() {
-  const store = new Store()
+  const store = new Store(dbPath())
   const date = flag('date')
   const clock = date ? fixedClock(date) : systemClock
 
@@ -73,7 +85,7 @@ async function cmdRun() {
 }
 
 function cmdStatus() {
-  const store = new Store()
+  const store = new Store(dbPath())
   const signals = loadSignals()
   const targets = loadTargets()
   const collectors = loadCollectors()
@@ -115,7 +127,7 @@ async function cmdHeal() {
     console.error('usage: bellwether heal <collectorId>')
     process.exit(1)
   }
-  const store = new Store()
+  const store = new Store(dbPath())
   const record = Object.values(loadCollectors()).find((c) => c.collectorId === collectorId)
   if (!record) {
     console.error(`unknown collector "${collectorId}"`)
@@ -184,7 +196,7 @@ async function cmdEnrich() {
 }
 
 function cmdBrief() {
-  const store = new Store()
+  const store = new Store(dbPath())
   const date = flag('date') ?? dayOf(new Date())
   const at = `${date}T23:59:59.999Z`
 
@@ -203,7 +215,7 @@ function cmdBrief() {
 }
 
 function cmdExport() {
-  const store = new Store()
+  const store = new Store(dbPath())
   const at = flag('date') ? `${flag('date')}T23:59:59.999Z` : new Date().toISOString()
   const result = exportAll(store, at)
   console.log(`exported ${result.files.length} files to data/export/`)
