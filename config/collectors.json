@@ -42,5 +42,38 @@
     "watch": "every integration or partner listed on this page - the name of the integrated product and the category it is filed under\n",
     "createdAt": "2026-08-21T10:01:19.974Z",
     "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2rum5b119vdu2i7a"
+  },
+  "moving_upmarket:clerk": {
+    "key": "moving_upmarket:clerk",
+    "signalId": "moving_upmarket",
+    "targetId": "clerk",
+    "collectorId": "c_mt2tglauwtt6klw9q",
+    "scraperType": "PDP",
+    "seedUrl": "https://clerk.com/pricing",
+    "watch": "the pricing tiers on this page - for each tier, its name, its price, and the exact text of its call-to-action button\n",
+    "createdAt": "2026-08-21T10:40:31.815Z",
+    "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2tglauwtt6klw9q"
+  },
+  "moving_upmarket:supabase": {
+    "key": "moving_upmarket:supabase",
+    "signalId": "moving_upmarket",
+    "targetId": "supabase",
+    "collectorId": "c_mt2tgjmm9mzvu9rjb",
+    "scraperType": "PDP",
+    "seedUrl": "https://supabase.com/pricing",
+    "watch": "the pricing tiers on this page - for each tier, its name, its price, and the exact text of its call-to-action button\n",
+    "createdAt": "2026-08-21T10:40:42.413Z",
+    "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2tgjmm9mzvu9rjb"
+  },
+  "moving_upmarket:cal": {
+    "key": "moving_upmarket:cal",
+    "signalId": "moving_upmarket",
+    "targetId": "cal",
+    "collectorId": "c_mt2tgn381uljy8vo2x",
+    "scraperType": "PDP",
+    "seedUrl": "https://cal.com/pricing",
+    "watch": "the pricing tiers on this page - for each tier, its name, its price, and the exact text of its call-to-action button\n",
+    "createdAt": "2026-08-21T10:44:35.037Z",
+    "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2tgn381uljy8vo2x"
   }
 }

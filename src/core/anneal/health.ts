@@ -87,6 +87,49 @@ export function buildBaseline(
 }
 
 /**
+ * Is this observation broken on its own terms, with no history to compare to?
+ *
+ * Drift is a comparison, and a collector that never worked has nothing to
+ * compare against — its baseline is empty, so `detectDrift` stays quiet and the
+ * collector sits there returning nothing forever, looking healthy because it
+ * has never been anything else. This is not hypothetical: three of our first
+ * live collectors were born broken, one returning `200 OK` with an empty array
+ * and another returning twelve entries that were each the string
+ * "[object Object]".
+ *
+ * These checks need no baseline because they are absolute. A row count of zero
+ * is not a shape, and a required field that is universally empty is not data,
+ * however long it has been that way.
+ */
+export function detectColdStart(stats: ObservationStats, signal: SignalSpec): DriftFinding[] {
+  const findings: DriftFinding[] = []
+
+  if (stats.rowCount === 0) {
+    findings.push({
+      kind: 'row_count',
+      observed: 0,
+      baseline: 0,
+      detail: 'the collector returned no rows at all',
+    })
+  }
+
+  for (const field of signal.fields.required) {
+    const observed = stats.fields.find((f) => f.field === field)?.nullRate ?? 1
+    if (observed >= 1) {
+      findings.push({
+        kind: 'missing_field',
+        field,
+        observed,
+        baseline: 0,
+        detail: `required field "${field}" is empty in every row the collector returned`,
+      })
+    }
+  }
+
+  return findings
+}
+
+/**
  * Compare an observation against its baseline.
  *
  * Returns every finding rather than the first, because the symptom sent to
@@ -101,8 +144,10 @@ export function detectDrift(
 ): DriftFinding[] {
   const findings: DriftFinding[] = []
 
-  // Not enough history to judge. Staying silent beats crying wolf on day two.
-  if (baseline.samples < THRESHOLDS.minSamples) return findings
+  // Too little history for a comparison. Fall back to the absolute checks:
+  // a collector that never worked still needs to be caught, and staying silent
+  // here is how a born-broken source hides forever.
+  if (baseline.samples < THRESHOLDS.minSamples) return detectColdStart(stats, signal)
 
   for (const { field, nullRate: observed } of stats.fields) {
     const base = baseline.fields[field] ?? 0

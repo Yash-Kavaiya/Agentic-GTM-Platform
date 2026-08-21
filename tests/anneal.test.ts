@@ -9,6 +9,7 @@ import {
   computeStats,
   buildBaseline,
   detectDrift,
+  detectColdStart,
   composeSymptom,
   sharpenSymptom,
   verifyAgainstContract,
@@ -64,11 +65,20 @@ describe('stats and baseline', () => {
 })
 
 describe('drift detection', () => {
-  it('stays silent without enough history', () => {
-    // Crying wolf on day two is worse than missing a day.
+  it('does not cry wolf over a merely unusual observation when history is thin', () => {
+    // One sample is not a baseline, so a partial null-rate shift is not
+    // actionable. Crying wolf on day two is worse than missing a day.
+    const thin = buildBaseline('c_8f2a91', [obs(healthyRows, '2026-08-10T04:00:00Z')], signal)
+    const unusual = computeStats([{ tiers: [{ name: 'Pro', price: null, cta: null }] }], signal)
+    expect(detectDrift(unusual, thin, signal)).toEqual([])
+  })
+
+  it('still catches an absolute failure when history is thin', () => {
+    // But "not enough history to compare" must never mean "assume healthy".
+    // A required field empty in every row is broken however new the collector is.
     const thin = buildBaseline('c_8f2a91', [obs(healthyRows, '2026-08-10T04:00:00Z')], signal)
     const broken = computeStats([{ tiers: [{ name: null, price: null }] }], signal)
-    expect(detectDrift(broken, thin, signal)).toEqual([])
+    expect(detectDrift(broken, thin, signal).length).toBeGreaterThan(0)
   })
 
   it('catches the silent failure: 200 OK, rows returned, all empty', () => {
@@ -259,5 +269,41 @@ describe('approval gate', () => {
   it('treats HEALED as safe — the fix is committed by then', () => {
     expect(isSafeToCite('HEALED')).toBe(true)
     expect(isSafeToCite('HEALTHY')).toBe(true)
+  })
+})
+
+describe('born-broken collectors', () => {
+  // A collector that never worked cannot drift -- it has no healthy baseline to
+  // differ from. Three of our first live collectors were born broken, so
+  // "no history" must not mean "assume healthy".
+  const noHistory = buildBaseline('c_new', [], signal)
+
+  it('catches a collector that returns no rows at all', () => {
+    const findings = detectColdStart(computeStats([], signal), signal)
+    expect(findings.some((f) => f.kind === 'row_count')).toBe(true)
+  })
+
+  it('catches a required field empty in every row', () => {
+    const rows = [{ tiers: [{ name: null, price: '$1' }, { name: null, price: '$2' }] }]
+    const findings = detectColdStart(computeStats(rows, signal), signal)
+    expect(findings.some((f) => f.kind === 'missing_field' && f.field === 'tiers[].name')).toBe(true)
+  })
+
+  it('stays quiet on a healthy first observation', () => {
+    expect(detectColdStart(computeStats(healthyRows, signal), signal)).toEqual([])
+  })
+
+  it('detectDrift falls back to absolute checks when history is too thin', () => {
+    // The regression this guards: with minSamples unmet, detectDrift used to
+    // return [] unconditionally, so a collector that had never worked looked
+    // healthy indefinitely.
+    const broken = computeStats([{ tiers: [] }], signal)
+    expect(detectDrift(broken, noHistory, signal).length).toBeGreaterThan(0)
+  })
+
+  it('still does not cry wolf over a merely unusual first observation', () => {
+    // One row instead of four is not enough to act on without history.
+    const thin = computeStats([{ tiers: [{ name: 'Pro', price: '$20', cta: 'Buy' }] }], signal)
+    expect(detectDrift(thin, noHistory, signal)).toEqual([])
   })
 })
