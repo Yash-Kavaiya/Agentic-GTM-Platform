@@ -9,8 +9,8 @@
  * export (see ./export.ts), which is what the deployed app reads and what makes
  * the heal log inspectable as a git diff.
  */
-import { DatabaseSync } from 'node:sqlite'
 import { mkdirSync } from 'node:fs'
+import { createRequire } from 'node:module'
 import { dirname, join } from 'node:path'
 import type {
   Observation,
@@ -20,6 +20,16 @@ import type {
   Baseline,
   HealthMap,
 } from '../types.js'
+
+/**
+ * `node:sqlite` is loaded through createRequire rather than a static import.
+ *
+ * It is a Node 22+ builtin that bundlers do not yet recognise: Vite normalises
+ * the `node:` prefix away and then fails looking for a package called
+ * "sqlite". A runtime require is left alone by every bundler, so the store
+ * works identically under tsx, vitest, and a Next.js build.
+ */
+const { DatabaseSync } = createRequire(import.meta.url)('node:sqlite') as typeof import('node:sqlite')
 
 const DEFAULT_PATH = join(process.cwd(), 'data', 'bellwether.db')
 
@@ -36,7 +46,7 @@ CREATE TABLE IF NOT EXISTS observations (
   ok           INTEGER NOT NULL DEFAULT 1,
   error        TEXT
 );
-CREATE INDEX IF NOT EXISTS idx_obs_series ON observations(signal_id, target_id, observed_at);
+CREATE INDEX IF NOT EXISTS idx_obs_series ON observations(signal_id, target_id, source_url, observed_at);
 CREATE INDEX IF NOT EXISTS idx_obs_collector ON observations(collector_id, observed_at);
 
 CREATE TABLE IF NOT EXISTS signal_events (
@@ -94,7 +104,7 @@ CREATE INDEX IF NOT EXISTS idx_heal_collector ON heal_events(collector_id, start
 `
 
 export class Store {
-  private db: DatabaseSync
+  private db: InstanceType<typeof DatabaseSync>
 
   constructor(path: string = process.env.BELLWETHER_DB ?? DEFAULT_PATH) {
     if (path !== ':memory:') mkdirSync(dirname(path), { recursive: true })
@@ -131,19 +141,41 @@ export class Store {
   }
 
   /**
-   * The most recent successful observation strictly BEFORE `at`.
-   * This is the "previous snapshot" every diff is taken against, and taking it
-   * relative to a supplied instant rather than to wall-clock now is what makes
-   * `--date` replay produce the same brief every time.
+   * The most recent successful observation of the SAME SOURCE, strictly before `at`.
+   *
+   * Two constraints, both load-bearing:
+   *
+   * `observed_at < at` rather than wall-clock now is what makes `--date` replay
+   * reproduce the same brief every time.
+   *
+   * `source_url = ?` is what stops a diff comparing two different pages. When a
+   * source URL is corrected — a guessed feed path replaced by a verified one —
+   * the old snapshot describes a different document, and diffing across them
+   * produces confident nonsense ("documentation grew 128650%"). A signal must
+   * only ever fire on a change to one source, so a URL change starts a new
+   * series rather than corrupting the old one.
    */
-  previousObservation(signalId: string, targetId: string, at: string): Observation | null {
-    const row = this.db
-      .prepare(
-        `SELECT * FROM observations
-          WHERE signal_id = ? AND target_id = ? AND observed_at < ? AND ok = 1
-          ORDER BY observed_at DESC LIMIT 1`,
-      )
-      .get(signalId, targetId, at) as Record<string, unknown> | undefined
+  previousObservation(
+    signalId: string,
+    targetId: string,
+    at: string,
+    sourceUrl?: string,
+  ): Observation | null {
+    const row = sourceUrl
+      ? (this.db
+          .prepare(
+            `SELECT * FROM observations
+              WHERE signal_id = ? AND target_id = ? AND source_url = ? AND observed_at < ? AND ok = 1
+              ORDER BY observed_at DESC LIMIT 1`,
+          )
+          .get(signalId, targetId, sourceUrl, at) as Record<string, unknown> | undefined)
+      : (this.db
+          .prepare(
+            `SELECT * FROM observations
+              WHERE signal_id = ? AND target_id = ? AND observed_at < ? AND ok = 1
+              ORDER BY observed_at DESC LIMIT 1`,
+          )
+          .get(signalId, targetId, at) as Record<string, unknown> | undefined)
     return row ? this.toObservation(row) : null
   }
 

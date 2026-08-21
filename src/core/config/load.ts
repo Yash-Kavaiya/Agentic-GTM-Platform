@@ -10,7 +10,7 @@
  * read from the SignalSpec and never rewritten. `assertWatchIntegrity` exists
  * so a test can prove it.
  */
-import { readFileSync } from 'node:fs'
+import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { parse } from 'yaml'
 import { z } from 'zod'
@@ -88,6 +88,7 @@ export function resetConfigCache(): void {
   signalsCache = null
   targetsCache = null
   icpCache = null
+  sourcesCache = null
 }
 
 export const getSignal = (id: string): SignalSpec | undefined =>
@@ -96,14 +97,55 @@ export const getSignal = (id: string): SignalSpec | undefined =>
 export const getTarget = (id: string): Target | undefined => loadTargets().find((t) => t.id === id)
 
 /**
+ * Verified sources, written by `npm run probe`.
+ *
+ * A signal template carries a DEFAULT path like `/blog/rss.xml`, but real sites
+ * file these pages wherever they like — guessing produced 35 404s on the first
+ * collection run. This file records the URL that actually returned 200 for each
+ * (target, signal) pair, so the engine reads verified URLs rather than hopeful
+ * ones. It is committed: it is configuration and evidence at the same time.
+ */
+interface SourcesFile {
+  generated_at: string
+  sources: Record<string, Record<string, string>>
+}
+
+let sourcesCache: SourcesFile['sources'] | null = null
+
+export function loadVerifiedSources(): SourcesFile['sources'] {
+  if (sourcesCache) return sourcesCache
+  const path = join(CONFIG_DIR, 'sources.json')
+  if (!existsSync(path)) return (sourcesCache = {})
+  try {
+    return (sourcesCache = (JSON.parse(readFileSync(path, 'utf8')) as SourcesFile).sources ?? {})
+  } catch {
+    return (sourcesCache = {})
+  }
+}
+
+/**
  * Resolve the URL a (signal, target) pair reads.
- * A target may override a signal's default path when it files a page oddly.
+ *
+ * Precedence, most trustworthy first:
+ *   1. a hand-written override in targets.yaml — a human said so
+ *   2. a probed URL in sources.json — a 200 said so
+ *   3. the signal template's default path — a guess
  */
 export function resolveUrl(signal: SignalSpec, target: Target): string {
   const override = target.paths[signal.id] ?? target.paths[signal.category]
-  const path = override ?? signal.path ?? '/'
+  const verified = loadVerifiedSources()[target.id]?.[signal.id]
+  const path = override ?? verified ?? signal.path ?? '/'
   if (path.startsWith('https://')) return path
   return `https://${target.domain}${path.startsWith('/') ? path : `/${path}`}`
+}
+
+/**
+ * Whether this pair has a source we have actually confirmed exists.
+ * The pipeline skips unverified pairs rather than generating 404 noise.
+ */
+export function hasVerifiedSource(signal: SignalSpec, target: Target): boolean {
+  if (target.paths[signal.id] ?? target.paths[signal.category]) return true
+  return Boolean(loadVerifiedSources()[target.id]?.[signal.id])
 }
 
 /**

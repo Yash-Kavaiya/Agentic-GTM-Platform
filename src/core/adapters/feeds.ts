@@ -12,6 +12,7 @@
  */
 import type { CollectorBinding, Observation, SignalSpec, Target } from '../types.js'
 import { type SourceAdapter, defaultPreflight, httpGet, makeObservation } from './base.js'
+import { resolveUrl, hasVerifiedSource } from '../config/load.js'
 
 // ------------------------------------------------------------------ XML
 
@@ -79,11 +80,23 @@ export function parseSitemap(xml: string): SitemapUrl[] {
 
 // -------------------------------------------------------------- adapters
 
-const urlFor = (signal: SignalSpec, target: Target): string => {
-  const override = target.paths[signal.id]
-  const path = override ?? signal.path ?? '/'
-  return path.startsWith('https://') ? path : `https://${target.domain}${path}`
-}
+/**
+ * Only bind to a source we have confirmed exists.
+ *
+ * Feed paths vary wildly between sites, and a template default is a guess.
+ * Binding to an unverified guess turns every run into a wall of 404s that
+ * buries the real errors, so an unprobed pair is skipped instead.
+ */
+const bindVerified = (signal: SignalSpec, target: Target): CollectorBinding | null =>
+  hasVerifiedSource(signal, target)
+    ? {
+        collectorId: null,
+        signalId: signal.id,
+        targetId: target.id,
+        url: resolveUrl(signal, target),
+        usesBrightData: false,
+      }
+    : null
 
 export const rssAdapter: SourceAdapter = {
   kind: 'rss',
@@ -91,15 +104,7 @@ export const rssAdapter: SourceAdapter = {
   scraperType: null,
   preflight: defaultPreflight,
 
-  bind(signal, target) {
-    return {
-      collectorId: null,
-      signalId: signal.id,
-      targetId: target.id,
-      url: urlFor(signal, target),
-      usesBrightData: false,
-    }
-  },
+  bind: bindVerified,
 
   async observe(binding: CollectorBinding, _signal: SignalSpec, at: Date): Promise<Observation> {
     const xml = await httpGet(binding.url)
@@ -113,15 +118,7 @@ export const sitemapAdapter: SourceAdapter = {
   scraperType: null,
   preflight: defaultPreflight,
 
-  bind(signal, target) {
-    return {
-      collectorId: null,
-      signalId: signal.id,
-      targetId: target.id,
-      url: urlFor(signal, target),
-      usesBrightData: false,
-    }
-  },
+  bind: bindVerified,
 
   async observe(binding: CollectorBinding, _signal: SignalSpec, at: Date): Promise<Observation> {
     const xml = await httpGet(binding.url, 25_000)
