@@ -349,6 +349,33 @@ export class Store {
       )
   }
 
+  /**
+   * Correct the record when a production check disproves an earlier approval.
+   *
+   * A heal recorded `approved` because its preview passed the field contract
+   * and `scraper approve` succeeded — which was true at the time. A later
+   * production run can prove the fix never took effect. Leaving the original
+   * verdict would let the dashboard report a repair that did not happen, so
+   * the evidence updates the record rather than sitting beside it.
+   *
+   * Only the most recent attempt is amended: earlier attempts were separately
+   * judged and their verdicts still describe what happened to them.
+   */
+  downgradeLastHeal(collectorId: string, to: HealEvent['verdict'], reason: string): boolean {
+    const row = this.db
+      .prepare(
+        `SELECT id FROM heal_events WHERE collector_id = ? AND verdict = 'approved'
+          ORDER BY started_at DESC LIMIT 1`,
+      )
+      .get(collectorId) as { id?: string } | undefined
+    if (!row?.id) return false
+
+    this.db
+      .prepare(`UPDATE heal_events SET verdict = ?, error = ? WHERE id = ?`)
+      .run(to, reason, row.id)
+    return true
+  }
+
   heals(limit = 100): HealEvent[] {
     const rows = this.db
       .prepare(`SELECT * FROM heal_events ORDER BY started_at DESC LIMIT ?`)

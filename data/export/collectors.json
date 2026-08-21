@@ -1,6 +1,91 @@
 {
   "generatedAt": "2026-08-21T23:59:59.999Z",
-  "collectors": [],
+  "collectors": [
+    {
+      "key": "moving_upmarket:posthog",
+      "signalId": "moving_upmarket",
+      "targetId": "posthog",
+      "collectorId": "c_mt2rouon238y52ni4l",
+      "scraperType": "PDP",
+      "seedUrl": "https://posthog.com/pricing",
+      "watch": "the pricing tiers on this page - for each tier, its name, its price, and the exact text of its call-to-action button\n",
+      "createdAt": "2026-08-21T09:52:45.511Z",
+      "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2rouon238y52ni4l",
+      "state": "QUARANTINED"
+    },
+    {
+      "key": "segment_shift:posthog",
+      "signalId": "segment_shift",
+      "targetId": "posthog",
+      "collectorId": "c_mt2rukhggjr0d0t36",
+      "scraperType": "PDP",
+      "seedUrl": "https://posthog.com/customers",
+      "watch": "every customer logo or case study on this page - the company name shown and any descriptive label or industry tag beside it\n",
+      "createdAt": "2026-08-21T09:55:48.893Z",
+      "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2rukhggjr0d0t36",
+      "state": "QUARANTINED"
+    },
+    {
+      "key": "enterprise_readiness:cal",
+      "signalId": "enterprise_readiness",
+      "targetId": "cal",
+      "collectorId": "c_mt2runt71zsd8j0kua",
+      "scraperType": "PDP",
+      "seedUrl": "https://cal.com/security",
+      "watch": "the compliance and certification badges listed on this page - the name of each standard or certification, and any status text shown next to it\n",
+      "createdAt": "2026-08-21T09:57:52.166Z",
+      "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2runt71zsd8j0kua",
+      "state": "HEALTHY"
+    },
+    {
+      "key": "ecosystem_expansion:posthog",
+      "signalId": "ecosystem_expansion",
+      "targetId": "posthog",
+      "collectorId": "c_mt2rum5b119vdu2i7a",
+      "scraperType": "PDP",
+      "seedUrl": "https://posthog.com/integrations",
+      "watch": "every integration or partner listed on this page - the name of the integrated product and the category it is filed under\n",
+      "createdAt": "2026-08-21T10:01:19.974Z",
+      "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2rum5b119vdu2i7a",
+      "state": "QUARANTINED"
+    },
+    {
+      "key": "moving_upmarket:clerk",
+      "signalId": "moving_upmarket",
+      "targetId": "clerk",
+      "collectorId": "c_mt2tglauwtt6klw9q",
+      "scraperType": "PDP",
+      "seedUrl": "https://clerk.com/pricing",
+      "watch": "the pricing tiers on this page - for each tier, its name, its price, and the exact text of its call-to-action button\n",
+      "createdAt": "2026-08-21T10:40:31.815Z",
+      "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2tglauwtt6klw9q",
+      "state": "QUARANTINED"
+    },
+    {
+      "key": "moving_upmarket:supabase",
+      "signalId": "moving_upmarket",
+      "targetId": "supabase",
+      "collectorId": "c_mt2tgjmm9mzvu9rjb",
+      "scraperType": "PDP",
+      "seedUrl": "https://supabase.com/pricing",
+      "watch": "the pricing tiers on this page - for each tier, its name, its price, and the exact text of its call-to-action button\n",
+      "createdAt": "2026-08-21T10:40:42.413Z",
+      "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2tgjmm9mzvu9rjb",
+      "state": "QUARANTINED"
+    },
+    {
+      "key": "moving_upmarket:cal",
+      "signalId": "moving_upmarket",
+      "targetId": "cal",
+      "collectorId": "c_mt2tgn381uljy8vo2x",
+      "scraperType": "PDP",
+      "seedUrl": "https://cal.com/pricing",
+      "watch": "the pricing tiers on this page - for each tier, its name, its price, and the exact text of its call-to-action button\n",
+      "createdAt": "2026-08-21T10:44:35.037Z",
+      "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2tgn381uljy8vo2x",
+      "state": "QUARANTINED"
+    }
+  ],
   "adapters": [
     {
       "kind": "web",

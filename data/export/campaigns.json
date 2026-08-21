@@ -11,7 +11,7 @@
       "subhead": "Published a SOC 2 Type II badge on 2026-08-21[1] Posted \"GTM Engineer\" on 2026-08-20[2]",
       "evidence": [
         {
-          "id": "ev_mt2juxoa_4",
+          "id": "ev_mt2vg3nt_4",
           "collectorId": "c_3d71bb",
           "signalId": "enterprise_readiness",
           "targetId": "hightouch",
@@ -27,7 +27,7 @@
           }
         },
         {
-          "id": "ev_mt2juxoj_6",
+          "id": "ev_mt2vg3nz_6",
           "collectorId": null,
           "signalId": "building_the_function",
           "targetId": "hightouch",
@@ -48,7 +48,7 @@
       ],
       "brand": {
         "domain": "hightouch.com",
-        "fetchedAt": "2026-08-21T06:04:46.100Z",
+        "fetchedAt": "2026-08-21T11:39:03.917Z",
         "logoUrl": "https://hightouch.com/assets/meta.png",
         "faviconUrl": "https://hightouch.com/favicon.ico?v=3",
         "palette": [
@@ -112,7 +112,7 @@
       "subhead": "New Enterprise tier appeared with \"Contact sales\" on 2026-08-21[1] Posted \"Senior RevOps Manager\" on 2026-08-18[2]",
       "evidence": [
         {
-          "id": "ev_mt2juxnt_0",
+          "id": "ev_mt2vg3ne_0",
           "collectorId": "c_8f2a91",
           "signalId": "moving_upmarket",
           "targetId": "zluri",
@@ -129,7 +129,7 @@
           }
         },
         {
-          "id": "ev_mt2juxo4_2",
+          "id": "ev_mt2vg3no_2",
           "collectorId": null,
           "signalId": "building_the_function",
           "targetId": "zluri",
@@ -150,8 +150,8 @@
       ],
       "brand": {
         "domain": "zluri.com",
-        "fetchedAt": "2026-08-21T06:04:48.191Z",
-        "logoUrl": "https://cdn.prod.website-files.com/6629779f6456fbdfaf4f728b/6a5dfba97e841f9b100448a2_zluri-open-graph-image.png",
+        "fetchedAt": "2026-08-21T11:39:05.214Z",
+        "logoUrl": "https://cdn.prod.website-files.com/6629779f6456fbdfaf4f728b/66ea4d70192bae1a94882220_Webclip%20256_256%20png.png",
         "faviconUrl": "https://cdn.prod.website-files.com/6629779f6456fbdfaf4f728b/66ea4d6243f2ff597aa51e79_favicon-new-zluri-webflow.png",
         "palette": [
           "#366ecf",
@@ -215,8 +215,8 @@
       "subhead": "New Enterprise tier appeared with \"Contact sales\" on 2026-08-21[1]",
       "evidence": [
         {
-          "id": "ev_mt2juxon_8",
-          "collectorId": "c_8f2a91",
+          "id": "ev_mt2vg3o3_8",
+          "collectorId": "c_mt2tgjmm9mzvu9rjb",
           "signalId": "moving_upmarket",
           "targetId": "supabase",
           "sourceUrl": "https://supabase.com/pricing",
@@ -234,8 +234,8 @@
       ],
       "brand": {
         "domain": "supabase.com",
-        "fetchedAt": "2026-08-21T06:04:46.494Z",
-        "logoUrl": "https://supabase.com/images/og/supabase-og.png",
+        "fetchedAt": "2026-08-21T11:39:03.857Z",
+        "logoUrl": "https://supabase.com/favicon/favicon.ico",
         "faviconUrl": "https://supabase.com/favicon/favicon.ico",
         "palette": [
           "#3ecf8e",
@@ -265,28 +265,35 @@
         {
           "kind": "microsite",
           "title": "Supabase × Bellwether",
-          "body": "# Supabase is moving upmarket.\n\nNew Enterprise tier appeared with \"Contact sales\" on 2026-08-21[1]\n\n## What the next 90 days usually look like\n\n- Signals your competitors are not buying from the same three vendors\n- Every claim footnoted to a scraped field with a timestamp\n- Collectors that repair themselves when the source page changes\n\n[1] c_8f2a91 · https://supabase.com/pricing · scraped 2026-08-21 04:12 UTC"
+          "body": "# Supabase is moving upmarket.\n\nNew Enterprise tier appeared with \"Contact sales\" on 2026-08-21[1]\n\n## What the next 90 days usually look like\n\n- Signals your competitors are not buying from the same three vendors\n- Every claim footnoted to a scraped field with a timestamp\n- Collectors that repair themselves when the source page changes\n\n[1] c_mt2tgjmm9mzvu9rjb · https://supabase.com/pricing · scraped 2026-08-21 04:12 UTC"
         },
         {
           "kind": "email",
           "title": "4-email sequence",
-          "body": "--- Email 1 ---\nSubject: Supabase: New Enterprise tier appeared with \"Contact sales\" on 2026…\n\nNoticed new Enterprise tier appeared with \"Contact sales\" on 2026-08-21 on 21 August.\n\nUsually that means the next quarter is about signals your competitors are not buying from the same three vendors.\n\nWorth fifteen minutes?\n\n--- Email 2 ---\nSubject: Following up — Supabase\n\nCircling back on the above.\n\nTwo things teams at your stage usually hit first:\n  - Signals your competitors are not buying from the same three vendors\n  - Every claim footnoted to a scraped field with a timestamp\n\n--- Email 3 ---\nSubject: A short brief for Supabase\n\nPut together a one-pager on what we saw and what we'd do about it. Want it?\n\n--- Email 4 ---\nSubject: Closing the loop\n\nIf the timing is wrong, say so and I'll stop. If it isn't, I'll send the brief.\n\n[1] c_8f2a91 · https://supabase.com/pricing · scraped 2026-08-21 04:12 UTC"
+          "body": "--- Email 1 ---\nSubject: Supabase: New Enterprise tier appeared with \"Contact sales\" on 2026…\n\nNoticed new Enterprise tier appeared with \"Contact sales\" on 2026-08-21 on 21 August.\n\nUsually that means the next quarter is about signals your competitors are not buying from the same three vendors.\n\nWorth fifteen minutes?\n\n--- Email 2 ---\nSubject: Following up — Supabase\n\nCircling back on the above.\n\nTwo things teams at your stage usually hit first:\n  - Signals your competitors are not buying from the same three vendors\n  - Every claim footnoted to a scraped field with a timestamp\n\n--- Email 3 ---\nSubject: A short brief for Supabase\n\nPut together a one-pager on what we saw and what we'd do about it. Want it?\n\n--- Email 4 ---\nSubject: Closing the loop\n\nIf the timing is wrong, say so and I'll stop. If it isn't, I'll send the brief.\n\n[1] c_mt2tgjmm9mzvu9rjb · https://supabase.com/pricing · scraped 2026-08-21 04:12 UTC"
         },
         {
           "kind": "onepager",
           "title": "Supabase one-pager",
-          "body": "Supabase — account brief\nsupabase.com · score 40 · ICP fit 100%\n\nWHAT WE OBSERVED\n  1. New Enterprise tier appeared with \"Contact sales\" on 2026-08-21\n\nICP FIT\n  [x] Publishes a pricing page with named tiers\n  [x] Runs a public job board on Greenhouse, Lever, or Ashby\n  [x] Maintains a public documentation site with a sitemap\n  [x] Publishes an integrations or partners directory\n  [x] Publishes a security, trust, or compliance page\n\nWHY IT MATTERS\n  - Signals your competitors are not buying from the same three vendors\n  - Every claim footnoted to a scraped field with a timestamp\n  - Collectors that repair themselves when the source page changes\n\nSOURCES\n[1] c_8f2a91 · https://supabase.com/pricing · scraped 2026-08-21 04:12 UTC"
+          "body": "Supabase — account brief\nsupabase.com · score 40 · ICP fit 100%\n\nWHAT WE OBSERVED\n  1. New Enterprise tier appeared with \"Contact sales\" on 2026-08-21\n\nICP FIT\n  [x] Publishes a pricing page with named tiers\n  [x] Runs a public job board on Greenhouse, Lever, or Ashby\n  [x] Maintains a public documentation site with a sitemap\n  [x] Publishes an integrations or partners directory\n  [x] Publishes a security, trust, or compliance page\n\nWHY IT MATTERS\n  - Signals your competitors are not buying from the same three vendors\n  - Every claim footnoted to a scraped field with a timestamp\n  - Collectors that repair themselves when the source page changes\n\nSOURCES\n[1] c_mt2tgjmm9mzvu9rjb · https://supabase.com/pricing · scraped 2026-08-21 04:12 UTC"
         },
         {
           "kind": "talktrack",
           "title": "Supabase talk track",
-          "body": "OPEN\n  \"I saw new Enterprise tier appeared with \"Contact sales\" on 2026-08-21 on 21 August.\"\n\nWHY NOW\n  - New Enterprise tier appeared with \"Contact sales\" on 2026-08-21\n\nQUESTIONS\n  - Who owns that motion internally today?\n  - What broke first when you started selling to bigger accounts?\n  - What would have to be true for this to be a this-quarter problem?\n\nIF THEY PUSH BACK\n  Every claim above is sourced. Offer the page and timestamp.\n\nSOURCES\n[1] c_8f2a91 · https://supabase.com/pricing · scraped 2026-08-21 04:12 UTC"
+          "body": "OPEN\n  \"I saw new Enterprise tier appeared with \"Contact sales\" on 2026-08-21 on 21 August.\"\n\nWHY NOW\n  - New Enterprise tier appeared with \"Contact sales\" on 2026-08-21\n\nQUESTIONS\n  - Who owns that motion internally today?\n  - What broke first when you started selling to bigger accounts?\n  - What would have to be true for this to be a this-quarter problem?\n\nIF THEY PUSH BACK\n  Every claim above is sourced. Offer the page and timestamp.\n\nSOURCES\n[1] c_mt2tgjmm9mzvu9rjb · https://supabase.com/pricing · scraped 2026-08-21 04:12 UTC"
         }
       ],
       "gate": {
-        "ok": true,
-        "blockers": [],
-        "reason": "All cited sources are healthy."
+        "ok": false,
+        "blockers": [
+          {
+            "collectorId": "c_mt2tgjmm9mzvu9rjb",
+            "state": "QUARANTINED",
+            "sentence": "New Enterprise tier appeared with \"Contact sales\" on 2026-08-21",
+            "sourceUrl": "https://supabase.com/pricing"
+          }
+        ],
+        "reason": "Blocked — source collector c_mt2tgjmm9mzvu9rjb is QUARANTINED. This source needs manual review before it can be cited."
       }
     },
     {
@@ -299,8 +306,8 @@
       "subhead": "Pro moved from $25 to $29 on 2026-08-21[1] A VP of Revenue seat appeared on the leadership page on 2026-08-21[2]",
       "evidence": [
         {
-          "id": "ev_mt2juxow_a",
-          "collectorId": "c_8f2a91",
+          "id": "ev_mt2vg3oa_a",
+          "collectorId": "c_mt2tglauwtt6klw9q",
           "signalId": "price_change",
           "targetId": "clerk",
           "sourceUrl": "https://clerk.com/pricing",
@@ -314,7 +321,7 @@
           }
         },
         {
-          "id": "ev_mt2juxp2_c",
+          "id": "ev_mt2vg3oh_c",
           "collectorId": "c_9a4c02",
           "signalId": "leadership_change",
           "targetId": "clerk",
@@ -332,8 +339,8 @@
       ],
       "brand": {
         "domain": "clerk.com",
-        "fetchedAt": "2026-08-21T06:04:46.294Z",
-        "logoUrl": "https://clerk.com/opengraph-image.jpg?opengraph-image.0goco-shezoln.jpg?dpl=dpl_2Jbq9kLXW2A16nnso2G4NLKMPjeM",
+        "fetchedAt": "2026-08-21T11:39:03.485Z",
+        "logoUrl": "https://clerk.com/opengraph-image.jpg?opengraph-image.0goco-shezoln.jpg?dpl=dpl_4yszNSNtw5m2DoW4S7fVwtDb4Ntt",
         "faviconUrl": "https://clerk.com/v2/favicon.ico",
         "palette": [
           "#6c47ff",
@@ -363,28 +370,35 @@
         {
           "kind": "microsite",
           "title": "Clerk × Bellwether",
-          "body": "# Clerk is repricing.\n\nPro moved from $25 to $29 on 2026-08-21[1] A VP of Revenue seat appeared on the leadership page on 2026-08-21[2]\n\n## What the next 90 days usually look like\n\n- Signals your competitors are not buying from the same three vendors\n- Every claim footnoted to a scraped field with a timestamp\n- Collectors that repair themselves when the source page changes\n\n[1] c_8f2a91 · https://clerk.com/pricing · scraped 2026-08-21 04:12 UTC\n[2] c_9a4c02 · https://clerk.com/about · scraped 2026-08-21 04:12 UTC"
+          "body": "# Clerk is repricing.\n\nPro moved from $25 to $29 on 2026-08-21[1] A VP of Revenue seat appeared on the leadership page on 2026-08-21[2]\n\n## What the next 90 days usually look like\n\n- Signals your competitors are not buying from the same three vendors\n- Every claim footnoted to a scraped field with a timestamp\n- Collectors that repair themselves when the source page changes\n\n[1] c_mt2tglauwtt6klw9q · https://clerk.com/pricing · scraped 2026-08-21 04:12 UTC\n[2] c_9a4c02 · https://clerk.com/about · scraped 2026-08-21 04:12 UTC"
         },
         {
           "kind": "email",
           "title": "4-email sequence",
-          "body": "--- Email 1 ---\nSubject: Clerk: Pro moved from $25 to $29 on 2026-08-21\n\nNoticed pro moved from $25 to $29 on 2026-08-21 on 21 August.\n\nUsually that means the next quarter is about signals your competitors are not buying from the same three vendors.\n\nWorth fifteen minutes?\n\n--- Email 2 ---\nSubject: Following up — Clerk\n\nAlso saw: a VP of Revenue seat appeared on the leadership page on 2026-08-21.\n\nTwo things teams at your stage usually hit first:\n  - Signals your competitors are not buying from the same three vendors\n  - Every claim footnoted to a scraped field with a timestamp\n\n--- Email 3 ---\nSubject: A short brief for Clerk\n\nPut together a one-pager on what we saw and what we'd do about it. Want it?\n\n--- Email 4 ---\nSubject: Closing the loop\n\nIf the timing is wrong, say so and I'll stop. If it isn't, I'll send the brief.\n\n[1] c_8f2a91 · https://clerk.com/pricing · scraped 2026-08-21 04:12 UTC\n[2] c_9a4c02 · https://clerk.com/about · scraped 2026-08-21 04:12 UTC"
+          "body": "--- Email 1 ---\nSubject: Clerk: Pro moved from $25 to $29 on 2026-08-21\n\nNoticed pro moved from $25 to $29 on 2026-08-21 on 21 August.\n\nUsually that means the next quarter is about signals your competitors are not buying from the same three vendors.\n\nWorth fifteen minutes?\n\n--- Email 2 ---\nSubject: Following up — Clerk\n\nAlso saw: a VP of Revenue seat appeared on the leadership page on 2026-08-21.\n\nTwo things teams at your stage usually hit first:\n  - Signals your competitors are not buying from the same three vendors\n  - Every claim footnoted to a scraped field with a timestamp\n\n--- Email 3 ---\nSubject: A short brief for Clerk\n\nPut together a one-pager on what we saw and what we'd do about it. Want it?\n\n--- Email 4 ---\nSubject: Closing the loop\n\nIf the timing is wrong, say so and I'll stop. If it isn't, I'll send the brief.\n\n[1] c_mt2tglauwtt6klw9q · https://clerk.com/pricing · scraped 2026-08-21 04:12 UTC\n[2] c_9a4c02 · https://clerk.com/about · scraped 2026-08-21 04:12 UTC"
         },
         {
           "kind": "onepager",
           "title": "Clerk one-pager",
-          "body": "Clerk — account brief\nclerk.com · score 35 · ICP fit 80%\n\nWHAT WE OBSERVED\n  1. Pro moved from $25 to $29 on 2026-08-21\n  2. A VP of Revenue seat appeared on the leadership page on 2026-08-21\n\nICP FIT\n  [x] Publishes a pricing page with named tiers\n  [x] Runs a public job board on Greenhouse, Lever, or Ashby\n  [x] Maintains a public documentation site with a sitemap\n  [ ] Publishes an integrations or partners directory\n  [x] Publishes a security, trust, or compliance page\n\nWHY IT MATTERS\n  - Signals your competitors are not buying from the same three vendors\n  - Every claim footnoted to a scraped field with a timestamp\n  - Collectors that repair themselves when the source page changes\n\nSOURCES\n[1] c_8f2a91 · https://clerk.com/pricing · scraped 2026-08-21 04:12 UTC\n[2] c_9a4c02 · https://clerk.com/about · scraped 2026-08-21 04:12 UTC"
+          "body": "Clerk — account brief\nclerk.com · score 35 · ICP fit 80%\n\nWHAT WE OBSERVED\n  1. Pro moved from $25 to $29 on 2026-08-21\n  2. A VP of Revenue seat appeared on the leadership page on 2026-08-21\n\nICP FIT\n  [x] Publishes a pricing page with named tiers\n  [x] Runs a public job board on Greenhouse, Lever, or Ashby\n  [x] Maintains a public documentation site with a sitemap\n  [ ] Publishes an integrations or partners directory\n  [x] Publishes a security, trust, or compliance page\n\nWHY IT MATTERS\n  - Signals your competitors are not buying from the same three vendors\n  - Every claim footnoted to a scraped field with a timestamp\n  - Collectors that repair themselves when the source page changes\n\nSOURCES\n[1] c_mt2tglauwtt6klw9q · https://clerk.com/pricing · scraped 2026-08-21 04:12 UTC\n[2] c_9a4c02 · https://clerk.com/about · scraped 2026-08-21 04:12 UTC"
         },
         {
           "kind": "talktrack",
           "title": "Clerk talk track",
-          "body": "OPEN\n  \"I saw pro moved from $25 to $29 on 2026-08-21 on 21 August.\"\n\nWHY NOW\n  - Pro moved from $25 to $29 on 2026-08-21\n  - A VP of Revenue seat appeared on the leadership page on 2026-08-21\n\nQUESTIONS\n  - Who owns that motion internally today?\n  - What broke first when you started selling to bigger accounts?\n  - What would have to be true for this to be a this-quarter problem?\n\nIF THEY PUSH BACK\n  Every claim above is sourced. Offer the page and timestamp.\n\nSOURCES\n[1] c_8f2a91 · https://clerk.com/pricing · scraped 2026-08-21 04:12 UTC\n[2] c_9a4c02 · https://clerk.com/about · scraped 2026-08-21 04:12 UTC"
+          "body": "OPEN\n  \"I saw pro moved from $25 to $29 on 2026-08-21 on 21 August.\"\n\nWHY NOW\n  - Pro moved from $25 to $29 on 2026-08-21\n  - A VP of Revenue seat appeared on the leadership page on 2026-08-21\n\nQUESTIONS\n  - Who owns that motion internally today?\n  - What broke first when you started selling to bigger accounts?\n  - What would have to be true for this to be a this-quarter problem?\n\nIF THEY PUSH BACK\n  Every claim above is sourced. Offer the page and timestamp.\n\nSOURCES\n[1] c_mt2tglauwtt6klw9q · https://clerk.com/pricing · scraped 2026-08-21 04:12 UTC\n[2] c_9a4c02 · https://clerk.com/about · scraped 2026-08-21 04:12 UTC"
         }
       ],
       "gate": {
-        "ok": true,
-        "blockers": [],
-        "reason": "All cited sources are healthy."
+        "ok": false,
+        "blockers": [
+          {
+            "collectorId": "c_mt2tglauwtt6klw9q",
+            "state": "QUARANTINED",
+            "sentence": "Pro moved from $25 to $29 on 2026-08-21",
+            "sourceUrl": "https://clerk.com/pricing"
+          }
+        ],
+        "reason": "Blocked — source collector c_mt2tglauwtt6klw9q is QUARANTINED. This source needs manual review before it can be cited."
       }
     },
     {
@@ -397,7 +411,7 @@
       "subhead": "dbt named in the \"Analytics Engineer\" job description[1]",
       "evidence": [
         {
-          "id": "ev_mt2juxp8_e",
+          "id": "ev_mt2vg3on_e",
           "collectorId": null,
           "signalId": "stack_adoption",
           "targetId": "trigger",

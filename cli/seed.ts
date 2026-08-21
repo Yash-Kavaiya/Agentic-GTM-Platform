@@ -20,6 +20,7 @@
  * The dataset is written to a SEPARATE database and marked `demo: true` in the
  * export, so seeded numbers can never be mistaken for observed ones.
  */
+import { existsSync, readFileSync } from 'node:fs'
 import { Store } from '../src/core/store/db.js'
 import { loadSignals, loadTargets, getSignal, resolveUrl } from '../src/core/config/load.js'
 import { match } from '../src/core/signals/match.js'
@@ -91,19 +92,23 @@ const SCENES: Scene[] = [
   },
 
   // ------------------------------------------- Supabase: the pricing page moves
+  // Cites the REAL supabase pricing collector, which production checks left
+  // QUARANTINED. Its campaign should therefore arrive blocked -- the approval
+  // gate refusing a genuinely broken source rather than a mocked one.
   {
     targetId: 'supabase',
     signalId: 'moving_upmarket',
-    collectorId: 'c_8f2a91',
+    collectorId: 'c_mt2tgjmm9mzvu9rjb',
     before: [{ tiers: [tier('Free', '$0', 'Start free'), tier('Pro', '$25', 'Buy now'), tier('Team', '$599', 'Buy now')] }],
     after: [{ tiers: [tier('Free', '$0', 'Start free'), tier('Pro', '$25', 'Buy now'), tier('Team', '$599', 'Buy now'), tier('Enterprise', 'Custom', 'Contact sales')] }],
   },
 
   // ------------------------------------------------- Clerk: repricing + a new seat
+  // Likewise the real clerk pricing collector: also quarantined.
   {
     targetId: 'clerk',
     signalId: 'price_change',
-    collectorId: 'c_8f2a91',
+    collectorId: 'c_mt2tglauwtt6klw9q',
     before: [{ tiers: [tier('Free', '$0', 'Start free'), tier('Pro', '$25', 'Buy now'), tier('Enterprise', 'Custom', 'Contact sales')] }],
     after: [{ tiers: [tier('Free', '$0', 'Start free'), tier('Pro', '$29', 'Buy now'), tier('Enterprise', 'Custom', 'Contact sales')] }],
   },
@@ -142,6 +147,50 @@ function observation(
     observedAt: at,
     rows,
   }
+}
+
+/**
+ * Copy real heal history and collector health from another database.
+ *
+ * The scripted scenario supplies signals and campaigns; the heal log should
+ * still show what actually happened to real collectors. Those are separate
+ * kinds of record and they stay separately sourced: the events below are
+ * authored, the repairs imported here are not.
+ */
+function importHeals(store: Store, fromDb: string): number {
+  if (!existsSync(fromDb)) {
+    console.log(`  (no ${fromDb} — heal log will be empty)`)
+    return 0
+  }
+  const src = new Store(fromDb)
+  const heals = src.heals(500)
+  for (const h of heals) store.putHeal(h)
+
+  // Identity comes from config, not from the health row, so an imported state
+  // stays attached to the (signal, account) pair it actually belongs to.
+  const collectors: Record<string, { signalId: string; targetId: string; collectorId: string }> =
+    existsSync('config/collectors.json')
+      ? JSON.parse(readFileSync('config/collectors.json', 'utf8'))
+      : {}
+  const byCollectorId = new Map(Object.values(collectors).map((c) => [c.collectorId, c]))
+
+  let health = 0
+  for (const [collectorId, state] of Object.entries(src.healthMap())) {
+    const owner = byCollectorId.get(collectorId)
+    const rec = src.getHealth(collectorId)
+    store.setHealth(
+      collectorId,
+      owner?.signalId ?? 'unknown',
+      owner?.targetId ?? null,
+      state,
+      rec?.attempts ?? 0,
+      rec?.baseline ?? null,
+    )
+    health++
+  }
+  src.close()
+  console.log(`  imported ${heals.length} real heal event(s) and ${health} collector state(s) from ${fromDb}`)
+  return heals.length
 }
 
 function main() {
@@ -186,6 +235,10 @@ function main() {
       })
     }
   }
+
+  // Real repair history, so the Heal Log reflects live collectors rather than
+  // invented ones. Pass --no-import to keep the demo database purely scripted.
+  if (!argv.includes('--no-import')) importHeals(store, 'data/bellwether.db')
 
   console.log(`\n${fired} signal(s) fired from ${SCENES.length} scripted change(s)`)
   console.log(`\nnext: BELLWETHER_DB=${DB} npm run bw -- export --date 2026-08-21`)

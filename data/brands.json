@@ -1,8 +1,8 @@
 {
   "posthog": {
     "domain": "posthog.com",
-    "fetchedAt": "2026-08-21T06:04:45.769Z",
-    "logoUrl": "https://posthog.com/images/og/default.png",
+    "fetchedAt": "2026-08-21T11:39:03.241Z",
+    "logoUrl": "https://posthog.com/icons/icon-48x48.png?v=6e5ac8d4a5b381b5caa29396fbf7c955",
     "faviconUrl": "https://posthog.com/favicon-32x32.png?v=6e5ac8d4a5b381b5caa29396fbf7c955",
     "palette": [
       "#f7a501",
@@ -75,8 +75,8 @@
   },
   "cal": {
     "domain": "cal.com",
-    "fetchedAt": "2026-08-21T06:04:46.074Z",
-    "logoUrl": "https://framerusercontent.com/images/pPSh5HDe1qaySb4R7xBgMHudhU.png",
+    "fetchedAt": "2026-08-21T11:39:03.200Z",
+    "logoUrl": "https://framerusercontent.com/images/63tSo3fa0ylcjt88Er8WTEPS6Dw.png",
     "faviconUrl": "https://framerusercontent.com/images/KLEuLsreYtfUbTcK9TjmfF0QoGY.png",
     "palette": [
       "#0099ff",
@@ -102,7 +102,7 @@
   },
   "hightouch": {
     "domain": "hightouch.com",
-    "fetchedAt": "2026-08-21T06:04:46.100Z",
+    "fetchedAt": "2026-08-21T11:39:03.917Z",
     "logoUrl": "https://hightouch.com/assets/meta.png",
     "faviconUrl": "https://hightouch.com/favicon.ico?v=3",
     "palette": [
@@ -159,8 +159,8 @@
   },
   "clerk": {
     "domain": "clerk.com",
-    "fetchedAt": "2026-08-21T06:04:46.294Z",
-    "logoUrl": "https://clerk.com/opengraph-image.jpg?opengraph-image.0goco-shezoln.jpg?dpl=dpl_2Jbq9kLXW2A16nnso2G4NLKMPjeM",
+    "fetchedAt": "2026-08-21T11:39:03.485Z",
+    "logoUrl": "https://clerk.com/opengraph-image.jpg?opengraph-image.0goco-shezoln.jpg?dpl=dpl_4yszNSNtw5m2DoW4S7fVwtDb4Ntt",
     "faviconUrl": "https://clerk.com/v2/favicon.ico",
     "palette": [
       "#6c47ff",
@@ -246,8 +246,8 @@
   },
   "supabase": {
     "domain": "supabase.com",
-    "fetchedAt": "2026-08-21T06:04:46.494Z",
-    "logoUrl": "https://supabase.com/images/og/supabase-og.png",
+    "fetchedAt": "2026-08-21T11:39:03.857Z",
+    "logoUrl": "https://supabase.com/favicon/favicon.ico",
     "faviconUrl": "https://supabase.com/favicon/favicon.ico",
     "palette": [
       "#3ecf8e",
@@ -275,8 +275,8 @@
   },
   "linear": {
     "domain": "linear.app",
-    "fetchedAt": "2026-08-21T06:04:46.527Z",
-    "logoUrl": "https://linear.app/static/og/homepage.jpg",
+    "fetchedAt": "2026-08-21T11:39:03.801Z",
+    "logoUrl": "https://linear.app/static/apple-touch-icon.png?v=2",
     "faviconUrl": "https://linear.app/favicon.ico?v=2",
     "palette": [
       "#02b8cc",
@@ -441,8 +441,8 @@
   },
   "zluri": {
     "domain": "zluri.com",
-    "fetchedAt": "2026-08-21T06:04:48.191Z",
-    "logoUrl": "https://cdn.prod.website-files.com/6629779f6456fbdfaf4f728b/6a5dfba97e841f9b100448a2_zluri-open-graph-image.png",
+    "fetchedAt": "2026-08-21T11:39:05.214Z",
+    "logoUrl": "https://cdn.prod.website-files.com/6629779f6456fbdfaf4f728b/66ea4d70192bae1a94882220_Webclip%20256_256%20png.png",
     "faviconUrl": "https://cdn.prod.website-files.com/6629779f6456fbdfaf4f728b/66ea4d6243f2ff597aa51e79_favicon-new-zluri-webflow.png",
     "palette": [
       "#366ecf",
@@ -499,8 +499,8 @@
   },
   "vanta": {
     "domain": "vanta.com",
-    "fetchedAt": "2026-08-21T06:04:48.496Z",
-    "logoUrl": "https://cdn.prod.website-files.com/64009032676f24f376f002fc/693c66c494e0178e6fae41c8_OG_default.jpg",
+    "fetchedAt": "2026-08-21T11:39:06.012Z",
+    "logoUrl": "https://cdn.prod.website-files.com/64009032676f24f376f002fc/6400ac82429afb0f7b31fa6c_vanta-logo.svg",
     "faviconUrl": "https://cdn.prod.website-files.com/64009032676f24f376f002fc/6a8611e08f776b721ca750c9_ilma-favicon.png",
     "palette": [
       "#5230d7",

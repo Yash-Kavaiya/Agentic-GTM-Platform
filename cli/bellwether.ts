@@ -241,6 +241,18 @@ async function cmdVerify() {
       store.setHealth(c.collectorId, signal.id, target.id, state, 0, verdict.ok ? baseline : null)
       if (verdict.ok) healthy++
 
+      // If an earlier heal was recorded as approved but production disagrees,
+      // correct that record. Otherwise the heal log reports a repair that never
+      // reached the source.
+      if (!verdict.ok) {
+        const amended = store.downgradeLastHeal(
+          c.collectorId,
+          'approved_ineffective',
+          `production check ${new Date().toISOString().slice(0, 16)}Z: ${verdict.reasons.join('; ')}`,
+        )
+        if (amended) console.log(`  ${''.padEnd(34)} amended an earlier 'approved' heal to approved_ineffective`)
+      }
+
       const fields = stats.fields.map((f) => `${f.field.split('.').pop()}:${Math.round(f.nullRate * 100)}%`).join(' ')
       console.log(`  ${c.key.padEnd(34)} ${state.padEnd(12)} rows=${String(stats.rowCount).padStart(3)}  ${fields}`)
       if (!verdict.ok) console.log(`  ${''.padEnd(34)} ${verdict.reasons.join('; ')}`)

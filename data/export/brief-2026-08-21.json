@@ -1,6 +1,6 @@
 {
   "date": "2026-08-21",
-  "generatedAt": "2026-08-21T06:14:09.376Z",
+  "generatedAt": "2026-08-21T11:39:31.304Z",
   "headline": "Friday 21 August — 4 accounts moved overnight",
   "entries": [
     {
@@ -54,14 +54,14 @@
             "freshness": 0.9599767893556228,
             "contribution": 32.44721548022005,
             "event": {
-              "id": "sig_mt2juxoa_5",
+              "id": "sig_mt2vg3nt_5",
               "signalId": "enterprise_readiness",
               "targetId": "hightouch",
               "firedAt": "2026-08-21T04:12:00.000Z",
               "weight": 26,
               "evidence": [
                 {
-                  "id": "ev_mt2juxoa_4",
+                  "id": "ev_mt2vg3nt_4",
                   "collectorId": "c_3d71bb",
                   "signalId": "enterprise_readiness",
                   "targetId": "hightouch",
@@ -88,14 +88,14 @@
             "freshness": 0.9599767893556228,
             "contribution": 25.34338723898844,
             "event": {
-              "id": "sig_mt2juxoj_7",
+              "id": "sig_mt2vg3nz_7",
               "signalId": "building_the_function",
               "targetId": "hightouch",
               "firedAt": "2026-08-21T04:12:00.000Z",
               "weight": 22,
               "evidence": [
                 {
-                  "id": "ev_mt2juxoj_6",
+                  "id": "ev_mt2vg3nz_6",
                   "collectorId": null,
                   "signalId": "building_the_function",
                   "targetId": "hightouch",
@@ -129,14 +129,14 @@
           "freshness": 0.9599767893556228,
           "contribution": 32.44721548022005,
           "event": {
-            "id": "sig_mt2juxoa_5",
+            "id": "sig_mt2vg3nt_5",
             "signalId": "enterprise_readiness",
             "targetId": "hightouch",
             "firedAt": "2026-08-21T04:12:00.000Z",
             "weight": 26,
             "evidence": [
               {
-                "id": "ev_mt2juxoa_4",
+                "id": "ev_mt2vg3nt_4",
                 "collectorId": "c_3d71bb",
                 "signalId": "enterprise_readiness",
                 "targetId": "hightouch",
@@ -163,14 +163,14 @@
           "freshness": 0.9599767893556228,
           "contribution": 25.34338723898844,
           "event": {
-            "id": "sig_mt2juxoj_7",
+            "id": "sig_mt2vg3nz_7",
             "signalId": "building_the_function",
             "targetId": "hightouch",
             "firedAt": "2026-08-21T04:12:00.000Z",
             "weight": 22,
             "evidence": [
               {
-                "id": "ev_mt2juxoj_6",
+                "id": "ev_mt2vg3nz_6",
                 "collectorId": null,
                 "signalId": "building_the_function",
                 "targetId": "hightouch",
@@ -245,14 +245,14 @@
             "freshness": 0.9599767893556228,
             "contribution": 40.319025152936156,
             "event": {
-              "id": "sig_mt2juxnt_1",
+              "id": "sig_mt2vg3ne_1",
               "signalId": "moving_upmarket",
               "targetId": "zluri",
               "firedAt": "2026-08-21T04:12:00.000Z",
               "weight": 30,
               "evidence": [
                 {
-                  "id": "ev_mt2juxnt_0",
+                  "id": "ev_mt2vg3ne_0",
                   "collectorId": "c_8f2a91",
                   "signalId": "moving_upmarket",
                   "targetId": "zluri",
@@ -280,14 +280,14 @@
             "freshness": 0.9599767893556228,
             "contribution": 25.34338723898844,
             "event": {
-              "id": "sig_mt2juxo4_3",
+              "id": "sig_mt2vg3no_3",
               "signalId": "building_the_function",
               "targetId": "zluri",
               "firedAt": "2026-08-21T04:12:00.000Z",
               "weight": 22,
               "evidence": [
                 {
-                  "id": "ev_mt2juxo4_2",
+                  "id": "ev_mt2vg3no_2",
                   "collectorId": null,
                   "signalId": "building_the_function",
                   "targetId": "zluri",
@@ -321,14 +321,14 @@
           "freshness": 0.9599767893556228,
           "contribution": 40.319025152936156,
           "event": {
-            "id": "sig_mt2juxnt_1",
+            "id": "sig_mt2vg3ne_1",
             "signalId": "moving_upmarket",
             "targetId": "zluri",
             "firedAt": "2026-08-21T04:12:00.000Z",
             "weight": 30,
             "evidence": [
               {
-                "id": "ev_mt2juxnt_0",
+                "id": "ev_mt2vg3ne_0",
                 "collectorId": "c_8f2a91",
                 "signalId": "moving_upmarket",
                 "targetId": "zluri",
@@ -356,14 +356,14 @@
           "freshness": 0.9599767893556228,
           "contribution": 25.34338723898844,
           "event": {
-            "id": "sig_mt2juxo4_3",
+            "id": "sig_mt2vg3no_3",
             "signalId": "building_the_function",
             "targetId": "zluri",
             "firedAt": "2026-08-21T04:12:00.000Z",
             "weight": 22,
             "evidence": [
               {
-                "id": "ev_mt2juxo4_2",
+                "id": "ev_mt2vg3no_2",
                 "collectorId": null,
                 "signalId": "building_the_function",
                 "targetId": "zluri",
@@ -438,15 +438,15 @@
             "freshness": 0.9599767893556228,
             "contribution": 40.319025152936156,
             "event": {
-              "id": "sig_mt2juxon_9",
+              "id": "sig_mt2vg3o3_9",
               "signalId": "moving_upmarket",
               "targetId": "supabase",
               "firedAt": "2026-08-21T04:12:00.000Z",
               "weight": 30,
               "evidence": [
                 {
-                  "id": "ev_mt2juxon_8",
-                  "collectorId": "c_8f2a91",
+                  "id": "ev_mt2vg3o3_8",
+                  "collectorId": "c_mt2tgjmm9mzvu9rjb",
                   "signalId": "moving_upmarket",
                   "targetId": "supabase",
                   "sourceUrl": "https://supabase.com/pricing",
@@ -477,15 +477,15 @@
           "freshness": 0.9599767893556228,
           "contribution": 40.319025152936156,
           "event": {
-            "id": "sig_mt2juxon_9",
+            "id": "sig_mt2vg3o3_9",
             "signalId": "moving_upmarket",
             "targetId": "supabase",
             "firedAt": "2026-08-21T04:12:00.000Z",
             "weight": 30,
             "evidence": [
               {
-                "id": "ev_mt2juxon_8",
-                "collectorId": "c_8f2a91",
+                "id": "ev_mt2vg3o3_8",
+                "collectorId": "c_mt2tgjmm9mzvu9rjb",
                 "signalId": "moving_upmarket",
                 "targetId": "supabase",
                 "sourceUrl": "https://supabase.com/pricing",
@@ -504,7 +504,7 @@
           }
         }
       ],
-      "hasBlockedEvidence": false
+      "hasBlockedEvidence": true
     },
     {
       "account": {
@@ -557,15 +557,15 @@
             "freshness": 0.9599767893556228,
             "contribution": 23.039442944534947,
             "event": {
-              "id": "sig_mt2juxow_b",
+              "id": "sig_mt2vg3oa_b",
               "signalId": "price_change",
               "targetId": "clerk",
               "firedAt": "2026-08-21T04:12:00.000Z",
               "weight": 24,
               "evidence": [
                 {
-                  "id": "ev_mt2juxow_a",
-                  "collectorId": "c_8f2a91",
+                  "id": "ev_mt2vg3oa_a",
+                  "collectorId": "c_mt2tglauwtt6klw9q",
                   "signalId": "price_change",
                   "targetId": "clerk",
                   "sourceUrl": "https://clerk.com/pricing",
@@ -590,14 +590,14 @@
             "freshness": 0.9599767893556228,
             "contribution": 20.159512576468078,
             "event": {
-              "id": "sig_mt2juxp2_d",
+              "id": "sig_mt2vg3oh_d",
               "signalId": "leadership_change",
               "targetId": "clerk",
               "firedAt": "2026-08-21T04:12:00.000Z",
               "weight": 21,
               "evidence": [
                 {
-                  "id": "ev_mt2juxp2_c",
+                  "id": "ev_mt2vg3oh_c",
                   "collectorId": "c_9a4c02",
                   "signalId": "leadership_change",
                   "targetId": "clerk",
@@ -628,15 +628,15 @@
           "freshness": 0.9599767893556228,
           "contribution": 23.039442944534947,
           "event": {
-            "id": "sig_mt2juxow_b",
+            "id": "sig_mt2vg3oa_b",
             "signalId": "price_change",
             "targetId": "clerk",
             "firedAt": "2026-08-21T04:12:00.000Z",
             "weight": 24,
             "evidence": [
               {
-                "id": "ev_mt2juxow_a",
-                "collectorId": "c_8f2a91",
+                "id": "ev_mt2vg3oa_a",
+                "collectorId": "c_mt2tglauwtt6klw9q",
                 "signalId": "price_change",
                 "targetId": "clerk",
                 "sourceUrl": "https://clerk.com/pricing",
@@ -661,14 +661,14 @@
           "freshness": 0.9599767893556228,
           "contribution": 20.159512576468078,
           "event": {
-            "id": "sig_mt2juxp2_d",
+            "id": "sig_mt2vg3oh_d",
             "signalId": "leadership_change",
             "targetId": "clerk",
             "firedAt": "2026-08-21T04:12:00.000Z",
             "weight": 21,
             "evidence": [
               {
-                "id": "ev_mt2juxp2_c",
+                "id": "ev_mt2vg3oh_c",
                 "collectorId": "c_9a4c02",
                 "signalId": "leadership_change",
                 "targetId": "clerk",
@@ -687,7 +687,7 @@
           }
         }
       ],
-      "hasBlockedEvidence": false
+      "hasBlockedEvidence": true
     }
   ],
   "belowThreshold": 1,

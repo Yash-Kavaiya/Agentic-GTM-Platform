@@ -111,18 +111,66 @@ export function extractFonts(css: string, limit = 3): string[] {
   return [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, limit).map(([f]) => f)
 }
 
-function extractLogo(html: string, base: string): string | null {
-  const og = meta(html, 'og:image')
-  if (og) return abs(og, base)
+/**
+ * Find the company's logo.
+ *
+ * Order matters and og:image is LAST, not first. An og:image is a social share
+ * card — typically 1200x630, with a headline, a screenshot and a background —
+ * and dropping one into the header of a generated microsite looks nothing like
+ * a logo. It is a usable fallback and a poor first choice.
+ *
+ * An SVG named "logo" is the real thing: small, sharp at any size, and actually
+ * the mark the company uses.
+ */
+/**
+ * Images that are on the page but are not this company's mark.
+ *
+ * A marketing homepage is full of other companies' logos — integration grids,
+ * customer walls, "works with" strips. Matching on the src path alone picked
+ * `/images/logos/frameworks/stripe.svg` off Supabase's homepage: a real logo,
+ * for the wrong company, on a page about the right one.
+ */
+const FOREIGN_LOGO = /\/(logos|partners|customers|integrations|frameworks|brands)\//i
 
-  for (const tag of html.match(/<img[^>]+>/gi) ?? []) {
-    const hay = `${attr(tag, 'class') ?? ''} ${attr(tag, 'alt') ?? ''} ${attr(tag, 'src') ?? ''}`
-    if (/logo|wordmark|brand/i.test(hay)) {
+function extractLogo(html: string, base: string): string | null {
+  // A company's own mark sits in the masthead. Everything below the header is
+  // somebody else's logo, a screenshot, or an illustration — so only the top of
+  // the document is considered.
+  const headerEnd = html.search(/<\/header>|<\/nav>/i)
+  const masthead = html.slice(0, headerEnd > 0 ? headerEnd : Math.min(html.length, 20_000))
+  const imgs = masthead.match(/<img[^>]+>/gi) ?? []
+
+  const pick = (predicate: (src: string, label: string) => boolean): string | null => {
+    for (const tag of imgs) {
       const src = attr(tag, 'src')
-      if (src && !src.startsWith('data:')) return abs(src, base)
+      if (!src || src.startsWith('data:') || FOREIGN_LOGO.test(src)) continue
+      // Only what the page CALLS the image counts, never the path — a path is
+      // how the wrong company's logo gets in.
+      const label = `${attr(tag, 'class') ?? ''} ${attr(tag, 'alt') ?? ''}`
+      if (predicate(src, label)) return abs(src, base)
+    }
+    return null
+  }
+
+  // A vector mark the page itself labels a logo: the real thing, sharp at any size.
+  const svgLogo = pick((src, label) => /logo|wordmark/i.test(label) && /\.svg(\?|$)/i.test(src))
+  if (svgLogo) return svgLogo
+
+  const labelled = pick((_src, label) => /logo|wordmark|brand/i.test(label))
+  if (labelled) return labelled
+
+  // An apple-touch-icon is a genuine square mark, unlike a share card.
+  for (const tag of html.match(/<link[^>]+>/gi) ?? []) {
+    if (/apple-touch-icon/i.test(attr(tag, 'rel') ?? '')) {
+      const href = attr(tag, 'href')
+      if (href) return abs(href, base)
     }
   }
-  return null
+
+  // Last resort. An og:image is a 1200x630 social card, not a logo — usable,
+  // but only when nothing better exists.
+  const og = meta(html, 'og:image')
+  return og ? abs(og, base) : null
 }
 
 function extractFavicon(html: string, base: string): string | null {

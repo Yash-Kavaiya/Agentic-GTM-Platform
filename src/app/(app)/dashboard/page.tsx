@@ -29,9 +29,12 @@ export default function DashboardPage() {
 
       <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <Stat
-          label="Heal success"
+          label="Confirmed in production"
           value={stats.attempts === 0 ? '—' : `${Math.round(stats.successRate * 100)}%`}
-          sub={`${stats.approved} approved · ${stats.rejected} rejected`}
+          sub={
+            `${stats.approved} confirmed · ${stats.rejected} rejected` +
+            (stats.ineffective ? ` · ${stats.ineffective} approved but ineffective` : '')
+          }
         />
         <Stat
           label="Median time to heal"
@@ -159,7 +162,13 @@ export default function DashboardPage() {
  */
 function HealCard({ heal }: { heal: HealEvent }) {
   const ok = heal.verdict === 'approved'
-  const color = ok ? 'var(--color-healthy)' : heal.verdict === 'rejected' ? 'var(--color-degraded)' : 'var(--color-quarantined)'
+  const color = ok
+    ? 'var(--color-healthy)'
+    : heal.verdict === 'rejected'
+      ? 'var(--color-degraded)'
+      : 'var(--color-quarantined)'
+  const verdictLabel =
+    heal.verdict === 'approved_ineffective' ? 'approved, but production unchanged' : heal.verdict
 
   return (
     <li className="card overflow-hidden">
@@ -180,7 +189,7 @@ function HealCard({ heal }: { heal: HealEvent }) {
             </span>
           ) : null}
           <span className="rounded-full px-2 py-0.5 text-[11px] font-medium" style={{ color, background: `color-mix(in oklch, ${color} 14%, transparent)` }}>
-            {heal.fromState} → {heal.toState}
+            {verdictLabel ?? `${heal.fromState} → ${heal.toState}`}
           </span>
         </span>
       </div>

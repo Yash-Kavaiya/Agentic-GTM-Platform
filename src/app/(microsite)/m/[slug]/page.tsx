@@ -51,6 +51,12 @@ export default async function Microsite({ params }: { params: Promise<{ slug: st
             <img
               src={brand.logoUrl}
               alt={account.name}
+              // The logo is a third-party asset on someone else's CDN. It must
+              // never hold up the page: a slow host would leave a prospect
+              // looking at a blank pitch.
+              loading="lazy"
+              decoding="async"
+              height={26}
               style={{ height: 26, width: 'auto', maxWidth: 150, objectFit: 'contain' }}
             />
           ) : (

@@ -151,8 +151,16 @@ function loadBrands(): Record<string, BrandKit> {
  * real heal events — never from an estimate.
  */
 export function healStats(heals: ReturnType<Store['heals']>) {
-  const finished = heals.filter((h) => h.verdict === 'approved' || h.verdict === 'rejected')
+  // `approved_ineffective` counts as a FAILURE, not as an unfinished attempt.
+  // The fix passed its preview and was approved, and production still returned
+  // the broken output. Excluding it would let the dashboard report 100% heal
+  // success while six of seven collectors sat quarantined.
+  const ineffective = heals.filter((h) => h.verdict === 'approved_ineffective')
   const approved = heals.filter((h) => h.verdict === 'approved')
+  const rejected = heals.filter((h) => h.verdict === 'rejected')
+  const finished = [...approved, ...rejected, ...ineffective]
+
+  // Only repairs confirmed in production contribute to the timing figure.
   const durations = approved
     .map((h) => h.durationMs)
     .filter((d): d is number => typeof d === 'number')
@@ -161,7 +169,8 @@ export function healStats(heals: ReturnType<Store['heals']>) {
   return {
     attempts: heals.length,
     approved: approved.length,
-    rejected: heals.filter((h) => h.verdict === 'rejected').length,
+    rejected: rejected.length,
+    ineffective: ineffective.length,
     errored: heals.filter((h) => h.verdict === 'error').length,
     quarantined: heals.filter((h) => h.toState === 'QUARANTINED').length,
     successRate: finished.length ? approved.length / finished.length : 0,

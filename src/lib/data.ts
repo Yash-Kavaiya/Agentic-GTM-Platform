@@ -51,6 +51,7 @@ export interface HealStats {
   attempts: number
   approved: number
   rejected: number
+  ineffective: number
   errored: number
   quarantined: number
   successRate: number
@@ -88,7 +89,7 @@ export const getAdapters = (): AdapterView[] =>
 export const getHeals = (): { heals: HealEvent[]; stats: HealStats } =>
   read<{ heals: HealEvent[]; stats: HealStats }>('heals.json', {
     heals: [],
-    stats: { attempts: 0, approved: 0, rejected: 0, errored: 0, quarantined: 0, successRate: 0, medianMs: 0, rowsRecovered: 0 },
+    stats: { attempts: 0, approved: 0, rejected: 0, ineffective: 0, errored: 0, quarantined: 0, successRate: 0, medianMs: 0, rowsRecovered: 0 },
   })
 
 export interface Meta {
