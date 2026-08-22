@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-21T23:59:59.999Z",
+  "generatedAt": "2026-08-22T04:21:01.520Z",
   "collectors": [
     {
       "key": "moving_upmarket:posthog",
@@ -11,7 +11,7 @@
       "watch": "the pricing tiers on this page - for each tier, its name, its price, and the exact text of its call-to-action button\n",
       "createdAt": "2026-08-21T09:52:45.511Z",
       "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2rouon238y52ni4l",
-      "state": "QUARANTINED"
+      "state": "UNKNOWN"
     },
     {
       "key": "segment_shift:posthog",
@@ -23,7 +23,7 @@
       "watch": "every customer logo or case study on this page - the company name shown and any descriptive label or industry tag beside it\n",
       "createdAt": "2026-08-21T09:55:48.893Z",
       "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2rukhggjr0d0t36",
-      "state": "QUARANTINED"
+      "state": "UNKNOWN"
     },
     {
       "key": "enterprise_readiness:cal",
@@ -35,7 +35,7 @@
       "watch": "the compliance and certification badges listed on this page - the name of each standard or certification, and any status text shown next to it\n",
       "createdAt": "2026-08-21T09:57:52.166Z",
       "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2runt71zsd8j0kua",
-      "state": "HEALTHY"
+      "state": "UNKNOWN"
     },
     {
       "key": "ecosystem_expansion:posthog",
@@ -47,7 +47,7 @@
       "watch": "every integration or partner listed on this page - the name of the integrated product and the category it is filed under\n",
       "createdAt": "2026-08-21T10:01:19.974Z",
       "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2rum5b119vdu2i7a",
-      "state": "QUARANTINED"
+      "state": "UNKNOWN"
     },
     {
       "key": "moving_upmarket:clerk",
@@ -59,7 +59,7 @@
       "watch": "the pricing tiers on this page - for each tier, its name, its price, and the exact text of its call-to-action button\n",
       "createdAt": "2026-08-21T10:40:31.815Z",
       "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2tglauwtt6klw9q",
-      "state": "QUARANTINED"
+      "state": "UNKNOWN"
     },
     {
       "key": "moving_upmarket:supabase",
@@ -71,7 +71,7 @@
       "watch": "the pricing tiers on this page - for each tier, its name, its price, and the exact text of its call-to-action button\n",
       "createdAt": "2026-08-21T10:40:42.413Z",
       "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2tgjmm9mzvu9rjb",
-      "state": "QUARANTINED"
+      "state": "UNKNOWN"
     },
     {
       "key": "moving_upmarket:cal",
@@ -83,7 +83,7 @@
       "watch": "the pricing tiers on this page - for each tier, its name, its price, and the exact text of its call-to-action button\n",
       "createdAt": "2026-08-21T10:44:35.037Z",
       "viewUrl": "https://brightdata.com/cp/scrapers/c_mt2tgn381uljy8vo2x",
-      "state": "QUARANTINED"
+      "state": "UNKNOWN"
     }
   ],
   "adapters": [

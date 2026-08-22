@@ -1,16 +1,39 @@
 {
-  "generatedAt": "2026-08-21T23:59:59.999Z",
+  "generatedAt": "2026-08-22T04:21:01.520Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": null,
-      "hiringFocus": [],
-      "footprint": [],
-      "techStack": [],
+      "openRoles": 11,
+      "hiringFocus": [
+        {
+          "name": "Sales & Customer Success",
+          "count": 6
+        },
+        {
+          "name": "Engineering",
+          "count": 5
+        }
+      ],
+      "footprint": [
+        "Remote",
+        "Remote (EMEA)",
+        "Hybrid (UK)",
+        "San Francisco, CA",
+        "Remote (US)"
+      ],
+      "techStack": [
+        "ClickHouse",
+        "Kafka",
+        "Redis",
+        "Kubernetes",
+        "Terraform",
+        "Salesforce",
+        "Outreach"
+      ],
       "buyingRoles": [],
       "compliance": [],
-      "stage": null,
+      "stage": "Growing steadily, weighted toward Sales & Customer Success",
       "whyNow": []
     },
     "cal": {
@@ -28,27 +51,93 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": null,
-      "hiringFocus": [],
-      "footprint": [],
-      "techStack": [],
-      "buyingRoles": [],
+      "openRoles": 58,
+      "hiringFocus": [
+        {
+          "name": "Engineering",
+          "count": 22
+        },
+        {
+          "name": "Support",
+          "count": 8
+        },
+        {
+          "name": "Marketing",
+          "count": 6
+        },
+        {
+          "name": "Product",
+          "count": 5
+        },
+        {
+          "name": "Partnerships",
+          "count": 5
+        }
+      ],
+      "footprint": [
+        "Remote, Anywhere",
+        "Remote",
+        "Remote, San Francisco, CA",
+        "AMER",
+        "APAC",
+        "Remote, US West Coast"
+      ],
+      "techStack": [
+        "Postgres",
+        "BigQuery",
+        "HubSpot",
+        "Stripe",
+        "Kubernetes",
+        "Terraform",
+        "Redis",
+        "ClickHouse"
+      ],
+      "buyingRoles": [
+        "Security & Compliance",
+        "Partnerships"
+      ],
       "compliance": [],
-      "stage": null,
-      "whyNow": [
-        "Their pricing page changed — the clearest public sign a company is repositioning who it sells to."
-      ]
+      "stage": "Scaling — hiring across several functions at once",
+      "whyNow": []
     },
     "resend": {
       "positioning": "The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.",
       "category": null,
-      "openRoles": null,
-      "hiringFocus": [],
-      "footprint": [],
-      "techStack": [],
-      "buyingRoles": [],
+      "openRoles": 11,
+      "hiringFocus": [
+        {
+          "name": "Engineering",
+          "count": 5
+        },
+        {
+          "name": "Operations",
+          "count": 3
+        },
+        {
+          "name": "Design",
+          "count": 2
+        },
+        {
+          "name": "Marketing ",
+          "count": 1
+        }
+      ],
+      "footprint": [
+        "Americas",
+        "Europe"
+      ],
+      "techStack": [
+        "Kubernetes",
+        "Terraform",
+        "Postgres",
+        "Snowflake",
+        "Metabase"
+      ],
+      "buyingRoles": [
+        "Security & Compliance"
+      ],
       "compliance": [],
-      "stage": null,
+      "stage": "Growing steadily, weighted toward Engineering",
       "whyNow": []
     },
     "dub": {
@@ -66,71 +155,172 @@
     "hightouch": {
       "positioning": "Hightouch is the Agentic Marketing Platform powered by the industry-leading Composable CDP: AI marketing that actually knows your brand, customers, and business.",
       "category": "Agentic Marketing Platform",
-      "openRoles": 2,
+      "openRoles": 1,
       "hiringFocus": [
         {
-          "name": "Field",
-          "count": 1
-        },
-        {
-          "name": "Revenue",
+          "name": "Engineering",
           "count": 1
         }
       ],
       "footprint": [
-        "Remote"
+        "San Francisco"
       ],
       "techStack": [
         "Snowflake",
-        "dbt"
+        "BigQuery",
+        "Salesforce",
+        "HubSpot",
+        "Marketo",
+        "Kafka"
       ],
-      "buyingRoles": [
-        "GTM Engineering"
-      ],
-      "compliance": [
-        "GDPR",
-        "SOC 2 Type II"
-      ],
+      "buyingRoles": [],
+      "compliance": [],
       "stage": "Hiring selectively — a handful of open roles",
-      "whyNow": [
-        "They published compliance evidence, which usually means enterprise deals are already in the pipeline.",
-        "They are hiring into the revenue function, so there is now an owner for this decision."
-      ]
+      "whyNow": []
     },
     "airbyte": {
       "positioning": "Airbyte is the open-source data integration platform: ELT pipelines into any warehouse, a context layer for AI agents, and 600+ connectors behind both.",
       "category": "open-source data integration platform",
-      "openRoles": null,
-      "hiringFocus": [],
-      "footprint": [],
-      "techStack": [],
+      "openRoles": 11,
+      "hiringFocus": [
+        {
+          "name": "Engineering",
+          "count": 4
+        },
+        {
+          "name": "Sales",
+          "count": 4
+        },
+        {
+          "name": "Technical Support ",
+          "count": 2
+        },
+        {
+          "name": "Finance ",
+          "count": 1
+        }
+      ],
+      "footprint": [
+        "United States",
+        "Canada",
+        "San Francisco",
+        "New York"
+      ],
+      "techStack": [
+        "Snowflake",
+        "Databricks",
+        "BigQuery",
+        "Redshift",
+        "ClickHouse",
+        "Kubernetes",
+        "Postgres",
+        "MongoDB",
+        "Terraform",
+        "Kafka"
+      ],
       "buyingRoles": [],
       "compliance": [],
-      "stage": null,
+      "stage": "Growing steadily, weighted toward Engineering",
       "whyNow": []
     },
     "metabase": {
       "positioning": "Metabase grounds every answer in your semantic layer — your metrics and business logic — so you can inspect the query behind it.",
       "category": null,
-      "openRoles": null,
-      "hiringFocus": [],
-      "footprint": [],
-      "techStack": [],
-      "buyingRoles": [],
+      "openRoles": 18,
+      "hiringFocus": [
+        {
+          "name": "Engineering",
+          "count": 6
+        },
+        {
+          "name": "Marketing and Growth",
+          "count": 4
+        },
+        {
+          "name": "Success Engineering",
+          "count": 3
+        },
+        {
+          "name": "Sales",
+          "count": 2
+        },
+        {
+          "name": "Product and Design",
+          "count": 2
+        }
+      ],
+      "footprint": [
+        "Remote-North & South America",
+        "Global Remote",
+        "Remote-US",
+        "Remote-EU"
+      ],
+      "techStack": [
+        "Redshift",
+        "dbt",
+        "Fivetran",
+        "Metabase",
+        "Postgres"
+      ],
+      "buyingRoles": [
+        "Partnerships"
+      ],
       "compliance": [],
-      "stage": null,
+      "stage": "Growing steadily, weighted toward Engineering",
       "whyNow": []
     },
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": null,
-      "hiringFocus": [],
-      "footprint": [],
-      "techStack": [],
-      "buyingRoles": [],
+      "openRoles": 103,
+      "hiringFocus": [
+        {
+          "name": "Revenue",
+          "count": 50
+        },
+        {
+          "name": "Software Engineering",
+          "count": 24
+        },
+        {
+          "name": "Product Management",
+          "count": 6
+        },
+        {
+          "name": "People",
+          "count": 5
+        },
+        {
+          "name": "Security",
+          "count": 5
+        }
+      ],
+      "footprint": [
+        "Remote U.S.",
+        "San Francisco, CA",
+        "Dublin, Ireland",
+        "Sydney, Australia",
+        "Remote - Canada",
+        "London, UK"
+      ],
+      "techStack": [
+        "Salesforce",
+        "Outreach",
+        "MongoDB",
+        "Segment",
+        "HubSpot",
+        "Gong",
+        "Snowflake",
+        "dbt",
+        "BigQuery",
+        "Redshift"
+      ],
+      "buyingRoles": [
+        "Security & Compliance",
+        "GTM Engineering"
+      ],
       "compliance": [],
-      "stage": null,
+      "stage": "Scaling hard — a large, broad open-role count",
       "whyNow": []
     },
     "retool": {
@@ -148,13 +338,43 @@
     "linear": {
       "positioning": "Purpose-built for planning and building products with AI agents.",
       "category": null,
-      "openRoles": null,
-      "hiringFocus": [],
-      "footprint": [],
-      "techStack": [],
-      "buyingRoles": [],
+      "openRoles": 32,
+      "hiringFocus": [
+        {
+          "name": "GTM",
+          "count": 15
+        },
+        {
+          "name": "Product",
+          "count": 13
+        },
+        {
+          "name": "Operations",
+          "count": 4
+        }
+      ],
+      "footprint": [
+        "Europe",
+        "North America",
+        "London"
+      ],
+      "techStack": [
+        "Postgres",
+        "Redis",
+        "Stripe",
+        "Salesforce",
+        "HubSpot",
+        "Snowflake",
+        "dbt",
+        "Fivetran",
+        "Metabase",
+        "Outreach"
+      ],
+      "buyingRoles": [
+        "Head of RevOps"
+      ],
       "compliance": [],
-      "stage": null,
+      "stage": "Scaling — hiring across several functions at once",
       "whyNow": []
     },
     "neon": {
@@ -172,29 +392,43 @@
     "railway": {
       "positioning": "Railway is a full-stack cloud for deploying web apps, servers, databases, and more with automatic scaling, monitoring, and security.",
       "category": "full-stack cloud for deploying web apps, servers, database",
-      "openRoles": null,
-      "hiringFocus": [],
-      "footprint": [],
-      "techStack": [],
+      "openRoles": 8,
+      "hiringFocus": [
+        {
+          "name": "Platform",
+          "count": 5
+        },
+        {
+          "name": "Product",
+          "count": 3
+        }
+      ],
+      "footprint": [
+        "Global",
+        "Remote (United States)"
+      ],
+      "techStack": [
+        "ClickHouse",
+        "Postgres",
+        "Terraform",
+        "Stripe"
+      ],
       "buyingRoles": [],
       "compliance": [],
-      "stage": null,
+      "stage": "Growing steadily, weighted toward Platform",
       "whyNow": []
     },
     "clerk": {
       "positioning": "The easiest way to add authentication and user management to your application. Purpose-built for React, Next.js, Remix, and “The Modern Web”.",
       "category": null,
-      "openRoles": null,
+      "openRoles": 0,
       "hiringFocus": [],
       "footprint": [],
       "techStack": [],
       "buyingRoles": [],
       "compliance": [],
-      "stage": null,
-      "whyNow": [
-        "Their pricing page changed — the clearest public sign a company is repositioning who it sells to.",
-        "A new leadership seat appeared, and new leaders re-open closed vendor decisions."
-      ]
+      "stage": "Hiring paused — no open roles on their public board",
+      "whyNow": []
     },
     "unkey": {
       "positioning": "Unkey brings API deployment, gateways, and observability into one platform.",
@@ -211,36 +445,6 @@
     "trigger": {
       "positioning": "Trigger.dev is the open source platform for building AI workflows in TypeScript. Long-running tasks with retries, queues, observability, and elastic scaling.",
       "category": "open source platform",
-      "openRoles": 2,
-      "hiringFocus": [
-        {
-          "name": "Engineering",
-          "count": 1
-        },
-        {
-          "name": "Data",
-          "count": 1
-        }
-      ],
-      "footprint": [
-        "Remote"
-      ],
-      "techStack": [
-        "Postgres",
-        "Redis",
-        "Snowflake",
-        "dbt"
-      ],
-      "buyingRoles": [],
-      "compliance": [],
-      "stage": "Hiring selectively — a handful of open roles",
-      "whyNow": [
-        "Their job descriptions name Postgres, Redis, Snowflake — a stack they are actively building on."
-      ]
-    },
-    "inngest": {
-      "positioning": "Build reliable background jobs, workflows, and AI agents without extra infrastructure. Automatic retries, flow control, and step-level observability.",
-      "category": null,
       "openRoles": null,
       "hiringFocus": [],
       "footprint": [],
@@ -250,40 +454,41 @@
       "stage": null,
       "whyNow": []
     },
-    "zluri": {
-      "positioning": "Zluri helps enterprise security and IT teams govern identities, automate access reviews, and enforce least privilege. Get a demo.",
+    "inngest": {
+      "positioning": "Build reliable background jobs, workflows, and AI agents without extra infrastructure. Automatic retries, flow control, and step-level observability.",
       "category": null,
-      "openRoles": 3,
+      "openRoles": 1,
       "hiringFocus": [
         {
-          "name": "Sales",
-          "count": 1
-        },
-        {
-          "name": "Design",
-          "count": 1
-        },
-        {
-          "name": "Revenue",
+          "name": "Engineering",
           "count": 1
         }
       ],
       "footprint": [
-        "Remote"
+        "US/Remote"
       ],
       "techStack": [
-        "dbt",
-        "Salesforce"
+        "ClickHouse",
+        "Kafka",
+        "Postgres",
+        "Redis"
       ],
-      "buyingRoles": [
-        "Head of RevOps"
-      ],
+      "buyingRoles": [],
       "compliance": [],
       "stage": "Hiring selectively — a handful of open roles",
-      "whyNow": [
-        "Their pricing page changed — the clearest public sign a company is repositioning who it sells to.",
-        "They are hiring into the revenue function, so there is now an owner for this decision."
-      ]
+      "whyNow": []
+    },
+    "zluri": {
+      "positioning": "Zluri helps enterprise security and IT teams govern identities, automate access reviews, and enforce least privilege. Get a demo.",
+      "category": null,
+      "openRoles": null,
+      "hiringFocus": [],
+      "footprint": [],
+      "techStack": [],
+      "buyingRoles": [],
+      "compliance": [],
+      "stage": null,
+      "whyNow": []
     },
     "pylon": {
       "positioning": "Pylon lets humans and AI agents collaborate on customer work, investigating, resolving, and acting on every signal. Trusted by 1,500+ B2B companies.",
