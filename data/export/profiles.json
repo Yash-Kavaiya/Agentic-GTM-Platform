@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-25T04:25:10.207Z",
+  "generatedAt": "2026-08-26T04:25:21.564Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": 11,
+      "openRoles": 14,
       "hiringFocus": [
         {
           "name": "Sales & Customer Success",
@@ -12,7 +12,11 @@
         },
         {
           "name": "Engineering",
-          "count": 5
+          "count": 6
+        },
+        {
+          "name": "Marketing",
+          "count": 2
         }
       ],
       "footprint": [
@@ -103,18 +107,22 @@
     "resend": {
       "positioning": "The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.",
       "category": null,
-      "openRoles": 11,
+      "openRoles": 13,
       "hiringFocus": [
         {
           "name": "Engineering",
           "count": 5
         },
         {
-          "name": "Operations",
-          "count": 3
+          "name": "Customer Success",
+          "count": 2
         },
         {
           "name": "Design",
+          "count": 2
+        },
+        {
+          "name": "Operations",
           "count": 2
         },
         {
@@ -272,19 +280,15 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 107,
+      "openRoles": 106,
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 51
+          "count": 50
         },
         {
           "name": "Software Engineering",
           "count": 26
-        },
-        {
-          "name": "Product Management",
-          "count": 6
         },
         {
           "name": "Marketing",
@@ -292,6 +296,10 @@
         },
         {
           "name": "People",
+          "count": 5
+        },
+        {
+          "name": "Product Management",
           "count": 5
         }
       ],
