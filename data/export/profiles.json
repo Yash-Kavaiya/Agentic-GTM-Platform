@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T04:25:21.564Z",
+  "generatedAt": "2026-08-27T06:19:50.931Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -55,19 +55,15 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 59,
+      "openRoles": 57,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 21
+          "count": 20
         },
         {
           "name": "Support",
           "count": 8
-        },
-        {
-          "name": "Success",
-          "count": 6
         },
         {
           "name": "Marketing",
@@ -75,6 +71,10 @@
         },
         {
           "name": "Product",
+          "count": 5
+        },
+        {
+          "name": "Success",
           "count": 5
         }
       ],
@@ -93,8 +93,7 @@
         "Stripe",
         "Kubernetes",
         "Terraform",
-        "Redis",
-        "ClickHouse"
+        "Redis"
       ],
       "buyingRoles": [
         "Security & Compliance",
@@ -280,26 +279,26 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 106,
+      "openRoles": 107,
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 50
+          "count": 49
         },
         {
           "name": "Software Engineering",
-          "count": 26
+          "count": 29
         },
         {
           "name": "Marketing",
           "count": 5
         },
         {
-          "name": "People",
+          "name": "Product Management",
           "count": 5
         },
         {
-          "name": "Product Management",
+          "name": "Security",
           "count": 5
         }
       ],
@@ -346,15 +345,15 @@
     "linear": {
       "positioning": "Purpose-built for planning and building products with AI agents.",
       "category": null,
-      "openRoles": 32,
+      "openRoles": 29,
       "hiringFocus": [
-        {
-          "name": "GTM",
-          "count": 15
-        },
         {
           "name": "Product",
           "count": 13
+        },
+        {
+          "name": "GTM",
+          "count": 12
         },
         {
           "name": "Operations",
