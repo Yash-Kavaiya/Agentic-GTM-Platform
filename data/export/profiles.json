@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-27T06:19:50.931Z",
+  "generatedAt": "2026-08-28T06:48:05.058Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -55,11 +55,11 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 57,
+      "openRoles": 58,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 20
+          "count": 19
         },
         {
           "name": "Support",
@@ -79,12 +79,12 @@
         }
       ],
       "footprint": [
-        "Remote, Anywhere",
+        "Remote, Global",
         "Remote",
         "Remote, San Francisco, CA",
-        "AMER",
-        "APAC",
-        "Remote, US West Coast"
+        "Remote, AMER",
+        "Remote, EMEA",
+        "Remote, APAC"
       ],
       "techStack": [
         "Postgres",
@@ -93,7 +93,8 @@
         "Stripe",
         "Kubernetes",
         "Terraform",
-        "Redis"
+        "Redis",
+        "Segment"
       ],
       "buyingRoles": [
         "Security & Compliance",
@@ -283,18 +284,18 @@
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 49
+          "count": 47
         },
         {
           "name": "Software Engineering",
-          "count": 29
-        },
-        {
-          "name": "Marketing",
-          "count": 5
+          "count": 30
         },
         {
           "name": "Product Management",
+          "count": 6
+        },
+        {
+          "name": "Marketing",
           "count": 5
         },
         {
@@ -303,8 +304,8 @@
         }
       ],
       "footprint": [
-        "Remote U.S.",
         "San Francisco, CA",
+        "Remote U.S.",
         "Dublin, Ireland",
         "Sydney, Australia",
         "Remote - Canada",
