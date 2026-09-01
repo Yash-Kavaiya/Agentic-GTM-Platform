@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T04:28:54.677Z",
+  "generatedAt": "2026-09-01T04:26:47.440Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -107,15 +107,11 @@
     "resend": {
       "positioning": "The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.",
       "category": null,
-      "openRoles": 12,
+      "openRoles": 11,
       "hiringFocus": [
         {
           "name": "Engineering",
           "count": 5
-        },
-        {
-          "name": "Customer Success",
-          "count": 2
         },
         {
           "name": "Design",
@@ -124,6 +120,10 @@
         {
           "name": "Operations",
           "count": 2
+        },
+        {
+          "name": "Customer Success",
+          "count": 1
         },
         {
           "name": "Sales",
@@ -278,11 +278,11 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 109,
+      "openRoles": 107,
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 49
+          "count": 48
         },
         {
           "name": "Software Engineering",
@@ -294,7 +294,7 @@
         },
         {
           "name": "Product Management",
-          "count": 6
+          "count": 5
         },
         {
           "name": "Security",
@@ -344,7 +344,7 @@
     "linear": {
       "positioning": "Purpose-built for planning and building products with AI agents.",
       "category": null,
-      "openRoles": 29,
+      "openRoles": 28,
       "hiringFocus": [
         {
           "name": "Product",
@@ -352,7 +352,7 @@
         },
         {
           "name": "GTM",
-          "count": 12
+          "count": 11
         },
         {
           "name": "Operations",
@@ -431,13 +431,20 @@
     "clerk": {
       "positioning": "The easiest way to add authentication and user management to your application. Purpose-built for React, Next.js, Remix, and “The Modern Web”.",
       "category": null,
-      "openRoles": 0,
-      "hiringFocus": [],
-      "footprint": [],
+      "openRoles": 1,
+      "hiringFocus": [
+        {
+          "name": "Design",
+          "count": 1
+        }
+      ],
+      "footprint": [
+        "Remote or In-Office in San Francisco"
+      ],
       "techStack": [],
       "buyingRoles": [],
       "compliance": [],
-      "stage": "Hiring paused — no open roles on their public board",
+      "stage": "Hiring selectively — a handful of open roles",
       "whyNow": []
     },
     "unkey": {
