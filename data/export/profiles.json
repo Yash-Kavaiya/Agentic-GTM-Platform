@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-03T05:22:12.347Z",
+  "generatedAt": "2026-09-04T04:27:45.586Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": 10,
+      "openRoles": 9,
       "hiringFocus": [
-        {
-          "name": "Sales & Customer Success",
-          "count": 5
-        },
         {
           "name": "Engineering",
           "count": 5
+        },
+        {
+          "name": "Sales & Customer Success",
+          "count": 4
         }
       ],
       "footprint": [
@@ -33,7 +33,7 @@
       ],
       "buyingRoles": [],
       "compliance": [],
-      "stage": "Growing steadily, weighted toward Sales & Customer Success",
+      "stage": "Growing steadily, weighted toward Engineering",
       "whyNow": []
     },
     "cal": {
@@ -80,7 +80,7 @@
         "Remote, EMEA",
         "Remote, APAC",
         "Remote, San Francisco, CA",
-        "Remote, Singapore"
+        "Remote, US West"
       ],
       "techStack": [
         "Postgres",
@@ -183,14 +183,14 @@
     "airbyte": {
       "positioning": "Airbyte is the open-source data integration platform: ELT pipelines into any warehouse, a context layer for AI agents, and 600+ connectors behind both.",
       "category": "open-source data integration platform",
-      "openRoles": 12,
+      "openRoles": 13,
       "hiringFocus": [
         {
-          "name": "Engineering",
-          "count": 4
+          "name": "Sales",
+          "count": 5
         },
         {
-          "name": "Sales",
+          "name": "Engineering",
           "count": 4
         },
         {
@@ -226,7 +226,7 @@
       ],
       "buyingRoles": [],
       "compliance": [],
-      "stage": "Growing steadily, weighted toward Engineering",
+      "stage": "Growing steadily, weighted toward Sales",
       "whyNow": []
     },
     "metabase": {
@@ -282,11 +282,11 @@
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 50
+          "count": 48
         },
         {
           "name": "Software Engineering",
-          "count": 27
+          "count": 29
         },
         {
           "name": "Marketing",
