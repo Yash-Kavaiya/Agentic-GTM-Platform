@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-08T04:26:25.534Z",
+  "generatedAt": "2026-09-09T04:26:57.798Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": 9,
+      "openRoles": 10,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -13,6 +13,10 @@
         {
           "name": "Sales & Customer Success",
           "count": 4
+        },
+        {
+          "name": "Marketing",
+          "count": 1
         }
       ],
       "footprint": [
@@ -183,14 +187,14 @@
     "airbyte": {
       "positioning": "Airbyte is the open-source data integration platform: ELT pipelines into any warehouse, a context layer for AI agents, and 600+ connectors behind both.",
       "category": "open-source data integration platform",
-      "openRoles": 13,
+      "openRoles": 12,
       "hiringFocus": [
         {
-          "name": "Sales",
-          "count": 5
+          "name": "Engineering",
+          "count": 4
         },
         {
-          "name": "Engineering",
+          "name": "Sales",
           "count": 4
         },
         {
@@ -226,7 +230,7 @@
       ],
       "buyingRoles": [],
       "compliance": [],
-      "stage": "Growing steadily, weighted toward Sales",
+      "stage": "Growing steadily, weighted toward Engineering",
       "whyNow": []
     },
     "metabase": {
@@ -278,11 +282,11 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 111,
+      "openRoles": 112,
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 46
+          "count": 47
         },
         {
           "name": "Software Engineering",
