@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T04:26:48.062Z",
+  "generatedAt": "2026-09-11T04:27:13.922Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -55,11 +55,11 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 60,
+      "openRoles": 59,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 22
+          "count": 21
         },
         {
           "name": "Support",
@@ -101,7 +101,7 @@
         "Partnerships"
       ],
       "compliance": [],
-      "stage": "Scaling hard — a large, broad open-role count",
+      "stage": "Scaling — hiring across several functions at once",
       "whyNow": []
     },
     "resend": {
@@ -187,15 +187,15 @@
     "airbyte": {
       "positioning": "Airbyte is the open-source data integration platform: ELT pipelines into any warehouse, a context layer for AI agents, and 600+ connectors behind both.",
       "category": "open-source data integration platform",
-      "openRoles": 11,
+      "openRoles": 13,
       "hiringFocus": [
+        {
+          "name": "Sales",
+          "count": 5
+        },
         {
           "name": "Engineering",
           "count": 4
-        },
-        {
-          "name": "Sales",
-          "count": 3
         },
         {
           "name": "Technical Support ",
@@ -230,7 +230,7 @@
       ],
       "buyingRoles": [],
       "compliance": [],
-      "stage": "Growing steadily, weighted toward Engineering",
+      "stage": "Growing steadily, weighted toward Sales",
       "whyNow": []
     },
     "metabase": {
@@ -282,11 +282,11 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 107,
+      "openRoles": 105,
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 44
+          "count": 41
         },
         {
           "name": "Software Engineering",
@@ -297,11 +297,11 @@
           "count": 7
         },
         {
-          "name": "Marketing",
-          "count": 5
+          "name": "People",
+          "count": 6
         },
         {
-          "name": "Product Management",
+          "name": "Marketing",
           "count": 5
         }
       ],
@@ -311,7 +311,7 @@
         "Dublin, Ireland",
         "Sydney, Australia",
         "Remote - Canada",
-        "New York, NY"
+        "London, UK"
       ],
       "techStack": [
         "Salesforce",
@@ -349,7 +349,7 @@
     "linear": {
       "positioning": "Purpose-built for planning and building products with AI agents.",
       "category": null,
-      "openRoles": 29,
+      "openRoles": 30,
       "hiringFocus": [
         {
           "name": "Product",
@@ -357,7 +357,7 @@
         },
         {
           "name": "GTM",
-          "count": 12
+          "count": 13
         },
         {
           "name": "Operations",
