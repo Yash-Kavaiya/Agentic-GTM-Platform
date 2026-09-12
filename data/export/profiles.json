@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-11T04:27:13.922Z",
+  "generatedAt": "2026-09-12T04:25:03.586Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": 10,
+      "openRoles": 11,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 5
+          "count": 6
         },
         {
           "name": "Sales & Customer Success",
@@ -35,7 +35,9 @@
         "Salesforce",
         "Outreach"
       ],
-      "buyingRoles": [],
+      "buyingRoles": [
+        "Security & Compliance"
+      ],
       "compliance": [],
       "stage": "Growing steadily, weighted toward Engineering",
       "whyNow": []
@@ -236,7 +238,7 @@
     "metabase": {
       "positioning": "Metabase grounds every answer in your semantic layer — your metrics and business logic — so you can inspect the query behind it.",
       "category": null,
-      "openRoles": 18,
+      "openRoles": 19,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -244,7 +246,7 @@
         },
         {
           "name": "Marketing and Growth",
-          "count": 4
+          "count": 5
         },
         {
           "name": "Success Engineering",
