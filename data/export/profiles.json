@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T04:27:13.938Z",
+  "generatedAt": "2026-09-16T04:27:22.653Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -284,11 +284,11 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 100,
+      "openRoles": 95,
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 38
+          "count": 33
         },
         {
           "name": "Software Engineering",
@@ -351,14 +351,14 @@
     "linear": {
       "positioning": "Purpose-built for planning and building products with AI agents.",
       "category": null,
-      "openRoles": 30,
+      "openRoles": 32,
       "hiringFocus": [
         {
-          "name": "Product",
-          "count": 13
+          "name": "GTM",
+          "count": 15
         },
         {
-          "name": "GTM",
+          "name": "Product",
           "count": 13
         },
         {
