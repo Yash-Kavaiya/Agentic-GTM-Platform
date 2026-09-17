@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-16T04:27:22.653Z",
+  "generatedAt": "2026-09-17T04:27:18.138Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": 11,
+      "openRoles": 9,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 5
+          "count": 4
         },
         {
           "name": "Sales & Customer Success",
-          "count": 4
+          "count": 3
         },
         {
           "name": "Marketing",
@@ -24,16 +24,14 @@
         }
       ],
       "footprint": [
-        "Remote",
         "Remote (EMEA)",
+        "Remote",
         "Hybrid (UK)",
         "San Francisco, CA",
         "Remote (US)"
       ],
       "techStack": [
         "ClickHouse",
-        "Kafka",
-        "Redis",
         "Kubernetes",
         "Terraform",
         "Salesforce",
@@ -61,11 +59,11 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 60,
+      "openRoles": 61,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 22
+          "count": 23
         },
         {
           "name": "Support",
@@ -288,18 +286,18 @@
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 33
+          "count": 34
         },
         {
           "name": "Software Engineering",
           "count": 29
         },
         {
-          "name": "Security",
-          "count": 7
+          "name": "People",
+          "count": 6
         },
         {
-          "name": "People",
+          "name": "Security",
           "count": 6
         },
         {
