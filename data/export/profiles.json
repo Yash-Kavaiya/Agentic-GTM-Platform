@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T04:26:49.792Z",
+  "generatedAt": "2026-09-19T04:25:31.578Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -59,11 +59,11 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 60,
+      "openRoles": 59,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 23
+          "count": 22
         },
         {
           "name": "Support",
@@ -105,17 +105,17 @@
         "Partnerships"
       ],
       "compliance": [],
-      "stage": "Scaling hard — a large, broad open-role count",
+      "stage": "Scaling — hiring across several functions at once",
       "whyNow": []
     },
     "resend": {
       "positioning": "The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.",
       "category": null,
-      "openRoles": 9,
+      "openRoles": 11,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 5
+          "count": 7
         },
         {
           "name": "Design",
@@ -282,27 +282,27 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 92,
+      "openRoles": 93,
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 33
+          "count": 36
         },
         {
           "name": "Software Engineering",
-          "count": 29
+          "count": 27
         },
         {
           "name": "Security",
           "count": 6
         },
         {
-          "name": "People",
+          "name": "Product Design",
           "count": 5
         },
         {
-          "name": "Marketing",
-          "count": 4
+          "name": "People",
+          "count": 5
         }
       ],
       "footprint": [
@@ -326,8 +326,8 @@
         "Redshift"
       ],
       "buyingRoles": [
-        "Security & Compliance",
         "GTM Engineering",
+        "Security & Compliance",
         "Partnerships"
       ],
       "compliance": [],
