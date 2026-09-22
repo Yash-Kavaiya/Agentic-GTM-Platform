@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T04:29:33.454Z",
+  "generatedAt": "2026-09-22T04:27:07.119Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -59,7 +59,7 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 59,
+      "openRoles": 57,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -78,8 +78,8 @@
           "count": 5
         },
         {
-          "name": "Marketing",
-          "count": 5
+          "name": "Success",
+          "count": 4
         }
       ],
       "footprint": [
@@ -282,7 +282,7 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 93,
+      "openRoles": 90,
       "hiringFocus": [
         {
           "name": "Revenue",
@@ -290,7 +290,7 @@
         },
         {
           "name": "Software Engineering",
-          "count": 27
+          "count": 25
         },
         {
           "name": "Security",
@@ -301,8 +301,8 @@
           "count": 5
         },
         {
-          "name": "People",
-          "count": 5
+          "name": "Marketing",
+          "count": 4
         }
       ],
       "footprint": [
@@ -349,11 +349,11 @@
     "linear": {
       "positioning": "Purpose-built for planning and building products with AI agents.",
       "category": null,
-      "openRoles": 32,
+      "openRoles": 31,
       "hiringFocus": [
         {
           "name": "GTM",
-          "count": 15
+          "count": 14
         },
         {
           "name": "Product",
