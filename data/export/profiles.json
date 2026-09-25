@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-24T04:27:40.296Z",
+  "generatedAt": "2026-09-25T04:28:07.150Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": 8,
+      "openRoles": 9,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 4
+          "count": 5
         },
         {
           "name": "Sales & Customer Success",
@@ -109,15 +109,11 @@
     "resend": {
       "positioning": "The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.",
       "category": null,
-      "openRoles": 11,
+      "openRoles": 9,
       "hiringFocus": [
         {
           "name": "Engineering",
           "count": 7
-        },
-        {
-          "name": "Design",
-          "count": 2
         },
         {
           "name": "Customer Success",
@@ -185,7 +181,7 @@
     "airbyte": {
       "positioning": "Airbyte is the open-source data integration platform: ELT pipelines into any warehouse, a context layer for AI agents, and 600+ connectors behind both.",
       "category": "open-source data integration platform",
-      "openRoles": 13,
+      "openRoles": 12,
       "hiringFocus": [
         {
           "name": "Sales",
@@ -201,10 +197,6 @@
         },
         {
           "name": "Finance ",
-          "count": 1
-        },
-        {
-          "name": "Recruiting ",
           "count": 1
         }
       ],
@@ -280,11 +272,11 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 91,
+      "openRoles": 88,
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 37
+          "count": 36
         },
         {
           "name": "Software Engineering",
