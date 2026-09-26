@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-25T04:28:07.150Z",
+  "generatedAt": "2026-09-26T04:26:04.716Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": 9,
+      "openRoles": 8,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -13,10 +13,6 @@
         {
           "name": "Sales & Customer Success",
           "count": 2
-        },
-        {
-          "name": "Marketing",
-          "count": 1
         },
         {
           "name": "Finance",
@@ -57,7 +53,7 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 55,
+      "openRoles": 56,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -423,15 +419,20 @@
     "clerk": {
       "positioning": "The easiest way to add authentication and user management to your application. Purpose-built for React, Next.js, Remix, and “The Modern Web”.",
       "category": null,
-      "openRoles": 1,
+      "openRoles": 2,
       "hiringFocus": [
         {
           "name": "Design",
           "count": 1
+        },
+        {
+          "name": "Security",
+          "count": 1
         }
       ],
       "footprint": [
-        "Remote or In-Office in San Francisco"
+        "Remote or In-Office in San Francisco",
+        "Remote"
       ],
       "techStack": [],
       "buyingRoles": [],
