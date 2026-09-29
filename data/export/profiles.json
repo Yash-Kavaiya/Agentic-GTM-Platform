@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T04:31:59.455Z",
+  "generatedAt": "2026-09-29T04:29:52.257Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -53,11 +53,11 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 56,
+      "openRoles": 55,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 23
+          "count": 22
         },
         {
           "name": "Support",
