@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T04:29:52.257Z",
+  "generatedAt": "2026-09-30T04:29:51.832Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -53,11 +53,11 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 55,
+      "openRoles": 50,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 22
+          "count": 20
         },
         {
           "name": "Support",
@@ -68,26 +68,26 @@
           "count": 6
         },
         {
-          "name": "Product",
+          "name": "Marketing",
           "count": 4
         },
         {
           "name": "Success",
-          "count": 4
+          "count": 3
         }
       ],
       "footprint": [
-        "Remote, Global",
         "Remote, AMER",
         "Remote, EMEA",
         "Remote, APAC",
+        "Remote, Global",
         "Remote, San Francisco, CA",
         "Remote, US West"
       ],
       "techStack": [
-        "Postgres",
         "BigQuery",
         "HubSpot",
+        "Postgres",
         "Stripe",
         "Kubernetes",
         "Terraform",
@@ -105,11 +105,11 @@
     "resend": {
       "positioning": "The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.",
       "category": null,
-      "openRoles": 9,
+      "openRoles": 7,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 7
+          "count": 5
         },
         {
           "name": "Customer Success",
@@ -272,19 +272,19 @@
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 36
+          "count": 37
         },
         {
           "name": "Software Engineering",
-          "count": 24
+          "count": 23
+        },
+        {
+          "name": "Marketing",
+          "count": 6
         },
         {
           "name": "Security",
           "count": 6
-        },
-        {
-          "name": "Marketing",
-          "count": 5
         },
         {
           "name": "Product Design",
