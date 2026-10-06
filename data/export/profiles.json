@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T04:36:17.284Z",
+  "generatedAt": "2026-10-06T04:29:52.833Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -53,7 +53,7 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 48,
+      "openRoles": 49,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -77,17 +77,17 @@
         }
       ],
       "footprint": [
+        "Remote, Global",
         "Remote, AMER",
         "Remote, EMEA",
         "Remote, APAC",
-        "Remote, Global",
         "Remote, San Francisco, CA",
         "Remote, US West"
       ],
       "techStack": [
+        "Postgres",
         "BigQuery",
         "HubSpot",
-        "Postgres",
         "Stripe",
         "Kubernetes",
         "Terraform",
@@ -95,8 +95,8 @@
         "Segment"
       ],
       "buyingRoles": [
-        "Security & Compliance",
-        "Partnerships"
+        "Partnerships",
+        "Security & Compliance"
       ],
       "compliance": [],
       "stage": "Scaling — hiring across several functions at once",
@@ -268,7 +268,7 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 83,
+      "openRoles": 82,
       "hiringFocus": [
         {
           "name": "Revenue",
@@ -276,7 +276,7 @@
         },
         {
           "name": "Software Engineering",
-          "count": 26
+          "count": 27
         },
         {
           "name": "Product Design",
@@ -335,11 +335,11 @@
     "linear": {
       "positioning": "Purpose-built for planning and building products with AI agents.",
       "category": null,
-      "openRoles": 30,
+      "openRoles": 31,
       "hiringFocus": [
         {
           "name": "GTM",
-          "count": 14
+          "count": 16
         },
         {
           "name": "Product",
@@ -347,13 +347,14 @@
         },
         {
           "name": "Operations",
-          "count": 3
+          "count": 2
         }
       ],
       "footprint": [
         "Europe",
         "North America",
-        "London"
+        "London",
+        "Singapore"
       ],
       "techStack": [
         "Postgres",
