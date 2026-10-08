@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-07T04:31:02.853Z",
+  "generatedAt": "2026-10-08T04:31:42.973Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": 9,
+      "openRoles": 10,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -21,6 +21,10 @@
         {
           "name": "Finance",
           "count": 1
+        },
+        {
+          "name": "Marketing",
+          "count": 1
         }
       ],
       "footprint": [
@@ -33,7 +37,8 @@
       "techStack": [
         "ClickHouse",
         "Kubernetes",
-        "Terraform"
+        "Terraform",
+        "Gong"
       ],
       "buyingRoles": [
         "Security & Compliance"
@@ -57,7 +62,7 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 52,
+      "openRoles": 53,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -76,8 +81,8 @@
           "count": 4
         },
         {
-          "name": "Success",
-          "count": 3
+          "name": "Product",
+          "count": 4
         }
       ],
       "footprint": [
@@ -272,11 +277,11 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 82,
+      "openRoles": 83,
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 30
+          "count": 31
         },
         {
           "name": "Software Engineering",
@@ -299,9 +304,9 @@
         "Remote U.S.",
         "Dublin, Ireland",
         "Remote - Canada",
+        "Remote - UK",
         "London, UK",
-        "Washington, D.C.",
-        "Sydney, Australia"
+        "Washington, D.C."
       ],
       "techStack": [
         "MongoDB",
