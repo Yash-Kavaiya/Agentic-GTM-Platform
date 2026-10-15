@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-14T04:28:35.873Z",
+  "generatedAt": "2026-10-15T04:26:19.310Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": 10,
+      "openRoles": 11,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -15,15 +15,15 @@
           "count": 2
         },
         {
+          "name": "Marketing",
+          "count": 2
+        },
+        {
           "name": "Product Management",
           "count": 1
         },
         {
           "name": "Finance",
-          "count": 1
-        },
-        {
-          "name": "Marketing",
           "count": 1
         }
       ],
@@ -62,11 +62,11 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 52,
+      "openRoles": 53,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 22
+          "count": 23
         },
         {
           "name": "Support",
@@ -101,7 +101,8 @@
         "Kubernetes",
         "Terraform",
         "Redis",
-        "Segment"
+        "Segment",
+        "dbt"
       ],
       "buyingRoles": [
         "Partnerships",
@@ -232,11 +233,11 @@
     "metabase": {
       "positioning": "Metabase grounds every answer in your semantic layer — your metrics and business logic — so you can inspect the query behind it.",
       "category": null,
-      "openRoles": 18,
+      "openRoles": 19,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 6
+          "count": 7
         },
         {
           "name": "Marketing and Growth",
@@ -269,7 +270,8 @@
         "Postgres"
       ],
       "buyingRoles": [
-        "Partnerships"
+        "Partnerships",
+        "Security & Compliance"
       ],
       "compliance": [],
       "stage": "Growing steadily, weighted toward Engineering",
@@ -278,7 +280,7 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 82,
+      "openRoles": 81,
       "hiringFocus": [
         {
           "name": "Revenue",
@@ -345,7 +347,7 @@
     "linear": {
       "positioning": "Purpose-built for planning and building products with AI agents.",
       "category": null,
-      "openRoles": 31,
+      "openRoles": 30,
       "hiringFocus": [
         {
           "name": "GTM",
@@ -357,7 +359,7 @@
         },
         {
           "name": "Operations",
-          "count": 3
+          "count": 2
         }
       ],
       "footprint": [
@@ -374,8 +376,7 @@
         "dbt",
         "Fivetran",
         "HubSpot",
-        "Metabase",
-        "Outreach"
+        "Metabase"
       ],
       "buyingRoles": [],
       "compliance": [],
