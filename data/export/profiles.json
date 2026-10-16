@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-10-15T04:26:19.310Z",
+  "generatedAt": "2026-10-16T04:26:23.294Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": 11,
+      "openRoles": 10,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 5
+          "count": 4
         },
         {
           "name": "Sales & Customer Success",
@@ -35,7 +35,6 @@
         "Remote (US)"
       ],
       "techStack": [
-        "ClickHouse",
         "Kubernetes",
         "Terraform",
         "Gong"
@@ -62,11 +61,11 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 53,
+      "openRoles": 54,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 23
+          "count": 24
         },
         {
           "name": "Support",
@@ -188,7 +187,7 @@
     "airbyte": {
       "positioning": "Airbyte is the open-source data integration platform: ELT pipelines into any warehouse, a context layer for AI agents, and 600+ connectors behind both.",
       "category": "open-source data integration platform",
-      "openRoles": 12,
+      "openRoles": 13,
       "hiringFocus": [
         {
           "name": "Sales",
@@ -200,7 +199,7 @@
         },
         {
           "name": "Technical Support ",
-          "count": 2
+          "count": 3
         },
         {
           "name": "Finance ",
@@ -280,11 +279,11 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 81,
+      "openRoles": 84,
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 30
+          "count": 33
         },
         {
           "name": "Software Engineering",
@@ -308,20 +307,20 @@
         "Remote U.S.",
         "London, UK",
         "Remote - Canada",
-        "Remote - UK",
-        "Washington, D.C."
+        "San Francisco, CA",
+        "Remote - UK"
       ],
       "techStack": [
-        "MongoDB",
         "Salesforce",
         "Outreach",
+        "Gong",
+        "MongoDB",
         "Snowflake",
         "BigQuery",
         "Redshift",
         "dbt",
         "Airflow",
-        "Fivetran",
-        "Looker"
+        "Fivetran"
       ],
       "buyingRoles": [
         "GTM Engineering",
@@ -347,7 +346,7 @@
     "linear": {
       "positioning": "Purpose-built for planning and building products with AI agents.",
       "category": null,
-      "openRoles": 30,
+      "openRoles": 31,
       "hiringFocus": [
         {
           "name": "GTM",
@@ -355,7 +354,7 @@
         },
         {
           "name": "Product",
-          "count": 13
+          "count": 14
         },
         {
           "name": "Operations",
@@ -378,7 +377,9 @@
         "HubSpot",
         "Metabase"
       ],
-      "buyingRoles": [],
+      "buyingRoles": [
+        "Security & Compliance"
+      ],
       "compliance": [],
       "stage": "Scaling — hiring across several functions at once",
       "whyNow": []
@@ -398,7 +399,7 @@
     "railway": {
       "positioning": "Railway is a full-stack cloud for deploying web apps, servers, databases, and more with automatic scaling, monitoring, and security.",
       "category": "full-stack cloud for deploying web apps, servers, database",
-      "openRoles": 8,
+      "openRoles": 7,
       "hiringFocus": [
         {
           "name": "Platform",
@@ -407,10 +408,6 @@
         {
           "name": "Product",
           "count": 2
-        },
-        {
-          "name": "Logistics",
-          "count": 1
         }
       ],
       "footprint": [
