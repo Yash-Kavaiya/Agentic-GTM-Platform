@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T04:26:23.294Z",
+  "generatedAt": "2026-10-17T04:24:50.739Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -65,7 +65,7 @@
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 24
+          "count": 25
         },
         {
           "name": "Support",
@@ -90,7 +90,7 @@
         "Remote, EMEA",
         "Remote, APAC",
         "Remote, San Francisco, CA",
-        "Remote, US West"
+        "Remote, Singapore"
       ],
       "techStack": [
         "Postgres",
@@ -257,6 +257,7 @@
       ],
       "footprint": [
         "Remote-North & South America",
+        "Remote (US, Canada & UK)",
         "Global Remote",
         "Remote-US",
         "Remote-EU"
@@ -279,27 +280,27 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 84,
+      "openRoles": 85,
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 33
+          "count": 35
         },
         {
           "name": "Software Engineering",
-          "count": 27
+          "count": 26
         },
         {
           "name": "Product Design",
-          "count": 5
+          "count": 6
         },
         {
           "name": "Product Management",
           "count": 5
         },
         {
-          "name": "Security",
-          "count": 4
+          "name": "Product Analytics",
+          "count": 3
         }
       ],
       "footprint": [
@@ -346,15 +347,15 @@
     "linear": {
       "positioning": "Purpose-built for planning and building products with AI agents.",
       "category": null,
-      "openRoles": 31,
+      "openRoles": 29,
       "hiringFocus": [
-        {
-          "name": "GTM",
-          "count": 15
-        },
         {
           "name": "Product",
           "count": 14
+        },
+        {
+          "name": "GTM",
+          "count": 13
         },
         {
           "name": "Operations",
