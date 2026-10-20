@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T04:29:03.823Z",
+  "generatedAt": "2026-10-20T04:26:45.691Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -61,7 +61,7 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 54,
+      "openRoles": 53,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -347,11 +347,11 @@
     "linear": {
       "positioning": "Purpose-built for planning and building products with AI agents.",
       "category": null,
-      "openRoles": 29,
+      "openRoles": 28,
       "hiringFocus": [
         {
           "name": "Product",
-          "count": 14
+          "count": 13
         },
         {
           "name": "GTM",
