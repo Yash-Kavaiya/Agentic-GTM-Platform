@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T04:27:44.254Z",
+  "generatedAt": "2026-10-22T04:26:59.636Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -61,11 +61,11 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 55,
+      "openRoles": 58,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 25
+          "count": 28
         },
         {
           "name": "Support",
@@ -280,7 +280,7 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 85,
+      "openRoles": 84,
       "hiringFocus": [
         {
           "name": "Revenue",
@@ -296,7 +296,7 @@
         },
         {
           "name": "Product Management",
-          "count": 5
+          "count": 4
         },
         {
           "name": "Product Analytics",
@@ -347,11 +347,11 @@
     "linear": {
       "positioning": "Purpose-built for planning and building products with AI agents.",
       "category": null,
-      "openRoles": 29,
+      "openRoles": 34,
       "hiringFocus": [
         {
           "name": "GTM",
-          "count": 14
+          "count": 19
         },
         {
           "name": "Product",
@@ -366,6 +366,7 @@
         "Europe",
         "North America",
         "London",
+        "Australia",
         "Singapore"
       ],
       "techStack": [
