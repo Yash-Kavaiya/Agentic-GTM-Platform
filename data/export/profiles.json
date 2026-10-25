@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T04:25:05.995Z",
+  "generatedAt": "2026-10-25T04:26:22.283Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -61,11 +61,11 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 59,
+      "openRoles": 61,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 28
+          "count": 30
         },
         {
           "name": "Support",
@@ -108,7 +108,7 @@
         "Security & Compliance"
       ],
       "compliance": [],
-      "stage": "Scaling — hiring across several functions at once",
+      "stage": "Scaling hard — a large, broad open-role count",
       "whyNow": []
     },
     "resend": {
