@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-28T04:21:32.162Z",
+  "generatedAt": "2026-10-29T04:21:20.091Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": 11,
+      "openRoles": 12,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -19,17 +19,17 @@
           "count": 2
         },
         {
-          "name": "Product Management",
+          "name": "Support Engineering",
           "count": 1
         },
         {
-          "name": "Finance",
+          "name": "Product Management",
           "count": 1
         }
       ],
       "footprint": [
-        "Remote (EMEA)",
         "Remote",
+        "Remote (EMEA)",
         "Hybrid (UK)",
         "San Francisco, CA",
         "Remote (US)"
@@ -285,7 +285,7 @@
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 39
+          "count": 38
         },
         {
           "name": "Software Engineering",
@@ -293,7 +293,7 @@
         },
         {
           "name": "Product Design",
-          "count": 3
+          "count": 4
         },
         {
           "name": "Marketing",
