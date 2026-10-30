@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-10-29T04:21:20.091Z",
+  "generatedAt": "2026-10-30T04:20:53.023Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": 12,
+      "openRoles": 11,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 5
+          "count": 4
         },
         {
           "name": "Sales & Customer Success",
@@ -40,9 +40,7 @@
         "Terraform",
         "Gong"
       ],
-      "buyingRoles": [
-        "Security & Compliance"
-      ],
+      "buyingRoles": [],
       "compliance": [],
       "stage": "Growing steadily, weighted toward Engineering",
       "whyNow": []
@@ -62,7 +60,7 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 64,
+      "openRoles": 65,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -78,7 +76,7 @@
         },
         {
           "name": "Success",
-          "count": 4
+          "count": 5
         },
         {
           "name": "Product",
@@ -188,12 +186,8 @@
     "airbyte": {
       "positioning": "Airbyte is the open-source data integration platform: ELT pipelines into any warehouse, a context layer for AI agents, and 600+ connectors behind both.",
       "category": "open-source data integration platform",
-      "openRoles": 13,
+      "openRoles": 10,
       "hiringFocus": [
-        {
-          "name": "Sales",
-          "count": 5
-        },
         {
           "name": "Engineering",
           "count": 4
@@ -203,13 +197,16 @@
           "count": 3
         },
         {
+          "name": "Sales",
+          "count": 2
+        },
+        {
           "name": "Finance ",
           "count": 1
         }
       ],
       "footprint": [
         "San Francisco",
-        "New York",
         "Canada",
         "United States"
       ],
@@ -227,7 +224,7 @@
       ],
       "buyingRoles": [],
       "compliance": [],
-      "stage": "Growing steadily, weighted toward Sales",
+      "stage": "Growing steadily, weighted toward Engineering",
       "whyNow": []
     },
     "metabase": {
@@ -281,7 +278,7 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 79,
+      "openRoles": 81,
       "hiringFocus": [
         {
           "name": "Revenue",
@@ -296,12 +293,12 @@
           "count": 4
         },
         {
-          "name": "Marketing",
-          "count": 3
+          "name": "Product Management",
+          "count": 4
         },
         {
-          "name": "Product Analytics",
-          "count": 2
+          "name": "Marketing",
+          "count": 3
         }
       ],
       "footprint": [
@@ -430,15 +427,16 @@
     "clerk": {
       "positioning": "The easiest way to add authentication and user management to your application. Purpose-built for React, Next.js, Remix, and “The Modern Web”.",
       "category": null,
-      "openRoles": 1,
+      "openRoles": 2,
       "hiringFocus": [
         {
           "name": "Design",
-          "count": 1
+          "count": 2
         }
       ],
       "footprint": [
-        "Remote or In-Office in San Francisco"
+        "Remote or In-Office in San Francisco",
+        "Remote"
       ],
       "techStack": [],
       "buyingRoles": [],
@@ -473,15 +471,20 @@
     "inngest": {
       "positioning": "Build reliable background jobs, workflows, and AI agents without extra infrastructure. Automatic retries, flow control, and step-level observability.",
       "category": null,
-      "openRoles": 1,
+      "openRoles": 2,
       "hiringFocus": [
         {
           "name": "Engineering",
           "count": 1
+        },
+        {
+          "name": "Developer Success",
+          "count": 1
         }
       ],
       "footprint": [
-        "US/Remote"
+        "US/Remote",
+        "San Francisco"
       ],
       "techStack": [
         "ClickHouse",
