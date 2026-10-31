@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T04:20:53.023Z",
+  "generatedAt": "2026-10-31T04:16:46.953Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -60,7 +60,7 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 65,
+      "openRoles": 64,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -186,7 +186,7 @@
     "airbyte": {
       "positioning": "Airbyte is the open-source data integration platform: ELT pipelines into any warehouse, a context layer for AI agents, and 600+ connectors behind both.",
       "category": "open-source data integration platform",
-      "openRoles": 10,
+      "openRoles": 9,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -197,11 +197,11 @@
           "count": 3
         },
         {
-          "name": "Sales",
-          "count": 2
+          "name": "Finance ",
+          "count": 1
         },
         {
-          "name": "Finance ",
+          "name": "Sales",
           "count": 1
         }
       ],
@@ -278,7 +278,7 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 81,
+      "openRoles": 79,
       "hiringFocus": [
         {
           "name": "Revenue",
@@ -289,12 +289,12 @@
           "count": 25
         },
         {
-          "name": "Product Design",
+          "name": "Product Management",
           "count": 4
         },
         {
-          "name": "Product Management",
-          "count": 4
+          "name": "Product Design",
+          "count": 3
         },
         {
           "name": "Marketing",
@@ -344,11 +344,11 @@
     "linear": {
       "positioning": "Purpose-built for planning and building products with AI agents.",
       "category": null,
-      "openRoles": 32,
+      "openRoles": 31,
       "hiringFocus": [
         {
           "name": "GTM",
-          "count": 17
+          "count": 16
         },
         {
           "name": "Product",
