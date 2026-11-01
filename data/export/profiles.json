@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T04:16:46.953Z",
+  "generatedAt": "2026-11-01T04:18:08.449Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -60,11 +60,11 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 64,
+      "openRoles": 68,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 31
+          "count": 32
         },
         {
           "name": "Support",
@@ -75,12 +75,12 @@
           "count": 6
         },
         {
-          "name": "Success",
-          "count": 5
+          "name": "Product",
+          "count": 6
         },
         {
-          "name": "Product",
-          "count": 4
+          "name": "Success",
+          "count": 5
         }
       ],
       "footprint": [
