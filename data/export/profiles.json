@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T04:18:48.500Z",
+  "generatedAt": "2026-11-06T04:18:49.211Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -59,7 +59,7 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 70,
+      "openRoles": 69,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -102,7 +102,6 @@
         "dbt"
       ],
       "buyingRoles": [
-        "Partnerships",
         "Security & Compliance"
       ],
       "compliance": [],
@@ -282,15 +281,15 @@
       "hiringFocus": [
         {
           "name": "Revenue",
-          "count": 41
+          "count": 42
         },
         {
           "name": "Software Engineering",
-          "count": 27
+          "count": 26
         },
         {
           "name": "Product Management",
-          "count": 5
+          "count": 6
         },
         {
           "name": "Product Design",
@@ -313,13 +312,11 @@
         "Salesforce",
         "Outreach",
         "Gong",
-        "Snowflake",
-        "BigQuery",
-        "Redshift",
+        "Segment",
+        "MongoDB",
+        "Kafka",
         "dbt",
-        "Airflow",
-        "Fivetran",
-        "Looker"
+        "Tableau"
       ],
       "buyingRoles": [
         "Security & Compliance",
