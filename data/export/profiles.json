@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-11-06T04:18:49.211Z",
+  "generatedAt": "2026-11-07T04:17:47.027Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": 8,
+      "openRoles": 10,
       "hiringFocus": [
         {
-          "name": "Sales & Customer Success",
-          "count": 2
+          "name": "Engineering",
+          "count": 3
         },
         {
-          "name": "Engineering",
+          "name": "Sales & Customer Success",
           "count": 2
         },
         {
@@ -19,19 +19,18 @@
           "count": 2
         },
         {
-          "name": "Product Management",
+          "name": "Support Engineering",
           "count": 1
         },
         {
-          "name": "Finance",
+          "name": "Product Management",
           "count": 1
         }
       ],
       "footprint": [
+        "Remote",
         "Remote (EMEA)",
         "Hybrid (UK)",
-        "San Francisco, CA",
-        "Remote",
         "Remote (US)"
       ],
       "techStack": [
@@ -41,7 +40,7 @@
       ],
       "buyingRoles": [],
       "compliance": [],
-      "stage": "Growing steadily, weighted toward Sales & Customer Success",
+      "stage": "Growing steadily, weighted toward Engineering",
       "whyNow": []
     },
     "cal": {
@@ -59,11 +58,11 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 69,
+      "openRoles": 70,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 33
+          "count": 31
         },
         {
           "name": "Support",
@@ -88,21 +87,22 @@
         "Remote, EMEA",
         "Remote, APAC",
         "Remote, San Francisco, CA, US",
-        "Remote, Bay Area, CA, US"
+        "Remote, Japan"
       ],
       "techStack": [
         "Postgres",
         "BigQuery",
         "HubSpot",
         "Stripe",
-        "Kubernetes",
         "Terraform",
+        "Kubernetes",
         "Redis",
         "Segment",
         "dbt"
       ],
       "buyingRoles": [
-        "Security & Compliance"
+        "Security & Compliance",
+        "Partnerships"
       ],
       "compliance": [],
       "stage": "Scaling hard — a large, broad open-role count",
@@ -277,7 +277,7 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 84,
+      "openRoles": 85,
       "hiringFocus": [
         {
           "name": "Revenue",
@@ -293,7 +293,7 @@
         },
         {
           "name": "Product Design",
-          "count": 3
+          "count": 4
         },
         {
           "name": "Marketing",
@@ -341,11 +341,11 @@
     "linear": {
       "positioning": "Purpose-built for planning and building products with AI agents.",
       "category": null,
-      "openRoles": 31,
+      "openRoles": 32,
       "hiringFocus": [
         {
           "name": "GTM",
-          "count": 16
+          "count": 17
         },
         {
           "name": "Product",
