@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-11T04:18:14.918Z",
+  "generatedAt": "2026-11-12T04:18:18.738Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": 9,
+      "openRoles": 10,
       "hiringFocus": [
         {
           "name": "Sales & Customer Success",
@@ -15,15 +15,15 @@
           "count": 2
         },
         {
+          "name": "Finance",
+          "count": 2
+        },
+        {
           "name": "Marketing",
           "count": 2
         },
         {
           "name": "Support Engineering",
-          "count": 1
-        },
-        {
-          "name": "Product Management",
           "count": 1
         }
       ],
@@ -58,11 +58,11 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 74,
+      "openRoles": 77,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 31
+          "count": 33
         },
         {
           "name": "Support",
@@ -70,7 +70,7 @@
         },
         {
           "name": "Marketing",
-          "count": 8
+          "count": 9
         },
         {
           "name": "Product",
@@ -78,7 +78,7 @@
         },
         {
           "name": "Success",
-          "count": 6
+          "count": 5
         }
       ],
       "footprint": [
@@ -94,11 +94,12 @@
         "BigQuery",
         "HubSpot",
         "Stripe",
+        "Snowflake",
+        "ClickHouse",
         "Terraform",
         "Kubernetes",
         "Redis",
-        "Segment",
-        "dbt"
+        "Segment"
       ],
       "buyingRoles": [
         "Partnerships"
@@ -183,11 +184,11 @@
     "airbyte": {
       "positioning": "Airbyte is the open-source data integration platform: ELT pipelines into any warehouse, a context layer for AI agents, and 600+ connectors behind both.",
       "category": "open-source data integration platform",
-      "openRoles": 12,
+      "openRoles": 13,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 4
+          "count": 5
         },
         {
           "name": "Technical Support ",
@@ -280,7 +281,7 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 82,
+      "openRoles": 80,
       "hiringFocus": [
         {
           "name": "Revenue",
@@ -288,7 +289,7 @@
         },
         {
           "name": "Software Engineering",
-          "count": 26
+          "count": 25
         },
         {
           "name": "Product Management",
