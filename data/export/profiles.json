@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-12T04:18:18.738Z",
+  "generatedAt": "2026-11-13T04:18:29.887Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -62,7 +62,7 @@
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 33
+          "count": 34
         },
         {
           "name": "Support",
@@ -184,7 +184,7 @@
     "airbyte": {
       "positioning": "Airbyte is the open-source data integration platform: ELT pipelines into any warehouse, a context layer for AI agents, and 600+ connectors behind both.",
       "category": "open-source data integration platform",
-      "openRoles": 13,
+      "openRoles": 14,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -233,7 +233,7 @@
     "metabase": {
       "positioning": "Metabase grounds every answer in your semantic layer — your metrics and business logic — so you can inspect the query behind it.",
       "category": null,
-      "openRoles": 19,
+      "openRoles": 20,
       "hiringFocus": [
         {
           "name": "Engineering",
@@ -241,7 +241,7 @@
         },
         {
           "name": "Marketing and Growth",
-          "count": 4
+          "count": 5
         },
         {
           "name": "Success Engineering",
@@ -275,13 +275,13 @@
         "Security & Compliance"
       ],
       "compliance": [],
-      "stage": "Growing steadily, weighted toward Engineering",
+      "stage": "Scaling — hiring across several functions at once",
       "whyNow": []
     },
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 80,
+      "openRoles": 79,
       "hiringFocus": [
         {
           "name": "Revenue",
@@ -293,7 +293,7 @@
         },
         {
           "name": "Product Management",
-          "count": 6
+          "count": 5
         },
         {
           "name": "Product Design",
@@ -317,8 +317,8 @@
         "Outreach",
         "Gong",
         "Segment",
-        "MongoDB",
         "Kafka",
+        "MongoDB",
         "dbt",
         "Tableau",
         "Snowflake"
