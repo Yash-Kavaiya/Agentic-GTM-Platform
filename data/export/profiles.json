@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T04:20:01.054Z",
+  "generatedAt": "2026-11-17T04:18:22.844Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -111,15 +111,11 @@
     "resend": {
       "positioning": "The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.",
       "category": null,
-      "openRoles": 14,
+      "openRoles": 13,
       "hiringFocus": [
         {
           "name": "Engineering",
           "count": 12
-        },
-        {
-          "name": "Customer Success",
-          "count": 1
         },
         {
           "name": "Sales",
