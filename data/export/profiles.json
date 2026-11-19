@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-18T04:17:50.662Z",
+  "generatedAt": "2026-11-19T04:18:23.213Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": 10,
+      "openRoles": 9,
       "hiringFocus": [
         {
           "name": "Sales & Customer Success",
@@ -19,11 +19,11 @@
           "count": 2
         },
         {
-          "name": "Marketing",
-          "count": 2
+          "name": "Support Engineering",
+          "count": 1
         },
         {
-          "name": "Support Engineering",
+          "name": "Product Management",
           "count": 1
         }
       ],
@@ -35,8 +35,7 @@
       ],
       "techStack": [
         "Kubernetes",
-        "Terraform",
-        "Gong"
+        "Terraform"
       ],
       "buyingRoles": [],
       "compliance": [],
@@ -58,11 +57,11 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 77,
+      "openRoles": 76,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 34
+          "count": 33
         },
         {
           "name": "Support",
@@ -277,7 +276,7 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 77,
+      "openRoles": 73,
       "hiringFocus": [
         {
           "name": "Revenue",
@@ -285,7 +284,7 @@
         },
         {
           "name": "Software Engineering",
-          "count": 23
+          "count": 20
         },
         {
           "name": "Product Management",
@@ -293,7 +292,7 @@
         },
         {
           "name": "Product Design",
-          "count": 4
+          "count": 3
         },
         {
           "name": "People",
@@ -342,7 +341,7 @@
     "linear": {
       "positioning": "Purpose-built for planning and building products with AI agents.",
       "category": null,
-      "openRoles": 33,
+      "openRoles": 32,
       "hiringFocus": [
         {
           "name": "GTM",
@@ -350,7 +349,7 @@
         },
         {
           "name": "Product",
-          "count": 13
+          "count": 12
         },
         {
           "name": "Operations",
@@ -374,9 +373,7 @@
         "HubSpot",
         "Metabase"
       ],
-      "buyingRoles": [
-        "Security & Compliance"
-      ],
+      "buyingRoles": [],
       "compliance": [],
       "stage": "Scaling — hiring across several functions at once",
       "whyNow": []
