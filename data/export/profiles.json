@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T04:20:15.979Z",
+  "generatedAt": "2026-11-24T04:19:03.301Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
@@ -57,11 +57,11 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 80,
+      "openRoles": 81,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 37
+          "count": 38
         },
         {
           "name": "Support",
@@ -271,7 +271,7 @@
     "vanta": {
       "positioning": "Vanta automates the complex and time-consuming process of SOC 2, HIPAA, ISO 27001, PCI, and GDPR compliance certification. Automate your security monitoring in weeks instead of mon",
       "category": null,
-      "openRoles": 69,
+      "openRoles": 67,
       "hiringFocus": [
         {
           "name": "Revenue",
@@ -283,7 +283,7 @@
         },
         {
           "name": "Product Management",
-          "count": 5
+          "count": 4
         },
         {
           "name": "Product Design",
@@ -307,9 +307,6 @@
         "Outreach",
         "Gong",
         "Segment",
-        "Kafka",
-        "dbt",
-        "Tableau",
         "Snowflake"
       ],
       "buyingRoles": [
@@ -334,11 +331,11 @@
     "linear": {
       "positioning": "Purpose-built for planning and building products with AI agents.",
       "category": null,
-      "openRoles": 32,
+      "openRoles": 30,
       "hiringFocus": [
         {
           "name": "GTM",
-          "count": 18
+          "count": 17
         },
         {
           "name": "Product",
@@ -346,7 +343,7 @@
         },
         {
           "name": "Operations",
-          "count": 2
+          "count": 1
         }
       ],
       "footprint": [
@@ -360,11 +357,7 @@
         "Postgres",
         "Redis",
         "Stripe",
-        "Snowflake",
-        "dbt",
-        "Fivetran",
-        "HubSpot",
-        "Metabase"
+        "HubSpot"
       ],
       "buyingRoles": [],
       "compliance": [],
