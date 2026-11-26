@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-11-25T04:19:26.827Z",
+  "generatedAt": "2026-11-26T04:19:25.354Z",
   "profiles": {
     "posthog": {
       "positioning": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
       "category": null,
-      "openRoles": 10,
+      "openRoles": 9,
       "hiringFocus": [
         {
           "name": "Sales & Customer Success",
-          "count": 3
+          "count": 2
         },
         {
           "name": "Engineering",
@@ -35,9 +35,7 @@
       ],
       "techStack": [
         "Kubernetes",
-        "Terraform",
-        "Segment",
-        "Salesforce"
+        "Terraform"
       ],
       "buyingRoles": [],
       "compliance": [],
@@ -59,11 +57,11 @@
     "supabase": {
       "positioning": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
       "category": null,
-      "openRoles": 80,
+      "openRoles": 82,
       "hiringFocus": [
         {
           "name": "Engineering",
-          "count": 37
+          "count": 38
         },
         {
           "name": "Support",
@@ -103,7 +101,8 @@
         "Segment"
       ],
       "buyingRoles": [
-        "Partnerships"
+        "Partnerships",
+        "Security & Compliance"
       ],
       "compliance": [],
       "stage": "Scaling hard — a large, broad open-role count",
